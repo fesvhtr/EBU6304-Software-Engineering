@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="rootLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RetailerMenuController">
+   <top>
+      <AnchorPane prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT" layoutX="464.0" layoutY="30.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #BEBFC1;">
+               <children>
+                  <FontAwesomeIconView glyphName="SEARCH" glyphStyle="-fx-fill:#999999" size="20">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+               </children>
+            </HBox>
+            <FontAwesomeIconView glyphName="SELLSY" glyphStyle="-fx-fill:#FF8C00" layoutX="81.0" layoutY="67.0" size="50" />
+            <Label fx:id="welcomeText" layoutX="171.0" layoutY="32.0" text="你好，经销商" textFill="DARKORANGE">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="25.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fx:id="exitButton" glyphName="CLOSE" layoutX="1134.0" layoutY="60.0" onMouseClicked="#close" size="30" />
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: FF8C00; -fx-background-radius: 0 100 0 0;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton fx:id="nyOrderButton" layoutY="235.0" onAction="#showMyOrder" prefHeight="50.0" prefWidth="299.0" style="-fx-background-color: #F38500;" text="我的订单" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" />
+               </graphic></JFXButton>
+            <FontAwesomeIconView glyphName="SHOPPING_CART" glyphStyle="-fx-fill:#fff" layoutX="7.0" layoutY="666.0" opacity="0.18" size="200">
+               <effect>
+                  <Blend>
+                     <bottomInput>
+                        <Shadow color="#00000099" height="80.0" radius="39.5" width="80.0" />
+                     </bottomInput>
+                  </Blend>
+               </effect>
+            </FontAwesomeIconView>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

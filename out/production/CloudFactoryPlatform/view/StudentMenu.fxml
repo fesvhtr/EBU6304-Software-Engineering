@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="rootLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentMenuController">
+    <left>
+        <AnchorPane prefHeight="740.0" prefWidth="300.0" style="-fx-background-color: E3008C; -fx-background-radius: 0 100 0 0;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="54.0" layoutY="47.0" text="User Settings" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei UI Bold" size="24.0" />
+                    </font>
+                </Label>
+                <JFXButton fx:id="deviceTypeManageButton" layoutY="456.0" onAction="#showDeviceTypeManagement" prefHeight="50.0" prefWidth="299.0" style="-fx-background-color: D80085;" text="Activity Management" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei UI" size="16.0" />
+                    </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="SITEMAP" glyphStyle="-fx-fill:#fff" size="20" />
+               </graphic></JFXButton>
+                <JFXButton fx:id="OrderInfoButton" layoutY="621.0" onAction="#showOrderInfo" prefHeight="50.0" prefWidth="299.0" style="-fx-background-color: D80085;" text="订单基本信息" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei UI" size="16.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" text="" />
+                    </graphic>
+                </JFXButton>
+                <Label layoutX="55.0" layoutY="574.0" text="订单管理" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei UI Bold" size="24.0" />
+                    </font>
+                </Label>
+                <JFXButton fx:id="userManagementButton" layoutY="89.0" onAction="#showUserManagement" prefHeight="50.0" prefWidth="299.0" style="-fx-background-color: D80085;" text="User Information" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei UI" size="16.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView glyphName="USERS" glyphStyle="-fx-fill:#fff" size="20" />
+                    </graphic>
+                </JFXButton>
+            <Label layoutX="54.0" layoutY="150.0" text="Academic Registration" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="24.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="factoryInfoButton" layoutY="185.0" onAction="#showFactoryInfo" prefHeight="50.0" prefWidth="299.0" style="-fx-background-color: D80085;" text="Academic Info" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="CUBES" glyphStyle="-fx-fill:#fff" size="20" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="57.0" layoutY="252.0" text="In-Course" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="24.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="productTypeButton" layoutY="293.0" onAction="#showProductType" prefHeight="50.0" prefWidth="299.0" style="-fx-background-color: D80085;" text="Module Types" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="SITEMAP" glyphStyle="-fx-fill:#fff" size="20" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="productInfoButton" layoutY="345.0" onAction="#showProductInfo" prefHeight="50.0" prefWidth="299.0" style="-fx-background-color: D80085;" text="Module Info" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#fff" size="20" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="56.0" layoutY="414.0" text="ExtraCurriculum" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="24.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="deviceManageButton" layoutY="508.0" onAction="#showDeviceManagement" prefHeight="50.0" prefWidth="299.0" style="-fx-background-color: D80085;" text="Type Management" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LAPTOP" glyphStyle="-fx-fill:#fff" size="20" />
+               </graphic>
+            </JFXButton>
+            </children></AnchorPane>
+    </left>
+    <top>
+        <AnchorPane prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="140.0" layoutY="36.0" text="Hello Student!" textFill="#d80085">
+                    <font>
+                        <Font name="Microsoft YaHei UI Bold" size="25.0" />
+                    </font>
+                </Label>
+                <FontAwesomeIconView glyphName="SELLSY" glyphStyle="-fx-fill:#D80085" layoutX="64.0" layoutY="67.0" size="50" />
+                <HBox alignment="CENTER_RIGHT" layoutX="474.0" layoutY="30.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #BEBFC1;">
+                    <children>
+                        <FontAwesomeIconView glyphName="SEARCH" glyphStyle="-fx-fill:#999999" size="20" text="">
+                            <HBox.margin>
+                                <Insets right="15.0" />
+                            </HBox.margin>
+                        </FontAwesomeIconView>
+                    </children>
+            </HBox>
+                <FontAwesomeIconView fx:id="exitButton" glyphName="CLOSE" layoutX="1135.0" layoutY="61.0" onMouseClicked="#close" size="30" />
+            </children>
+        </AnchorPane>
+    </top>
+</BorderPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FactoryInfoController">
+   <children>
+      <TableView fx:id="table" layoutX="44.0" layoutY="143.0" prefHeight="483.0" prefWidth="800.0">
+        <columns>
+          <TableColumn fx:id="factoryNameCol" minWidth="40.0" prefWidth="75.0" text="工厂名称" />
+            <TableColumn fx:id="factoryDescriptionCol" minWidth="80.0" prefWidth="200.0" text="工厂简介" />
+            <TableColumn fx:id="nameCol" minWidth="5.0" prefWidth="110.0" text="负责人" />
+            <TableColumn fx:id="contactCol" minWidth="40.0" prefWidth="75.0" text="联系方式" />
+            <TableColumn fx:id="accountCol" minWidth="5.0" prefWidth="50.0" text="登陆账号" />
+            <TableColumn fx:id="statusCol" minWidth="5.0" prefWidth="75.0" text="工厂状态" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="57.0" layoutY="62.0" text="工厂信息">
+         <font>
+            <Font name="Calibri" size="30.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="stopButton" buttonType="RAISED" layoutX="595.0" layoutY="73.0" onAction="#shutFactory" prefHeight="31.0" prefWidth="91.0" style="-fx-background-color: D83B01;" text="关停" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="launchButton" buttonType="RAISED" layoutX="707.0" layoutY="73.0" onAction="#launchFactory" prefHeight="31.0" prefWidth="91.0" style="-fx-background-color: #72DD64;" text="启动" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

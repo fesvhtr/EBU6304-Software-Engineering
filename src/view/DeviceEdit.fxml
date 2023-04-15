@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeviceEditController">
+    <children>
+        <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #01B3E9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane layoutX="-117.0" layoutY="-248.0" prefHeight="453.0" prefWidth="300.0" rotate="-35.0" style="-fx-background-color: #7EE4F1; -fx-background-radius: 50px;">
+                    <children>
+                        <Label layoutX="55.0" layoutY="327.0" text="设备信息" textFill="WHITE">
+                            <font>
+                                <Font name="Calibri Bold" size="44.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="58.0" layoutY="381.0" text="DEVICE INFO" textFill="WHITE">
+                            <font>
+                                <Font name="Ebrima Bold" size="23.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <effect>
+                        <Blend>
+                            <bottomInput>
+                                <Shadow color="#00000086" height="100.0" radius="49.5" width="100.0" />
+                            </bottomInput>
+                        </Blend>
+                    </effect>
+                </Pane>
+                <Pane layoutX="175.0" layoutY="192.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #7EE4F1; -fx-background-radius: 200px;">
+                    <effect>
+                        <Blend>
+                            <bottomInput>
+                                <Shadow color="#00000086" height="100.0" radius="49.5" width="100.0" />
+                            </bottomInput>
+                        </Blend>
+                    </effect>
+                </Pane>
+                <Pane layoutX="5.0" layoutY="508.0" prefHeight="84.0" prefWidth="291.0" rotate="55.0" style="-fx-background-color: #7EE4F1; -fx-background-radius: 200px;">
+                    <effect>
+                        <Blend>
+                            <bottomInput>
+                                <Shadow color="#00000086" height="100.0" radius="49.5" width="100.0" />
+                            </bottomInput>
+                        </Blend>
+                    </effect>
+                </Pane>
+            </children>
+        </Pane>
+        <AnchorPane layoutX="300.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <FontAwesomeIconView fx:id="exitButton" accessibleRole="BUTTON" glyphName="CLOSE" layoutX="455.0" layoutY="39.0" onMouseClicked="#close" size="30" />
+                <GridPane layoutX="100.0" layoutY="62.0" prefHeight="436.0" prefWidth="300.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="148.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <JFXTextField fx:id="specField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="设备规格" GridPane.rowIndex="3" />
+                        <JFXTextField fx:id="nameField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="设备名称" GridPane.rowIndex="1" />
+                        <JFXComboBox fx:id="typeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="设备类别" styleClass="ComboBox" stylesheets="@Stylesheet.css" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets left="10.0" />
+                            </GridPane.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="idField" disable="true" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="设备编号" />
+                        <JFXTextField fx:id="descriptionField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="设备描述" GridPane.rowIndex="4" />
+                  <JFXTextField fx:id="userField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="所属厂主（租赁方）" GridPane.rowIndex="5" />
+                  <JFXToggleButton fx:id="isOwnedToggle" text="自有设备" toggleColor="#01b3e9" toggleLineColor="#7ee4f1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                    </children>
+                </GridPane>
+                <JFXButton buttonType="RAISED" layoutX="107.0" layoutY="523.0" onAction="#saveHandled" prefHeight="31.0" prefWidth="280.0" styleClass="saveButton2" stylesheets="@Stylesheet.css" text="SAVE">
+                    <font>
+                        <Font name="Impact" size="20.0" />
+                    </font></JFXButton>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

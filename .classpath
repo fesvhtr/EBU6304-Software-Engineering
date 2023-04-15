@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/CloudFactoryPlatform/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gson-2.3.1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/fontawesomefx-8.9 (2)"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/fontawesomefx-fontawesome-4.7.0-9.1.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ikonli-fontawesome5-pack-2.4.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jfoenix-1.0.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/xJavaFxTool-0.2.0"/>
+	<classpathentry kind="output" path="out/production/CloudFactoryPlatform"/>
+</classpath>

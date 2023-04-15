@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserEditController">
+    <children>
+        <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #FFB900;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <JFXRadioButton fx:id="retailerButton" layoutX="10.0" layoutY="369.0" onAction="#retailerButtonHandled" prefHeight="80.0" prefWidth="290.0" style="-fx-dot-color: transparent;" styleClass="roleEditButton" stylesheets="@Stylesheet.css" text="    经销商" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei UI Bold" size="22.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="30.0" left="15.0" />
+                    </padding>
+                    <effect>
+                        <Blend>
+                            <bottomInput>
+                                <Shadow color="#00000099" height="30.0" radius="14.5" width="30.0" />
+                            </bottomInput>
+                        </Blend>
+                    </effect>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="roleGroup" />
+                    </toggleGroup>
+                </JFXRadioButton>
+                <JFXRadioButton fx:id="factoryAdminButton" layoutX="10.0" layoutY="265.0" onAction="#factoryAdminButtonHandled" prefHeight="80.0" prefWidth="290.0" styleClass="roleEditButton" stylesheets="@Stylesheet.css" text="    云工厂管理员" textFill="WHITE" toggleGroup="$roleGroup">
+                    <font>
+                        <Font name="Microsoft YaHei UI Bold" size="22.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="30.0" left="15.0" />
+                    </padding>
+                    <effect>
+                        <Blend>
+                            <bottomInput>
+                                <Shadow color="#00000099" height="30.0" radius="14.5" width="30.0" />
+                            </bottomInput>
+                        </Blend>
+                    </effect>
+                </JFXRadioButton>
+                <ImageView layoutX="21.0" layoutY="386.0">
+                    <image>
+                        <Image url="@image/icons8_trolley_48px.png" />
+                    </image>
+                </ImageView>
+                <ImageView layoutX="21.0" layoutY="281.0">
+                    <image>
+                        <Image url="@image/icons8_admin_settings_male_48px_2.png" />
+                    </image>
+                </ImageView>
+                <Pane layoutX="-117.0" layoutY="-248.0" prefHeight="453.0" prefWidth="300.0" rotate="-35.0" style="-fx-background-color: FF8C00; -fx-background-radius: 50px;">
+                    <children>
+                        <Label layoutX="55.0" layoutY="327.0" text="编辑信息" textFill="WHITE">
+                            <font>
+                                <Font name="Calibri Bold" size="44.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="131.0" layoutY="387.0" text="Edit" textFill="WHITE">
+                            <font>
+                                <Font name="Ebrima Bold" size="23.0" />
+                            </font>
+                        </Label>
+                    </children>
+               <effect>
+                  <Blend>
+                     <bottomInput>
+                        <Shadow color="#00000086" height="100.0" radius="49.5" width="100.0" />
+                     </bottomInput>
+                  </Blend>
+               </effect>
+                </Pane>
+            <JFXRadioButton fx:id="superAdminButton" layoutX="10.0" layoutY="471.0" onAction="#superAdminButtonHandled" prefHeight="80.0" prefWidth="290.0" style="-fx-dot-color: transparent;" styleClass="roleEditButton" stylesheets="@Stylesheet.css" text="    超级管理员" textFill="WHITE" toggleGroup="$roleGroup">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="30.0" left="15.0" />
+               </padding>
+               <effect>
+                  <Blend>
+                     <bottomInput>
+                        <Shadow color="#00000099" height="30.0" radius="14.5" width="30.0" />
+                     </bottomInput>
+                  </Blend>
+               </effect>
+            </JFXRadioButton>
+            <ImageView layoutX="23.0" layoutY="487.0">
+               <image>
+                  <Image url="@image/icons8_businessman_48px.png" />
+               </image>
+            </ImageView>
+            </children>
+      </Pane>
+        <AnchorPane layoutX="300.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <FontAwesomeIconView fx:id="exitButton" accessibleRole="BUTTON" glyphName="CLOSE" layoutX="455.0" layoutY="39.0" onMouseClicked="#close" size="30" />
+                <GridPane layoutX="100.0" layoutY="62.0" prefHeight="384.0" prefWidth="300.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="148.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <JFXTextField fx:id="accountField" focusColor="#393351" labelFloat="true" maxWidth="300.0" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="登录账号" />
+                        <JFXTextField fx:id="nameField" focusColor="#393351" labelFloat="true" maxWidth="300.0" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="真实姓名" GridPane.rowIndex="2" />
+                        <JFXTextField fx:id="contactField" focusColor="#393351" labelFloat="true" maxWidth="300.0" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="联系方式" GridPane.rowIndex="3" />
+                        <JFXTextField fx:id="factoryNameField" focusColor="#393351" labelFloat="true" maxWidth="300.0" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="工厂名称" GridPane.rowIndex="4" />
+                        <JFXTextArea fx:id="factoryDescription" focusColor="#393351" labelFloat="true" maxWidth="300.0" minWidth="280.0" prefHeight="49.0" prefWidth="280.0" promptText="公司简介" wrapText="true" GridPane.rowIndex="5">
+                            <GridPane.margin>
+                                <Insets left="10.0" top="10.0" />
+                            </GridPane.margin>
+                        </JFXTextArea>
+                  <JFXTextField fx:id="passwordField" focusColor="#393351" labelFloat="true" maxWidth="300.0" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="登录密码" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <JFXButton buttonType="RAISED" layoutX="107.0" layoutY="523.0" onAction="#saveHandled" prefHeight="31.0" prefWidth="280.0" styleClass="SaveButton" stylesheets="@Stylesheet.css" text="SAVE">
+                    <font>
+                        <Font name="Impact" size="20.0" />
+                    </font></JFXButton>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
