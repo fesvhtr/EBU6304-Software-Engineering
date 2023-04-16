@@ -39,6 +39,9 @@ public class ModuleInfoController implements Initializable {
     private TableColumn<Module, String> specCol;
 
     @FXML
+    private TableColumn<Module, String> markCol;
+
+    @FXML
     private TableColumn<Module, String> descriptionCol;
 
     private ObservableList<Module> moduleObservableList = FXCollections.observableArrayList();
@@ -54,6 +57,7 @@ public class ModuleInfoController implements Initializable {
         nameCol.setCellValueFactory(new PropertyValueFactory<Module, String>("name"));
         typeCol.setCellValueFactory(new PropertyValueFactory<Module, String>("type"));
         specCol.setCellValueFactory(new PropertyValueFactory<Module, String>("spec"));
+        markCol.setCellValueFactory(new PropertyValueFactory<Module, String>("mark"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Module, String>("description"));
     }
 
