@@ -12,6 +12,7 @@ public class Module {
     private String type;
     private String spec;
     private String description;
+    private double mark;
 
     public Module(String name, String type, String spec, String description) {
         this.name = name;
@@ -26,6 +27,15 @@ public class Module {
         this.name = name;
         this.type = type;
         this.spec = spec;
+        this.description = description;
+    }
+
+    public Module(String id, String name, String type, String spec, double mark, String description) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.spec = spec;
+        this.mark = mark;
         this.description = description;
     }
 
@@ -63,5 +73,13 @@ public class Module {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public double getMark() {
+        return mark;
+    }
+
+    public void setMark(double mark) {
+        this.mark = mark;
     }
 }
