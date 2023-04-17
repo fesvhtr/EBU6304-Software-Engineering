@@ -9,9 +9,9 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeviceTypeManagementController">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ActivityInfoController">
     <children>
-        <Label fx:id="title" layoutX="90.0" layoutY="69.0" text="Type Management">
+        <Label fx:id="title" layoutX="90.0" layoutY="69.0" text="Activity Information Management">
             <font>
                 <Font size="29.0" />
             </font>
@@ -38,6 +38,26 @@
                 <Font name="Calibri" size="18.0" />
             </font>
         </JFXButton>
+
+        <JFXButton layoutX="727.0" layoutY="253.0" onAction="#newAcHandled" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #D80085;" text="New Activity" textFill="WHITE">
+            <font>
+                <Font name="Calibri" size="18.0" />
+            </font>
+        </JFXButton>
+
+        <JFXButton layoutX="727.0" layoutY="353.0" onAction="#delActivityHandled" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #D80085;" text="Delete Activity" textFill="WHITE">
+            <font>
+                <Font name="Calibri" size="18.0" />
+            </font>
+        </JFXButton>
+
+        <JFXButton layoutX="727.0" layoutY="453.0" onAction="#editAcHandled" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #D80085;" text="Edit Activity" textFill="WHITE">
+            <font>
+                <Font name="Calibri" size="18.0" />
+            </font>
+        </JFXButton>
+
+
         <JFXTextField fx:id="newTypeField" focusColor="#d80085" labelFloat="true" layoutX="468.0" layoutY="157.0" promptText="Input new module type name" visible="false" />
         <JFXButton fx:id="configureButton" layoutX="668.0" layoutY="156.0" onAction="#configureHandled" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #D80085;" text="Confirm" textFill="WHITE" visible="false">
             <font>
