@@ -9,9 +9,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.List;
@@ -24,6 +24,22 @@ import java.util.ResourceBundle;
 public class DeviceTypeManagementController implements Initializable {
     @FXML
     private JFXListView<Type> list;
+
+    @FXML
+    private TableView<Activity> table;
+
+    @FXML
+    private TableColumn<Activity, String> acCol;
+
+    @FXML
+    private TableColumn<Activity, String> roleCol;
+
+    @FXML
+    private TableColumn<Activity, String> starCol;
+
+    @FXML
+    private TableColumn<Activity, String> endCol;
+
 
     @FXML
     private Label title;
@@ -39,10 +55,10 @@ public class DeviceTypeManagementController implements Initializable {
         int selectedIndex = list.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             Type selectedType = list.getSelectionModel().getSelectedItem();
-            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"You want to delete" + selectedType + "?");
+            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION, "You want to delete" + selectedType + "?");
             delWarning.setHeaderText("Delete confirm");
             delWarning.setTitle("Wait...");
-            delWarning.showAndWait().ifPresent(response ->{
+            delWarning.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.OK) {
                     list.getItems().remove(selectedType);
                     DeviceType.getInstance().removeType(selectedType);
@@ -80,6 +96,8 @@ public class DeviceTypeManagementController implements Initializable {
 
     private ObservableList<Type> deviceTypeObservableList = FXCollections.observableArrayList();
 
+    private ObservableList<Activity> activityObservableList = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         deviceTypeObservableList.clear();
@@ -87,7 +105,51 @@ public class DeviceTypeManagementController implements Initializable {
         for (Type t : deviceTypes) {
             deviceTypeObservableList.add(t);
         }
-        title.setText("Device Type Management");
+        title.setText("Activity Management");
         list.setItems(deviceTypeObservableList);
+
+        activityObservableList.clear();
+        List<Activity> activities = ActivityManager.getInstance().getActivities();
+        for (Activity a : activities) {
+            //select
+            activityObservableList.add(a);
+        }
+        table.setItems(activityObservableList);
+        acCol.setCellValueFactory(new PropertyValueFactory<Activity, String>("title"));
+        roleCol.setCellValueFactory(new PropertyValueFactory<Activity, String>("role"));
+        starCol.setCellValueFactory(new PropertyValueFactory<Activity, String>("startDate"));
+        endCol.setCellValueFactory(new PropertyValueFactory<Activity, String>("endDate"));
+
+
+
+
     }
-}
+
+        @FXML
+
+//    void selectTypeHandled(MouseEvent event) {
+//        System.out.println(1);
+//        int selectedIndex = list.getSelectionModel().getSelectedIndex();
+//        if (selectedIndex >= 0) {
+//            Type selectedType = list.getSelectionModel().getSelectedItem();
+//            activityObservableList.clear();
+//            List<Activity> activities = ActivityManager.getInstance().getActivities();
+//            for (Activity a : activities) {
+//                //select
+//                if (a.getType().equals(selectedType)) {
+//                    activityObservableList.add(a);
+//                }
+//            }
+//            table.setItems(activityObservableList);
+//            acCol.setCellValueFactory(new PropertyValueFactory<Activity, String>("title"));
+//            roleCol.setCellValueFactory(new PropertyValueFactory<Activity, String>("role"));
+//            starCol.setCellValueFactory(new PropertyValueFactory<Activity, String>("startDate"));
+//            endCol.setCellValueFactory(new PropertyValueFactory<Activity, String>("endDate"));
+////            table.refresh();
+////        }
+//    }
+
+        void delActivityHandled (ActionEvent event){
+            int selectedIndex = table.getSelectionModel().getSelectedIndex();
+        }
+    }
