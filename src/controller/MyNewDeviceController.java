@@ -94,7 +94,7 @@ public class MyNewDeviceController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
         idField.setText("PRO" + IdGenerator.getCode());
-        List<Type> types = DeviceType.getInstance().getTypes();
+        List<Type> types = ActivityType.getInstance().getTypes();
         for (Type t : types) {
             typeObservableList.add(t);
         }
