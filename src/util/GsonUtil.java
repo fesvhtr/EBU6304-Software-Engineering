@@ -5,10 +5,7 @@ import com.google.gson.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-21 0:00
- */
+
 public class GsonUtil {
     public static String toJson(Object object) {
         GsonBuilder gsonBuilder = new GsonBuilder();

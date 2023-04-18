@@ -4,10 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-20 23:48
- */
+
 public class FileOperator {
 
     /**

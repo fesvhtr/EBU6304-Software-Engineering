@@ -4,10 +4,7 @@ import util.IdGenerator;
 
 import java.util.List;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-20 21:49
- */
+
 public class Device {
     private final String id;
     private String name;

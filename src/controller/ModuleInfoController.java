@@ -19,10 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-22 19:58
- */
+
 public class ModuleInfoController implements Initializable {
     @FXML
     private TableView<Module> table;

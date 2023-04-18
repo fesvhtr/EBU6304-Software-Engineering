@@ -1,9 +1,6 @@
 package entity;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-20 20:34
- */
+
 public abstract class AbstractUser {
     private String account;
     private String password;

@@ -20,10 +20,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-21 16:21
- */
+
 public class MyDeviceController implements Initializable {
     ObservableList<Device> deviceList = FXCollections.observableArrayList();
     FactoryAdmin factoryAdmin;

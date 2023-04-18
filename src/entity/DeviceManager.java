@@ -3,10 +3,7 @@ package entity;
 import util.FileOperator;
 import java.util.List;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-22 23:29
- */
+
 public class DeviceManager {
     private List<Device> devices;
     private static DeviceManager singletonInstance;

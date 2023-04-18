@@ -17,10 +17,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-22 4:47
- */
+
 public class UserManagementController implements Initializable {
 
     @FXML

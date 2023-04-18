@@ -2,10 +2,7 @@ package entity;
 
 import util.IdGenerator;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-20 22:07
- */
+
 public class Module {
     private final String id;
     private String name;

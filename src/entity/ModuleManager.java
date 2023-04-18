@@ -5,10 +5,7 @@ import util.FileOperator;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-22 18:53
- */
+
 public class ModuleManager {
     private  List<Module> modules;
     private static ModuleManager singletonInstance;

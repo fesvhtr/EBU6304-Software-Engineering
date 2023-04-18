@@ -6,10 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-21 9:14
- */
+
 public class Order {
     private final String id;
     private String product;

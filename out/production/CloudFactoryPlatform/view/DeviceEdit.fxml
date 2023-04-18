@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXToggleButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.Shadow?>
@@ -18,16 +15,16 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeviceEditController">
     <children>
-        <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #01B3E9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Pane layoutX="-117.0" layoutY="-248.0" prefHeight="453.0" prefWidth="300.0" rotate="-35.0" style="-fx-background-color: #7EE4F1; -fx-background-radius: 50px;">
+                <Pane layoutX="-117.0" layoutY="-248.0" prefHeight="453.0" prefWidth="300.0" rotate="-35.0" style="-fx-background-color: #EFECE7; -fx-background-radius: 50px;">
                     <children>
-                        <Label layoutX="55.0" layoutY="327.0" text="Add New" textFill="WHITE">
+                        <Label layoutX="55.0" layoutY="327.0" text="Add New" textFill="#394c60">
                             <font>
                                 <Font name="Calibri Bold" size="44.0" />
                             </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="381.0" text="Roles Undertaken" textFill="WHITE">
+                        <Label layoutX="58.0" layoutY="381.0" text="Roles Undertaken" textFill="#394c60">
                             <font>
                                 <Font name="Ebrima Bold" size="23.0" />
                             </font>
@@ -41,7 +38,7 @@
                         </Blend>
                     </effect>
                 </Pane>
-                <Pane layoutX="175.0" layoutY="192.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #7EE4F1; -fx-background-radius: 200px;">
+                <Pane layoutX="175.0" layoutY="192.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #EFECE7; -fx-background-radius: 200px;">
                     <effect>
                         <Blend>
                             <bottomInput>
@@ -50,7 +47,7 @@
                         </Blend>
                     </effect>
                 </Pane>
-                <Pane layoutX="5.0" layoutY="508.0" prefHeight="84.0" prefWidth="291.0" rotate="55.0" style="-fx-background-color: #7EE4F1; -fx-background-radius: 200px;">
+                <Pane layoutX="5.0" layoutY="508.0" prefHeight="84.0" prefWidth="291.0" rotate="55.0" style="-fx-background-color: #EFECE7; -fx-background-radius: 200px;">
                     <effect>
                         <Blend>
                             <bottomInput>
@@ -91,7 +88,7 @@
 <!--                  <JFXToggleButton fx:id="isOwnedToggle" text="自有设备" toggleColor="#01b3e9" toggleLineColor="#7ee4f1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />-->
                     </children>
                 </GridPane>
-                <JFXButton buttonType="RAISED" layoutX="107.0" layoutY="523.0" onAction="#saveHandled" prefHeight="31.0" prefWidth="280.0" styleClass="saveButton2" stylesheets="@Stylesheet.css" text="SAVE">
+                <JFXButton buttonType="RAISED" layoutX="107.0" layoutY="523.0" onAction="#saveHandled" prefHeight="31.0" prefWidth="280.0" style="-fx-background-color: #6E7F91;" text="SAVE" textFill="WHITE">
                     <font>
                         <Font name="Impact" size="20.0" />
                     </font></JFXButton>

@@ -23,12 +23,12 @@
       </TableView>
       <HBox layoutX="503.0" layoutY="86.0" spacing="20.0">
          <children>
-            <JFXButton buttonType="RAISED" onAction="#newUser" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: E3008C;" text="新建" textFill="WHITE" />
-            <JFXButton buttonType="RAISED" onAction="#editUser" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: E3008C;" text="修改" textFill="WHITE" />
-            <JFXButton buttonType="RAISED" onAction="#delUser" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: E3008C;" text="删除" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" onAction="#newUser" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #6E7F91;" text="新建" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" onAction="#editUser" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #6E7F91;" text="修改" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" onAction="#delUser" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #6E7F91;" text="删除" textFill="WHITE" />
          </children>
       </HBox>
-      <Label layoutX="76.0" layoutY="88.0" text="用户管理">
+      <Label layoutX="76.0" layoutY="88.0" text="User Info Management">
          <font>
             <Font name="Calibri" size="28.0" />
          </font>

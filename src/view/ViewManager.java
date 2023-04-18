@@ -9,10 +9,6 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-21 22:24
- */
 public class ViewManager {
     private static double yOffSet;
     private static double xOffSet;

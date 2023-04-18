@@ -7,10 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-19 22:15
- */
+
 public class FactoryAdmin extends AbstractUser {
 
     private String factoryName;

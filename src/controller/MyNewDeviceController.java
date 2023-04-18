@@ -18,10 +18,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-23 4:52
- */
+
 public class MyNewDeviceController implements Initializable {
     @FXML
     private FontAwesomeIconView exitButton;

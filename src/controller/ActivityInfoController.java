@@ -27,10 +27,7 @@ import javafx.util.Callback;
 import javafx.event.EventHandler;
 
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-23 2:42
- */
+
 public class ActivityInfoController implements Initializable {
     @FXML
     private JFXListView<String> list;

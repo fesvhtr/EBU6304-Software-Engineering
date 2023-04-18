@@ -25,12 +25,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="469.0" layoutY="69.0" spacing="20.0">
+      <HBox layoutX="469.0" layoutY="69.0" prefHeight="30.0" prefWidth="303.0" spacing="20.0">
          <children>
-            <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#newHandled" style="-fx-background-color: D80085;" text="Add New" textFill="WHITE" />
-            <JFXButton buttonType="RAISED" onAction="#shutDownHandled" style="-fx-background-color: D80085;" text="Edit" textFill="WHITE" />
-            <JFXButton buttonType="RAISED" onAction="#launchHandled" style="-fx-background-color: D80085;" text="Delete" textFill="WHITE" />
-            <JFXButton buttonType="RAISED" onAction="#editHandled" style="-fx-background-color: D80085;" text="Export" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#newHandled" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #6E7F91;" text="New" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" onAction="#shutDownHandled" prefHeight="30.0" prefWidth="64.0" style="-fx-background-color: #6E7F91;" text="Edit" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" onAction="#launchHandled" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #6E7F91;" text="Delete" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" onAction="#editHandled" prefHeight="34.0" prefWidth="67.0" style="-fx-background-color: #806491;" text="Export" textFill="WHITE" />
 <!--            <JFXButton buttonType="RAISED" onAction="#delHandled" style="-fx-background-color: D80085;" text="删除" textFill="WHITE" />-->
          </children>
       </HBox>

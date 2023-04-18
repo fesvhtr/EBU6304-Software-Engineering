@@ -8,10 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-23 21:17
- */
+
 public class DateUtil {
     /**
      * 获取当前日期

@@ -4,10 +4,7 @@ import util.FileOperator;
 
 import java.util.List;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-20 22:07
- */
+
 public class ActivityType {
     private List<Type> types;
     private static ActivityType singletonInstance;

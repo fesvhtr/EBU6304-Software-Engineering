@@ -18,10 +18,7 @@ import java.util.ResourceBundle;
 
 import static javafx.application.Platform.exit;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-20 1:20
- */
+
 public class LoginController implements Initializable {
     @FXML
     private JFXTextField accountTextFiield;

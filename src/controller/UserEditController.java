@@ -12,10 +12,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-22 6:26
- */
+
 public class UserEditController {
     @FXML
     private JFXRadioButton retailerButton;

@@ -1,7 +1,3 @@
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-20 2:17
- */
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

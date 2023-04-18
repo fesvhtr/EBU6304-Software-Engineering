@@ -10,10 +10,7 @@ import javafx.stage.Stage;
 import view.ViewManager;
 
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-22 4:40
- */
+
 public class StudentMenuController {
 
     @FXML

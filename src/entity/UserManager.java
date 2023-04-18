@@ -4,10 +4,7 @@ import util.FileOperator;
 
 import java.util.List;
 
-/**
- * @author 1914-杨雨田-20195462
- * @create 2020-07-21 17:23
- */
+
 public class UserManager {
     private  List<Retailer> retailers;
     private  List<FactoryAdmin> factoryAdmins;
