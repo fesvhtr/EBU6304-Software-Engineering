@@ -41,19 +41,27 @@ public class ModuleManager {
 
     public ArrayList<Object> getEva(){
         ArrayList<Object> eva = new ArrayList<>();
-        double average = 0;
-        double GPA = 0;
         String level;
-        double all_mark = 0;
-        double all_credit = 0;
+        float weightedMarks = 0;
+        float totalCredits = 0;
+        float weightedGradePoints = 0;
+        //TODO more kinds of gpa cal algorithm, and may need consider module type
+        //TODO is rank need?
         for(Module module : modules)
         {
-            all_mark += module.getMark();
-            all_credit += 1;
+            float mark = module.getMark();
+            float credit = module.getCredit();
+            weightedMarks += mark*credit;
+            totalCredits += credit;
+            if(mark >= 60 && mark <= 100)
+            {
+                float gradePoints = (float) (4.0 - 3.0*(100 - mark)*(100 - mark)/1600);
+                weightedGradePoints += gradePoints * credit;
+            }
         }
 
-        average = all_mark / all_credit;
-        GPA = average / 100 * 4.0;
+        float average = weightedMarks / totalCredits;
+        float GPA = weightedGradePoints / totalCredits;
         if(average >= 70.0)
             level = "First class";
         else if (average >= 60.0)
