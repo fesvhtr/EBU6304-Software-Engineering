@@ -1,2 +1,3 @@
-{"id":"PRO230415175306190","name":"M2","type":"Public Elective Courses","spec":"235","description":"123","mark":100.0}
-{"id":"PRO230415175241254","name":"M1","type":"Compulsory Courses","spec":"25","description":"m1","mark":90}
+{"id":"PRO230415175306190","name":"M2","type":"Public Elective Courses","spec":"235","description":"123","mark":100.0, "credit": 2.5}
+{"id":"PRO230415175241254","name":"M1","type":"Compulsory Courses","spec":"25","description":"m1","mark":90, "credit": 2}
+{"id":"PRO230415175241257","name":"M12","type":"Compulsory Courses","spec":"25","description":"m22","mark":59, "credit": 2}
