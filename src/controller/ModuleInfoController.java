@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import view.ViewManager;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -46,6 +47,8 @@ public class ModuleInfoController implements Initializable {
     private TableColumn<Module, String> descriptionCol;
 
     private ObservableList<Module> moduleObservableList = FXCollections.observableArrayList();
+
+    private ArrayList<Object> my_eva = new ArrayList<>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         moduleObservableList.clear();
@@ -64,6 +67,8 @@ public class ModuleInfoController implements Initializable {
 
         //test eva func
         System.out.println(ModuleManager.getInstance().getEva().toString());
+        my_eva = ModuleManager.getInstance().getEva();
+
     }
 
     @FXML
@@ -110,6 +115,15 @@ public class ModuleInfoController implements Initializable {
     void newHandled(ActionEvent event) {
         ModuleEditController controller = (ModuleEditController) ViewManager.newWindow("ModuleEdit.fxml");
         controller.setParentController(this);
+    }
+
+    @FXML
+    void GPAHandled(ActionEvent event) {
+        Alert infoAlert = new Alert(Alert.AlertType.INFORMATION, "Here is your Mark Report");
+        infoAlert.setTitle("Mark Report");
+        infoAlert.setHeaderText("Yor GPA (out of 100 scale) is " + my_eva.get(0) +"\nYor GPA (out of 4.0 scale) is "
+                + my_eva.get(1)+ "\nYor Degree level is " + my_eva.get(2));
+        infoAlert.show();
     }
 
 

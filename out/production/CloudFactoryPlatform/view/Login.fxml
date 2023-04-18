@@ -17,26 +17,32 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #fff; -fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <Label layoutX="400.0" layoutY="124.0" text="Welcome!" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="124.0">
+      <Label layoutX="437.0" layoutY="125.0" text="Welcome!" AnchorPane.leftAnchor="437.0" AnchorPane.topAnchor="125.0">
          <font>
             <Font name="DengXian Regular" size="60.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="accountTextFiield" labelFloat="true" layoutX="400.0" layoutY="245.0" maxWidth="333.0" minWidth="269.0" prefHeight="37.0" prefWidth="333.0" promptText="username" />
-      <JFXPasswordField fx:id="passwordField" labelFloat="true" layoutX="400.0" layoutY="300.0" maxWidth="333.0" minWidth="269.0" prefHeight="37.0" prefWidth="333.0" promptText="password" />
-      <HBox layoutX="396.0" layoutY="360.0">
+      <JFXTextField fx:id="accountTextFiield" labelFloat="true" layoutX="400.0" layoutY="245.0" maxWidth="333.0" minWidth="269.0" prefHeight="37.0" prefWidth="333.0" promptText="username">
+         <font>
+            <Font size="16.0" />
+         </font></JFXTextField>
+      <JFXPasswordField fx:id="passwordField" labelFloat="true" layoutX="400.0" layoutY="300.0" maxWidth="333.0" minWidth="269.0" prefHeight="37.0" prefWidth="333.0" promptText="password">
+         <font>
+            <Font size="16.0" />
+         </font></JFXPasswordField>
+      <HBox layoutX="412.0" layoutY="361.0">
          <children>
-            <JFXRadioButton fx:id="superAdminButton" selected="true" style="-fx-selected-color: #4059a9;" text="student" textFill="#0000009a">
+            <JFXRadioButton fx:id="superAdminButton" prefHeight="20.0" prefWidth="106.0" selected="true" style="-fx-selected-color: #4059a9;" text="student" textFill="#0000009a">
                <font>
                   <Font name="Ubuntu Mono Bold" size="15.0" />
                </font>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="factoryAdminButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-selected-color: #4059a9;" text="Manager" textFill="#0000009a">
+            <JFXRadioButton fx:id="factoryAdminButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="115.0" style="-fx-selected-color: #4059a9;" text="Manager" textFill="#0000009a">
                <font>
                   <Font name="Ubuntu Mono Bold" size="15.0" />
                </font>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="retailerButton" style="-fx-selected-color: #4059a9;" text="teacher" textFill="#0000009a">
+            <JFXRadioButton fx:id="retailerButton" prefHeight="20.0" prefWidth="89.0" style="-fx-selected-color: #4059a9;" text="teacher" textFill="#0000009a">
                <font>
                   <Font name="Ubuntu Mono Bold" size="15.0" />
                </font>
@@ -53,7 +59,7 @@
             <Font name="Ubuntu Mono Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="468.0" layoutY="465.0" onMouseClicked="#register" styleClass="registerLabel" stylesheets="@Stylesheet.css" text="Sign up" textFill="#00000083">
+      <Label layoutX="504.0" layoutY="468.0" onMouseClicked="#register" styleClass="registerLabel" stylesheets="@Stylesheet.css" text="Sign up" textFill="#00000083">
          <font>
             <Font name="Microsoft YaHei UI" size="17.0" />
          </font>
@@ -88,21 +94,21 @@
                   </Blend>
                </effect>
             </Pane>
-            <Label layoutX="29.0" layoutY="190.0" text="Cloud Factory Platform" textFill="WHITE">
+            <Label layoutX="12.0" layoutY="165.0" prefHeight="70.0" prefWidth="260.0" text="Student Study Platform" textFill="WHITE">
                <font>
                   <Font name="Ebrima Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="226.0" text="Learning journey" textFill="WHITE">
+            <Label layoutX="28.0" layoutY="226.0" prefHeight="32.0" prefWidth="220.0" text="Learning journey" textFill="WHITE">
                <font>
                   <Font name="Meiryo UI" size="22.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <ImageView layoutX="30.0" layoutY="151.0" preserveRatio="true">
+      <ImageView fitHeight="51.0" fitWidth="220.0" layoutX="400.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@image/neusoft_logo.png" />
+            <Image url="@image/qmul_logo.jpg" />
          </image>
       </ImageView>
    </children>
