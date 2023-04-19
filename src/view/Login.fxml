@@ -37,16 +37,6 @@
                   <Font name="Ubuntu Mono Bold" size="15.0" />
                </font>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="factoryAdminButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="115.0" style="-fx-selected-color: #4059a9;" text="Manager" textFill="#0000009a">
-               <font>
-                  <Font name="Ubuntu Mono Bold" size="15.0" />
-               </font>
-            </JFXRadioButton>
-            <JFXRadioButton fx:id="retailerButton" prefHeight="20.0" prefWidth="89.0" style="-fx-selected-color: #4059a9;" text="teacher" textFill="#0000009a">
-               <font>
-                  <Font name="Ubuntu Mono Bold" size="15.0" />
-               </font>
-            </JFXRadioButton>
          </children>
       </HBox>
       <JFXButton buttonType="RAISED" layoutX="400.0" layoutY="395.0" onAction="#loginHandled" prefHeight="37.0" prefWidth="333.0" ripplerFill="#405aa8" style="-fx-border-radius: 3px;" styleClass="loginButton" stylesheets="@Stylesheet.css" text="LOGIN" textFill="WHITE">

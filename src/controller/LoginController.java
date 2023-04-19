@@ -28,10 +28,6 @@ public class LoginController implements Initializable {
     @FXML
     private ToggleGroup roleGroup;
     @FXML
-    RadioButton retailerButton;
-    @FXML
-    RadioButton factoryAdminButton;
-    @FXML
     RadioButton superAdminButton;
     @FXML
     private FontAwesomeIconView exitButton;
@@ -40,20 +36,10 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         roleGroup = new ToggleGroup();
-        retailerButton.setToggleGroup(roleGroup);
-        factoryAdminButton.setToggleGroup(roleGroup);
         superAdminButton.setToggleGroup(roleGroup);
         superAdminButton.setOnAction(e -> {
             accountTextFiield.setText("888");
             passwordField.setText("888");
-        });
-        factoryAdminButton.setOnAction(e -> {
-            accountTextFiield.setText("123");
-            passwordField.setText("123");
-        });
-        retailerButton.setOnAction(e -> {
-            accountTextFiield.setText("321");
-            passwordField.setText("321");
         });
     }
 
@@ -66,12 +52,6 @@ public class LoginController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING, "核对一下再试试吧");
             alert.setHeaderText("用户名和密码都不能包含空格“ ”");
             alert.show();
-        } else if (roleGroup.getSelectedToggle() == retailerButton && UserManager.getInstance().CheckLogin(account, password, 1)) {
-            ViewManager.newWindow("RetailerMenu.fxml");
-            System.out.println("零售商"+account+"已登录");
-        } else if (roleGroup.getSelectedToggle() == factoryAdminButton && UserManager.getInstance().CheckLogin(account, password, 2)) {
-            ViewManager.newWindow("FactoryAdminMenu.fxml");
-            System.out.println("云厂长"+account+"已登录");
         } else if (roleGroup.getSelectedToggle() == superAdminButton && UserManager.getInstance().CheckLogin(account, password, 3)) {
             ViewManager.newWindow("StudentMenu.fxml");
             System.out.println("student"+account+"log in");
@@ -95,6 +75,5 @@ public class LoginController implements Initializable {
 
     @FXML
     public void register(MouseEvent event) {
-        ViewManager.newWindow("Register.fxml");
     }
 }

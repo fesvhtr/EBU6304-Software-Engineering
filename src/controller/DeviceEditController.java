@@ -13,10 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import util.IdGenerator;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -45,7 +43,7 @@ public class DeviceEditController implements Initializable {
     @FXML
     private JFXToggleButton isOwnedToggle;
 
-    private DeviceManagementController deviceManagementController;
+    private RoleInfoController deviceManagementController;
     private Device inDevice;
 
     @FXML
@@ -90,7 +88,7 @@ public class DeviceEditController implements Initializable {
         currentStage.close();
     }
 
-    public void setParentController(DeviceManagementController controller) {
+    public void setParentController(RoleInfoController controller) {
         deviceManagementController = controller;
     }
     public void setDevice(Device device) {

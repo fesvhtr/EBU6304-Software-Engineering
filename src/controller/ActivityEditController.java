@@ -15,8 +15,6 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import entity.Module;
-import entity.ModuleManager;
 import entity.Type;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

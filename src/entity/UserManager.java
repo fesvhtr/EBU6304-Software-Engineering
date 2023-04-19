@@ -6,9 +6,7 @@ import java.util.List;
 
 
 public class UserManager {
-    private  List<Retailer> retailers;
-    private  List<FactoryAdmin> factoryAdmins;
-    private  List<SuperAdmin> superAdmins;
+    private  List<Student> students;
     private  AbstractUser currentUser;
     private static UserManager singletonInstance;
 
@@ -21,9 +19,7 @@ public class UserManager {
     }
 
     private UserManager() {
-        retailers =  FileOperator.loadData("Retailers.json", Retailer.class);
-        factoryAdmins = FileOperator.loadData("FactoryAdmins.json", FactoryAdmin.class);
-        superAdmins = FileOperator.loadData("SuperAdmins.json", SuperAdmin.class);
+        students = FileOperator.loadData("SuperAdmins.json", Student.class);
     }
 
     /**
@@ -34,26 +30,10 @@ public class UserManager {
      * @return  boolean 表示密码验证成功与否
      */
     public boolean CheckLogin(String account, String password, int role){
-        if (role == 1) {    // Retailer
-            for (Retailer localRetailer : retailers) {
-                if(localRetailer.getAccount().equals(account) && localRetailer.getPassword().equals(password)) {
-                    currentUser = localRetailer;
-                    return true;
-                }
-            }
-        }
-        if (role == 2) {    // FactoryAdmin
-            for (FactoryAdmin localFactoryAdmin : factoryAdmins) {
-                if (localFactoryAdmin.getAccount().equals(account) && localFactoryAdmin.getPassword().equals(password)) {
-                    currentUser = localFactoryAdmin;
-                    return true;
-                }
-            }
-        }
         if (role == 3) {    // SuperAdmin
-            for (SuperAdmin localSuperAdmin : superAdmins) {
-                if (localSuperAdmin.getAccount().equals(account) && localSuperAdmin.getPassword().equals(password)) {
-                    currentUser = localSuperAdmin;
+            for (Student localStudent : students) {
+                if (localStudent.getAccount().equals(account) && localStudent.getPassword().equals(password)) {
+                    currentUser = localStudent;
                     return true;
                 }
             }
@@ -61,62 +41,30 @@ public class UserManager {
         return false;
     }
 
-    public boolean addRetailer(Retailer retailer) {
-        for (Retailer localRetailer : retailers) {
-            if (retailer.getAccount().equals(localRetailer.getAccount()))
-                return false;
-        }
-        retailers.add(retailer);
-        FileOperator.writeData(retailer, "Retailers.json");
-        return true;
-    }
 
-    public boolean addFactoryAdmin(FactoryAdmin factoryAdmin) {
-        for (FactoryAdmin localFactoryAdmin : factoryAdmins) {
-            if (factoryAdmin.getAccount().equals(localFactoryAdmin.getAccount()))
-                return false;
-        }
-        factoryAdmins.add(factoryAdmin);
-        FileOperator.writeData(factoryAdmin, "FactoryAdmins.json");
-        return true;
-    }
 
-    public boolean addSuperAdmin(SuperAdmin superAdmin) {
-        for (SuperAdmin localSuperAdmin : superAdmins) {
-            if (superAdmin.getAccount().equals(localSuperAdmin.getAccount()))
+    public boolean addSuperAdmin(Student student) {
+        for (Student localStudent : students) {
+            if (student.getAccount().equals(localStudent.getAccount()))
                 return false;
         }
-        superAdmins.add(superAdmin);
-        FileOperator.writeData(superAdmin, "SuperAdmin.json");
+        students.add(student);
+        FileOperator.writeData(student, "SuperAdmin.json");
         return true;
     }
 
     public boolean remove(AbstractUser user) {
-        if (user.getClass() == FactoryAdmin.class) {
-            factoryAdmins.remove(user);
-            FileOperator.writeData(factoryAdmins, "FactoryAdmins.json");
-            return true;
-        } else if (user.getClass() == Retailer.class) {
-            retailers.remove(user);
-            FileOperator.writeData(retailers, "Retailers.json");
-            return true;
-        }
         return false;
     }
 
-    public List<Retailer> getRetailers() {
-        return retailers;
-    }
+
 
     public AbstractUser getCurrentUser() {
         return currentUser;
     }
 
-    public List<FactoryAdmin> getFactoryAdmins() {
-        return factoryAdmins;
-    }
 
-    public List<SuperAdmin> getSuperAdmins() {
-        return superAdmins;
+    public List<Student> getSuperAdmins() {
+        return students;
     }
 }

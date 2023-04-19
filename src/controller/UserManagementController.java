@@ -76,8 +76,7 @@ public class UserManagementController implements Initializable {
 
     @FXML
     void newUser(ActionEvent event) {
-        RegisterController controller = (RegisterController) ViewManager.newWindow("register.fxml");
-        controller.setParentController(this);
+
     }
 
     private ObservableList<AbstractUser> userObservableList = FXCollections.observableArrayList();
@@ -85,16 +84,8 @@ public class UserManagementController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userObservableList.clear();
-        List<FactoryAdmin> factoryAdmins = UserManager.getInstance().getFactoryAdmins();
-        List<Retailer> retailers = UserManager.getInstance().getRetailers();
-        List<SuperAdmin> superAdmins = UserManager.getInstance().getSuperAdmins();
-        for (FactoryAdmin fa : factoryAdmins) {
-            userObservableList.add(fa);
-        }
-        for (Retailer r : retailers) {
-            userObservableList.add(r);
-        }
-        for (SuperAdmin sa : superAdmins) {
+        List<Student> students = UserManager.getInstance().getSuperAdmins();
+        for (Student sa : students) {
             userObservableList.add(sa);
         }
         table.setItems(userObservableList);

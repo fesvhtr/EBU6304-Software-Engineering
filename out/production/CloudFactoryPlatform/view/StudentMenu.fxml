@@ -85,7 +85,7 @@
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="deviceManageButton" layoutY="400.0" onAction="#showDeviceManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Type Management" textFill="WHITE">
+            <JFXButton fx:id="deviceManageButton" layoutY="400.0" onAction="#showDeviceManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Roles Undertaken" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
