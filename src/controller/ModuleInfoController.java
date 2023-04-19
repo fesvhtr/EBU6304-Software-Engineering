@@ -49,7 +49,7 @@ public class ModuleInfoController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         moduleObservableList.clear();
-        List<Module> modules = ModuleManager.getInstance().getProducts();
+        List<Module> modules = ModuleManager.getInstance().getModules();
         for (Module p : modules) {
             moduleObservableList.add(p);
         }
@@ -79,7 +79,7 @@ public class ModuleInfoController implements Initializable {
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     table.getItems().remove(selectedModule);
-                    ModuleManager.getInstance().delProduct(selectedModule);
+                    ModuleManager.getInstance().delModule(selectedModule);
                     initialize(null, null);
                 }
             });
@@ -98,7 +98,7 @@ public class ModuleInfoController implements Initializable {
         if (selectedIndex >= 0) {
             Module selectedModule = table.getSelectionModel().getSelectedItem();
             ModuleEditController controller = (ModuleEditController) ViewManager.newWindow("ModuleEdit.fxml");
-            controller.setProduct(selectedModule);
+            controller.setModule(selectedModule);
             controller.setParentController(this);
         }else {
             Alert nullWarning = new Alert(Alert.AlertType.WARNING, "请选中表格中一个产品");

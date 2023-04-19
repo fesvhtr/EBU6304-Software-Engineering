@@ -83,20 +83,20 @@ public class TypeManagementController implements Initializable {
         }
         if (c == Module.class) {
             title.setText("Module Type Management");
-            list.setItems(productTypeObservableList);
+            list.setItems(moduleTypeObservableList);
         }
     }
 
-    private ObservableList<Type> productTypeObservableList = FXCollections.observableArrayList();
+    private ObservableList<Type> moduleTypeObservableList = FXCollections.observableArrayList();
     private ObservableList<Type> deviceTypeObservableList = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        productTypeObservableList.clear();
+        moduleTypeObservableList.clear();
         deviceTypeObservableList.clear();
-        List<Type> productTypes = ModuleType.getInstance().getTypes();
+        List<Type> moduleTypes = ModuleType.getInstance().getTypes();
         List<Type> deviceTypes = ActivityType.getInstance().getTypes();
-        for (Type t : productTypes) {
-            productTypeObservableList.add(t);
+        for (Type t : moduleTypes) {
+            moduleTypeObservableList.add(t);
         }
         for (Type t : deviceTypes) {
             deviceTypeObservableList.add(t);

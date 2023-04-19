@@ -77,16 +77,16 @@ public class ModuleTypeManagementController implements Initializable {
         configureButton.setVisible(false);
     }
 
-    private ObservableList<Type> productTypeObservableList = FXCollections.observableArrayList();
+    private ObservableList<Type> moduleTypeObservableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        productTypeObservableList.clear();
-        List<Type> productTypes = ModuleType.getInstance().getTypes();
-        for (Type t : productTypes) {
-            productTypeObservableList.add(t);
+        moduleTypeObservableList.clear();
+        List<Type> moduleTypes = ModuleType.getInstance().getTypes();
+        for (Type t : moduleTypes) {
+            moduleTypeObservableList.add(t);
         }
         title.setText("Module Type Management");
-        list.setItems(productTypeObservableList);
+        list.setItems(moduleTypeObservableList);
     }
 }

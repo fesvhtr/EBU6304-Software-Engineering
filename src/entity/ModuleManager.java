@@ -22,17 +22,17 @@ public class ModuleManager {
         return singletonInstance;
     }
 
-    public void addProduct(Module module) {
+    public void addModule(Module module) {
         modules.add(module);
         FileOperator.writeData(module, "Modules.json");
     }
 
-    public void delProduct(Module module) {
+    public void delModule(Module module) {
         modules.remove(module);
         FileOperator.writeData(modules, "Modules.json");
     }
 
-    public List<Module> getProducts() {
+    public List<Module> getModules() {
         return modules;
     }
 

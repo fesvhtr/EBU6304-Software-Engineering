@@ -64,7 +64,7 @@
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="productTypeButton" layoutY="248.0" onAction="#showProductType" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Types" textFill="WHITE">
+            <JFXButton fx:id="moduleTypeButton" layoutY="248.0" onAction="#showModuleType" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Types" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
@@ -72,7 +72,7 @@
                   <FontAwesomeIconView glyphName="SITEMAP" glyphStyle="-fx-fill:#fff" size="20" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="productInfoButton" layoutY="289.0" onAction="#showProductInfo" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Info" textFill="WHITE">
+            <JFXButton fx:id="moduleInfoButton" layoutY="289.0" onAction="#showModuleInfo" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Info" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>

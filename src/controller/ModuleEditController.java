@@ -70,9 +70,9 @@ public class ModuleEditController implements Initializable {
         }
         String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
         if (inModule != null) {
-            ModuleManager.getInstance().delProduct(inModule);
+            ModuleManager.getInstance().delModule(inModule);
         }
-        ModuleManager.getInstance().addProduct(new Module(id, name, type, spec, description));
+        ModuleManager.getInstance().addModule(new Module(id, name, type, spec, description));
         moduleInfoController.initialize(null,null);
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New Module saved");
         info.showAndWait();
@@ -85,7 +85,7 @@ public class ModuleEditController implements Initializable {
         moduleInfoController = controller;
     }
 
-    public void setProduct(Module module) {
+    public void setModule(Module module) {
         inModule = module;
         idField.setText(module.getId());
         nameField.setText(module.getName());

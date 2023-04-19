@@ -88,7 +88,7 @@ public class ActivityEditController implements Initializable {
         activityInfoController = controller;
     }
 
-    public void setProduct(Activity activity) {
+    public void setModule(Activity activity) {
         inActivity = activity;
         titleField.setText(activity.getTitle());
         roleField.setText(activity.getRole());

@@ -29,10 +29,10 @@ public class StudentMenuController {
     private JFXButton factoryInfoButton;
 
     @FXML
-    private JFXButton productTypeButton;
+    private JFXButton moduleTypeButton;
 
     @FXML
-    private JFXButton productInfoButton;
+    private JFXButton moduleInfoButton;
 
     @FXML
     private FontAwesomeIconView exitButton;
@@ -64,12 +64,12 @@ public class StudentMenuController {
     }
 
     @FXML
-    void showProductInfo(ActionEvent event) {
+    void showModuleInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ModuleInfo.fxml"));
     }
 
     @FXML
-    void showProductType(ActionEvent event) {
+    void showModuleType(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ModuleTypeManagement.fxml"));
     }
 
