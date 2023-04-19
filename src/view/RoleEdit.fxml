@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeviceEditController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoleEditController">
     <children>
         <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -77,11 +77,6 @@
                     <children>
                         <JFXTextField fx:id="specField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="设备规格" GridPane.rowIndex="3" />
                             <JFXTextField fx:id="nameField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Type" GridPane.rowIndex="1" />
-<!--                        <JFXComboBox fx:id="typeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Start Date" styleClass="ComboBox" stylesheets="@Stylesheet.css" GridPane.rowIndex="2">-->
-<!--                            <GridPane.margin>-->
-<!--                                <Insets left="10.0" />-->
-<!--                            </GridPane.margin>-->
-<!--                        </JFXComboBox>-->
                         <JFXTextField fx:id="idField" disable="true" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Start Date" />
                         <JFXTextField fx:id="descriptionField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="End Date" GridPane.rowIndex="4" />
                   <JFXTextField fx:id="userField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Description" GridPane.rowIndex="5" />

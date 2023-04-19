@@ -20,79 +20,9 @@ import java.util.ResourceBundle;
 
 public class UserManagementController implements Initializable {
 
-    @FXML
-    private TableView<AbstractUser> table;
-
-    @FXML
-    private TableColumn<AbstractUser, String> accountCol;
-
-    @FXML
-    private TableColumn<AbstractUser, String> nameCol;
-
-    @FXML
-    private TableColumn<AbstractUser, String> contactCol;
-
-    @FXML
-    private TableColumn<AbstractUser, String> roleCol;
-
-
-    @FXML
-    void delUser(ActionEvent event) {
-        int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            AbstractUser selectedUser = table.getSelectionModel().getSelectedItem();
-            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"确定删除" + selectedUser.getName() + "吗？");
-            delWarning.setHeaderText("删除确认");
-            delWarning.setTitle("稍等下。。");
-            delWarning.showAndWait().ifPresent(response ->{
-                if (response == ButtonType.OK) {
-                    table.getItems().remove(selectedUser);
-                    UserManager.getInstance().remove(selectedUser);
-                }
-            });
-        } else {
-            Alert nullwarning = new Alert(Alert.AlertType.WARNING, "请选中表格中一个人");
-            nullwarning.setTitle("提示：未选中任何项哦");
-            nullwarning.setHeaderText("没有一个人被选中要删除");
-            nullwarning.show();
-        }
-    }
-
-    @FXML
-    void editUser(ActionEvent event) {
-        int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            AbstractUser selectedUser = table.getSelectionModel().getSelectedItem();
-            UserEditController controller = (UserEditController) ViewManager.newWindow("UserEdit.fxml");
-            controller.setUser(selectedUser);
-            controller.setParentController(this);
-        } else {
-            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "请选中表格中一个人");
-            nullWarning.setTitle("提示：未选中任何项哦");
-            nullWarning.setHeaderText("没有一个人被选中要编辑");
-            nullWarning.show();
-        }
-    }
-
-    @FXML
-    void newUser(ActionEvent event) {
-
-    }
-
-    private ObservableList<AbstractUser> userObservableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        userObservableList.clear();
-        List<Student> students = UserManager.getInstance().getSuperAdmins();
-        for (Student sa : students) {
-            userObservableList.add(sa);
-        }
-        table.setItems(userObservableList);
-        accountCol.setCellValueFactory(new PropertyValueFactory<AbstractUser, String>("account"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<AbstractUser, String>("name"));
-        contactCol.setCellValueFactory(new PropertyValueFactory<AbstractUser, String>("contact"));
-        roleCol.setCellValueFactory(new PropertyValueFactory<AbstractUser, String>("role"));
-    }
 
+    }
 }

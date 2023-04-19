@@ -77,7 +77,7 @@ public class TypeManagementController implements Initializable {
     }
 
     public void listFlush (Class<?> c) {
-        if (c == Device.class) {
+        if (c == Role.class) {
             title.setText("Equipment Type Management");
             list.setItems(deviceTypeObservableList);
         }

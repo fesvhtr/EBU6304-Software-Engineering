@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class DeviceEditController implements Initializable {
+public class RoleEditController implements Initializable {
     @FXML
     private FontAwesomeIconView exitButton;
 
@@ -44,7 +44,7 @@ public class DeviceEditController implements Initializable {
     private JFXToggleButton isOwnedToggle;
 
     private RoleInfoController deviceManagementController;
-    private Device inDevice;
+    private Role inRole;
 
     @FXML
     void close(MouseEvent event) {
@@ -77,10 +77,10 @@ public class DeviceEditController implements Initializable {
             return;
         }
         String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
-        if (inDevice != null) {
-            DeviceManager.getInstance().delDevice(inDevice);
+        if (inRole != null) {
+            RoleManager.getInstance().delDevice(inRole);
         }
-        DeviceManager.getInstance().addDevice(new Device(name, type, description, spec, "已关机", user, isRent, isOwned));
+        RoleManager.getInstance().addDevice(new Role(name, type, description, spec, "已关机", user, isRent, isOwned));
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New role have been successfully saved!");
         info.showAndWait();
         deviceManagementController.initialize(null,null);
@@ -91,14 +91,14 @@ public class DeviceEditController implements Initializable {
     public void setParentController(RoleInfoController controller) {
         deviceManagementController = controller;
     }
-    public void setDevice(Device device) {
-        inDevice = device;
-        idField.setText(device.getId());
-        nameField.setText(device.getName());
-        specField.setText(device.getSpec());
-        descriptionField.setText(device.getDescription());
-        userField.setText(device.getUser());
-        isOwnedToggle.setSelected(device.isOwned());
+    public void setDevice(Role role) {
+        inRole = role;
+        idField.setText(role.getId());
+        nameField.setText(role.getName());
+        specField.setText(role.getSpec());
+        descriptionField.setText(role.getDescription());
+        userField.setText(role.getUser());
+        isOwnedToggle.setSelected(role.isOwned());
     }
 
     @Override

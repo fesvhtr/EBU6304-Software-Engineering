@@ -19,7 +19,7 @@ public class UserManager {
     }
 
     private UserManager() {
-        students = FileOperator.loadData("SuperAdmins.json", Student.class);
+        students = FileOperator.loadData("Student.json", Student.class);
     }
 
     /**

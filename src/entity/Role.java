@@ -2,10 +2,8 @@ package entity;
 
 import util.IdGenerator;
 
-import java.util.List;
 
-
-public class Device {
+public class Role {
     private final String id;
     private String name;
     private String type;
@@ -23,7 +21,7 @@ public class Device {
 
     private String rentStatus;
 
-    public Device(String name, String type, String description, String spec, String status, String user, boolean isRent, boolean isOwned) {
+    public Role(String name, String type, String description, String spec, String status, String user, boolean isRent, boolean isOwned) {
         this.name = name;
         this.type = type;
         this.description = description;
