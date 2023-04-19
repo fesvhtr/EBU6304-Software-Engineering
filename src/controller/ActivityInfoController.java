@@ -103,18 +103,18 @@ public class ActivityInfoController implements Initializable {
     }
 
 
-    private ObservableList<String> deviceTypeObservableList = FXCollections.observableArrayList();
+    private ObservableList<String> activityTypeObservableList = FXCollections.observableArrayList();
 
     private ObservableList<Activity> activityObservableList = FXCollections.observableArrayList();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        deviceTypeObservableList.clear();
+        activityTypeObservableList.clear();
         List<Type> activityTypes = ActivityType.getInstance().getTypes();
         for (Type t : activityTypes) {
 
-            deviceTypeObservableList.add(t.toString());
+            activityTypeObservableList.add(t.toString());
         }
         title.setText("Activity Information Management");
 
@@ -143,7 +143,7 @@ public class ActivityInfoController implements Initializable {
                 return cell;
             }
         });
-        list.setItems(deviceTypeObservableList);
+        list.setItems(activityTypeObservableList);
 
         list.getSelectionModel().selectFirst();
 

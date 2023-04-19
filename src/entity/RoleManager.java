@@ -9,7 +9,7 @@ public class RoleManager {
     private static RoleManager singletonInstance;
 
     private RoleManager() {
-        roles = FileOperator.loadData("Devices.json", Role.class);
+        roles = FileOperator.loadData("Roles.json", Role.class);
     }
 
     //实现单例模式
@@ -20,17 +20,17 @@ public class RoleManager {
         return singletonInstance;
     }
 
-    public void addDevice(Role role) {
+    public void addRole(Role role) {
         roles.add(role);
-        FileOperator.writeData(role, "Devices.json");
+        FileOperator.writeData(role, "Roles.json");
     }
 
-    public void delDevice(Role role) {
+    public void delRole(Role role) {
         roles.remove(role);
-        FileOperator.writeData(roles, "Devices.json");
+        FileOperator.writeData(roles, "Roles.json");
     }
 
-    public List<Role> getDevices() {
+    public List<Role> getRoles() {
         return roles;
     }
 }
