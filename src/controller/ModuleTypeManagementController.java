@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import view.ViewManager;
 
 import java.net.URL;
 import java.util.List;
@@ -63,6 +64,7 @@ public class ModuleTypeManagementController implements Initializable {
         configureButton.setVisible(true);
 
     }
+
 
     @FXML
     void configureHandled(ActionEvent event) {

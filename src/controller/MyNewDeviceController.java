@@ -71,7 +71,7 @@ public class MyNewDeviceController implements Initializable {
         if (inDevice != null) {
             DeviceManager.getInstance().delDevice(inDevice);
         }
-        DeviceManager.getInstance().addDevice(new Device(name, type, description, spec, "已关机", UserManager.getInstance().getCurrentUser().getName(), false, true));
+        DeviceManager.getInstance().addDevice(new Device(name,  description, spec, "已关机", UserManager.getInstance().getCurrentUser().getName()));
         Alert info = new Alert(Alert.AlertType.INFORMATION,"新的设备已添加");
         info.showAndWait();
         myDeviceController.initialize(null, null);
@@ -94,7 +94,7 @@ public class MyNewDeviceController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
         idField.setText("PRO" + IdGenerator.getCode());
-        List<Type> types = DeviceType.getInstance().getTypes();
+        List<Type> types = ActivityType.getInstance().getTypes();
         for (Type t : types) {
             typeObservableList.add(t);
         }

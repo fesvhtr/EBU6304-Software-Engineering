@@ -59,34 +59,29 @@ public class DeviceEditController implements Initializable {
 
     @FXML
     void saveHandled(ActionEvent event) {
-        String id = idField.getText();
+//        String id = idField.getText();
         String name = nameField.getText();
         String spec = specField.getText();
         String description = descriptionField.getText();
         String user = userField.getText();
-        boolean isOwned = isOwnedToggle.isSelected();
-        boolean isRent = false;
-        if (!isOwned && !user.equals("")) {
-            isRent = true;
-        }
+//        boolean isOwned = isOwnedToggle.isSelected();
+//        boolean isRent = false;
+//        if (!isOwned && !user.equals("")) {
+//            isRent = true;
+//        }
 
         if (name.equals("") || spec.equals("") || description.equals("") ) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "核对一下再试试吧");
-            alert.setHeaderText("信息输入不能有空值");
-            alert.show();
-            return;
-        } else if (typeComboBox.getSelectionModel().getSelectedItem() == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "核对一下再试试吧");
-            alert.setHeaderText("设备类别未选择");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Try again");
+            alert.setHeaderText("Empty Value is not allowed.");
             alert.show();
             return;
         }
-        String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
+//        String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
         if (inDevice != null) {
             DeviceManager.getInstance().delDevice(inDevice);
         }
-        DeviceManager.getInstance().addDevice(new Device(name, type, description, spec, "已关机", user, isRent, isOwned));
-        Alert info = new Alert(Alert.AlertType.INFORMATION,"新的设备信息保存成功");
+        DeviceManager.getInstance().addDevice(new Device(name,  description, spec, "已关机", user));
+        Alert info = new Alert(Alert.AlertType.INFORMATION,"New role have been successfully saved!");
         info.showAndWait();
         deviceManagementController.initialize(null,null);
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
@@ -109,11 +104,11 @@ public class DeviceEditController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
-        idField.setText("PRO" + IdGenerator.getCode());
-        List<Type> types = DeviceType.getInstance().getTypes();
-        for (Type t : types) {
-            typeObservableList.add(t);
-        }
-        typeComboBox.setItems(typeObservableList);
+//        idField.setText("PRO" + IdGenerator.getCode());
+//        List<Type> types = DeviceType.getInstance().getTypes();
+//        for (Type t : types) {
+//            typeObservableList.add(t);
+//        }
+//        typeComboBox.setItems(typeObservableList);
     }
 }

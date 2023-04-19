@@ -46,7 +46,7 @@ public class TypeManagementController implements Initializable {
                 if (response == ButtonType.OK) {
                     list.getItems().remove(selectedType);
                     ModuleType.getInstance().removeType(selectedType);
-                    DeviceType.getInstance().removeType(selectedType);
+                    ActivityType.getInstance().removeType(selectedType);
                     initialize(null, null);
                 }
             });
@@ -69,7 +69,7 @@ public class TypeManagementController implements Initializable {
     void configureHandled(ActionEvent event) {
         if (newTypeField.getText().equals("")) return;
         if (title.getText().equals("Equipment Type Management")) {
-            DeviceType.getInstance().addType(newTypeField.getText());
+            ActivityType.getInstance().addType(newTypeField.getText());
         } else if (title.getText().equals("Module Type Management")) {
             ModuleType.getInstance().addType(newTypeField.getText());
         }
@@ -97,7 +97,7 @@ public class TypeManagementController implements Initializable {
         productTypeObservableList.clear();
         deviceTypeObservableList.clear();
         List<Type> productTypes = ModuleType.getInstance().getTypes();
-        List<Type> deviceTypes = DeviceType.getInstance().getTypes();
+        List<Type> deviceTypes = ActivityType.getInstance().getTypes();
         for (Type t : productTypes) {
             productTypeObservableList.add(t);
         }

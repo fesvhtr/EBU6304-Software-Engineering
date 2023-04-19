@@ -17,6 +17,8 @@
           <TableColumn fx:id="nameCol" prefWidth="75.0" text="Module Name" />
             <TableColumn fx:id="typeCol" prefWidth="75.0" text="Module Type" />
             <TableColumn fx:id="specCol" prefWidth="75.0" text="Credit Hours" />
+            <TableColumn fx:id="creditCol" prefWidth="75.0" text="Credit" />
+            <TableColumn fx:id="markCol" prefWidth="75.0" text="Mark" />
             <TableColumn fx:id="descriptionCol" prefWidth="75.0" text="Module Description" />
         </columns>
          <columnResizePolicy>
