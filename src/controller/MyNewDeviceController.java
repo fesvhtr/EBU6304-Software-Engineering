@@ -71,7 +71,7 @@ public class MyNewDeviceController implements Initializable {
         if (inDevice != null) {
             DeviceManager.getInstance().delDevice(inDevice);
         }
-        DeviceManager.getInstance().addDevice(new Device(name, type, description, spec, "已关机", UserManager.getInstance().getCurrentUser().getName(), false, true));
+        DeviceManager.getInstance().addDevice(new Device(name,  description, spec, "已关机", UserManager.getInstance().getCurrentUser().getName()));
         Alert info = new Alert(Alert.AlertType.INFORMATION,"新的设备已添加");
         info.showAndWait();
         myDeviceController.initialize(null, null);

@@ -8,3 +8,4 @@
 {"id":"DEV200723006125487","name":"智能设备","type":"铣床","description":"一种不可描述的设备","spec":"x啥都能造41","status":"已关闭","user":"","isOwned":false,"isRent":false,"resource":"租用设备","rentStatus":"未被租用"}
 {"id":"DEV200724111052360","name":"2313","type":"213","description":"233","spec":"3213","status":"已关机","user":"232e","isOwned":false,"isRent":true,"resource":"租用设备","rentStatus":"已被租用"}
 {"id":"DEV200724111245804","name":"123","type":"车床","description":"43242","spec":"21312","status":"已关机","user":"王多鱼","isOwned":true,"isRent":false,"resource":"自有设备","rentStatus":"工厂设备"}
+{"id":"DEV230419000242382","name":"8888888888888888","description":"888888888888888888","spec":"8888888888888888","status":"宸插叧鏈�","user":"8888888888888888888","isOwned":false,"isRent":false}

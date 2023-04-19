@@ -78,14 +78,14 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <JFXTextField fx:id="specField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="设备规格" GridPane.rowIndex="3" />
+                        <JFXTextField fx:id="specField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Start date" GridPane.rowIndex="3" />
                             <JFXTextField fx:id="nameField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Type" GridPane.rowIndex="1" />
 <!--                        <JFXComboBox fx:id="typeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Start Date" styleClass="ComboBox" stylesheets="@Stylesheet.css" GridPane.rowIndex="2">-->
 <!--                            <GridPane.margin>-->
 <!--                                <Insets left="10.0" />-->
 <!--                            </GridPane.margin>-->
 <!--                        </JFXComboBox>-->
-                        <JFXTextField fx:id="idField" disable="true" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Start Date" />
+<!--                        <JFXTextField fx:id="idField" disable="true" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Start Date" />-->
                         <JFXTextField fx:id="descriptionField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="End Date" GridPane.rowIndex="4" />
                   <JFXTextField fx:id="userField" focusColor="#01b3e9" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Description" GridPane.rowIndex="5" />
 <!--                  <JFXToggleButton fx:id="isOwnedToggle" text="自有设备" toggleColor="#01b3e9" toggleLineColor="#7ee4f1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />-->

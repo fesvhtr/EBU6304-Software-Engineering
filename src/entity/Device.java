@@ -26,27 +26,15 @@ public class Device {
 
     private String rentStatus;
 
-    public Device(String name, String type, String description, String spec, String status, String user, boolean isRent, boolean isOwned) {
+    public Device(String name,  String description, String spec, String status, String user) {
         this.name = name;
-        this.type = type;
+
         this.description = description;
         this.spec = spec;
         this.status = status;
         this.user = user;
         id = "DEV" + IdGenerator.getCode();
-        this.isRent = isRent;
-        this.isOwned = isOwned;
-        if (isOwned) {
-            resource = "自有设备";
-            rentStatus = "工厂设备";
-        } else {
-            resource = "租用设备";
-        }
-        if (!isOwned && isRent) {
-            rentStatus = "已被租用";
-        } else if (!isOwned && !isRent) {
-            rentStatus = "未被租用";
-        }
+
     }
 
     public String getId() {

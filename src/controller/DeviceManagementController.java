@@ -144,16 +144,14 @@ public class DeviceManagementController implements Initializable {
         }
         table.setItems(deviceObservableList);
 //        idCol.setCellValueFactory(new PropertyValueFactory<Device, String>("id"));
-//        nameCol.setCellValueFactory(new PropertyValueFactory<Device, String>("name"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<Device, String>("name"));
 //        typeCol.setCellValueFactory(new PropertyValueFactory<Device, String>("type"));
-//        specCol.setCellValueFactory(new PropertyValueFactory<Device, String>("spec"));
-//        descriptionCol.setCellValueFactory(new PropertyValueFactory<Device, String>("description"));
+        specCol.setCellValueFactory(new PropertyValueFactory<Device, String>("spec"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<Device, String>("description"));
 //        statusCol.setCellValueFactory(new PropertyValueFactory<Device, String>("status"));
 //        rentStatusCol.setCellValueFactory(new PropertyValueFactory<Device, String>("rentStatus"));
-//        userCol.setCellValueFactory(new PropertyValueFactory<Device, String>("user"));
-        idCol.setCellValueFactory(new PropertyValueFactory<Device, String>("id"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<Device, String>("name"));
-        typeCol.setCellValueFactory(new PropertyValueFactory<Device, String>("type"));
+        userCol.setCellValueFactory(new PropertyValueFactory<Device, String>("user"));
+
 
     }
 
