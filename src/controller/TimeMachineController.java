@@ -33,9 +33,9 @@ public class TimeMachineController {
     private Button downloadButton;
     @FXML
     private Button uploadButton;
-    private final String activityFilePath = "D:\\school\\swe\\lab\\Group73-master\\Group73\\data\\Activities.json";
-    private final String rolesFilePath = "D:\\school\\swe\\lab\\Group73-master\\Group73\\data\\Roles.json";
-    private final String modulesFilePath= "D:\\school\\swe\\lab\\Group73-master\\Group73\\data\\Modules.json";
+    private final String activityFilePath = "data\\Activities.json";
+    private final String rolesFilePath = "data\\Roles.json";
+    private final String modulesFilePath= "data\\Modules.json";
     private final String rolesFileFormat = "\\{\"title\":\"[^\"]*\",\"startDate\":\"[^\"]*\",\"endDate\":\"[^\"]*\",\"description\":\"[^\"]*\"\\}";
     private final String activitiesFileFormat = "\\{\"title\":\"[^\"]*\",\"role\":\"[^\"]*\",\"startDate\":\"[^\"]*\",\"endDate\":\"[^\"]*\",\"type\":\"[^\"]*\"\\}";
     private final String modulesFileFormat = "\\{\"id\":\"[^\"]*\",\"name\":\"[^\"]*\",\"type\":\"[^\"]*\",\"spec\":\"[^\"]*\",\"description\":\"[^\"]*\",\"mark\":\"[^\"]*\",\"credit\":\"[^\"]*\"\\}";

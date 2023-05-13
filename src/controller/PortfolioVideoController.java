@@ -26,7 +26,7 @@ public class PortfolioVideoController {
 
     @FXML
     private void initialize() {
-        String videoFile = "D:\\school\\swe\\lab\\Group73-master\\Group73\\data\\video\\guiwu.mp4";
+        String videoFile = "data\\video\\guiwu.mp4";
         Media media = new Media(new File(videoFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaView.setMediaPlayer(mediaPlayer);
