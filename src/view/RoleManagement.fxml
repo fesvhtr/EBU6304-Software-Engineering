@@ -21,6 +21,13 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <HBox layoutX="469.0" layoutY="69.0" spacing="20.0">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#newHandled" style="-fx-background-color: D80085;" text="Add New" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" onAction="#delHandled" style="-fx-background-color: D80085;" text="Delete" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" onAction="#editHandled" style="-fx-background-color: D80085;" text="Edit" textFill="WHITE" />
+         </children>
+      </HBox>
       <Label layoutX="53.0" layoutY="69.0" text="Roles Undertaken">
          <font>
             <Font name="Calibri" size="25.0" />

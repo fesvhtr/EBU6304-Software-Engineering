@@ -54,4 +54,49 @@ public class RoleInfoController implements Initializable {
         desCol.setCellValueFactory(new PropertyValueFactory<Role, String >("description"));
     }
 
+    @FXML
+    void delHandled(ActionEvent event) {
+        int selectedIndex = table.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            Role selectedRole = table.getSelectionModel().getSelectedItem();
+            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to delete" + selectedRole.getTitle() + "?");
+            delWarning.setHeaderText("Delete confirm.");
+            delWarning.setTitle("Please waiting.");
+            delWarning.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    table.getItems().remove(selectedRole);
+                    RoleManager.getInstance().delRole(selectedRole);
+                    initialize(null, null);
+                }
+            });
+        } else {
+            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
+            nullWarning.setTitle("ATTENTION: No item");
+            nullWarning.setHeaderText("No item has benn selected.");
+            nullWarning.show();
+        }
+    }
+
+    @FXML
+    void editHandled(ActionEvent event) {
+        int selectedIndex = table.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            Role selectedRole = table.getSelectionModel().getSelectedItem();
+            RoleEditController controller = (RoleEditController) ViewManager.newWindow("RoleEdit.fxml");
+            controller.setRole(selectedRole);
+            controller.setParentController(this);
+        }else {
+            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
+            nullWarning.setTitle("ATTENTION: No item");
+            nullWarning.setHeaderText("No item has benn selected.");
+            nullWarning.show();
+        }
+    }
+
+    @FXML
+    void newHandled(ActionEvent event) {
+        RoleEditController controller = (RoleEditController) ViewManager.newWindow("RoleEdit.fxml");
+        controller.setParentController(this);
+    }
+
 }

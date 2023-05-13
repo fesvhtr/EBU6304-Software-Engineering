@@ -33,6 +33,10 @@ public class StudentMenuController {
 
     @FXML
     private JFXButton productInfoButton;
+    @FXML
+    private JFXButton timeMachineButton;
+    @FXML
+    private JFXButton portfolioButton;
 
     @FXML
     private FontAwesomeIconView exitButton;
@@ -42,6 +46,12 @@ public class StudentMenuController {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
+
+    @FXML
+    void showPortfolios(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("PortfoliosVideo.fxml"));}
+
+    @FXML
+    void showTimeMachine(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("TimeMachine.fxml"));}
 
     @FXML
     void showDeviceManagement(ActionEvent event) {

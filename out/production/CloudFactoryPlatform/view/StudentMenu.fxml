@@ -25,7 +25,24 @@
                <graphic>
                   <FontAwesomeIconView glyphName="SITEMAP" glyphStyle="-fx-fill:#fff" size="20" />
                </graphic></JFXButton>
-                <JFXButton fx:id="OrderInfoButton" layoutY="462.0" onAction="#showOrderInfo" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Others" textFill="WHITE">
+<!--                <JFXButton fx:id="timeMachineButton" layoutY="400.0" onAction="#showTimeMachine" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Time Machine" textFill="WHITE">-->
+<!--                    <font>-->
+<!--                        <Font name="Microsoft YaHei UI" size="16.0" />-->
+<!--                    </font>-->
+<!--                    <graphic>-->
+<!--                        <FontAwesomeIconView glyphName="LAPTOP" glyphStyle="-fx-fill:#fff" size="20" />-->
+<!--                    </graphic>-->
+<!--                </JFXButton>-->
+
+<!--                <JFXButton fx:id="OrderInfoButton" layoutY="462.0" onAction="#showOrderInfo" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Others" textFill="WHITE">-->
+<!--                    <font>-->
+<!--                        <Font name="Microsoft YaHei UI" size="16.0" />-->
+<!--                    </font>-->
+<!--                    <graphic>-->
+<!--                        <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" text="" />-->
+<!--                    </graphic>-->
+<!--                </JFXButton>-->
+                <JFXButton fx:id="timeMachineButton" layoutY="462.0" onAction="#showTimeMachine" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Time Machine" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei UI" size="16.0" />
                     </font>
@@ -33,11 +50,20 @@
                         <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" text="" />
                     </graphic>
                 </JFXButton>
-                <Label layoutX="116.0" layoutY="434.0" prefHeight="22.0" prefWidth="70.0" text="Others" textFill="WHITE">
+                <JFXButton fx:id="portfolioButton" layoutY="520" onAction="#showPortfolios" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Portfolios" textFill="WHITE">
                     <font>
-                        <Font name="Arial Black" size="19.0" />
+                        <Font name="Microsoft YaHei UI" size="16.0" />
                     </font>
-                </Label>
+                    <graphic>
+                        <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" text="" />
+                    </graphic>
+                </JFXButton>
+<!--                -->
+<!--                <Label layoutX="116.0" layoutY="434.0" prefHeight="22.0" prefWidth="70.0" text="Others" textFill="WHITE">-->
+<!--                    <font>-->
+<!--                        <Font name="Arial Black" size="19.0" />-->
+<!--                    </font>-->
+<!--                </Label>-->
                 <JFXButton fx:id="userManagementButton" layoutY="94.0" onAction="#showUserManagement" prefHeight="34.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #6E7F91;" text="User Information" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei UI" size="16.0" />
@@ -93,6 +119,7 @@
                   <FontAwesomeIconView glyphName="LAPTOP" glyphStyle="-fx-fill:#fff" size="20" />
                </graphic>
             </JFXButton>
+
             </children></AnchorPane>
     </left>
     <top>
