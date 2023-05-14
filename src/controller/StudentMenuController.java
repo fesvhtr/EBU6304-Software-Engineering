@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,9 @@ public class StudentMenuController {
 
     @FXML
     private BorderPane rootLayout;
+
+    @FXML
+    private JFXTextField textField;
 
     @FXML
     private JFXButton deviceManageButton;
@@ -88,4 +92,7 @@ public class StudentMenuController {
         rootLayout.setCenter(ViewManager.getPane("UserManagement.fxml"));
     }
 
+    public void search(MouseEvent mouseEvent) {
+        System.out.println(textField.getText());
+    }
 }
