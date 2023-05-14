@@ -11,17 +11,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.web.WebView?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.PortfolioVideoController"
+            fx:controller="controller.PortfolioViewController"
             prefHeight="400.0" prefWidth="600.0">
+
     <FontAwesomeIconView fx:id="exitButton" accessibleRole="BUTTON" glyphName="CLOSE" layoutX="455.0" layoutY="39.0" onMouseClicked="#close" size="30" />
+
     <MediaView fx:id="mediaView"/>
+<!--    <ImageView fx:id="imageView" layoutX="455.0" layoutY="39.0" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />-->
+<!--    <WebView fx:id="webView" layoutX="455.0" layoutY="39.0" prefHeight="600" prefWidth="800" />-->
+
     <HBox>
-        <Button fx:id="playVideoButton" text="Play/Pause" />
+        <Button fx:id="playVideoButton" text="Play/Pause" onAction="#setMediaStatus"/>
 <!--        <Button text="Pause" onAction="#pause"/>-->
 <!--        <Button text="Stop" onAction="#stop"/>-->
     </HBox>
+    <Label fx:id="storePathLabel" visible="false"/>
 
 
 </AnchorPane>

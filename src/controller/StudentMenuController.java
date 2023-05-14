@@ -48,7 +48,7 @@ public class StudentMenuController {
     }
 
     @FXML
-    void showPortfolios(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("PortfoliosVideo.fxml"));}
+    void showPortfolios(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("Portfolio.fxml"));}
 
     @FXML
     void showTimeMachine(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("TimeMachine.fxml"));}

@@ -1,0 +1,22 @@
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.PortfolioViewController"
+            prefHeight="700" prefWidth="700">
+    <ImageView fx:id="imageView"  fitHeight="300" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+    <FontAwesomeIconView fx:id="exitButton" accessibleRole="BUTTON" glyphName="CLOSE" layoutX="455.0" layoutY="39.0" onMouseClicked="#close" size="30" />
+
+
+    <!--    <WebView fx:id="webView" layoutX="455.0" layoutY="39.0" prefHeight="600" prefWidth="800" />-->
+
+
+
+
+
+</AnchorPane>
