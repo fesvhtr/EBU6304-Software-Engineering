@@ -14,6 +14,7 @@ import view.ViewManager;
 
 public class StudentMenuController {
 
+    public JFXButton SettingButton;
     @FXML
     private BorderPane rootLayout;
 
@@ -90,6 +91,11 @@ public class StudentMenuController {
     @FXML
     void showUserManagement(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("UserManagement.fxml"));
+    }
+    
+    @FXML
+    void showSetting(ActionEvent event) {
+        rootLayout.setCenter(ViewManager.getPane("Setting.fxml"));
     }
 
     public void search(MouseEvent mouseEvent) {
