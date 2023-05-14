@@ -9,11 +9,19 @@ import java.net.URL;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
+import entity.UserConfigManager;
 
 
 public class GPTController {
     public static String generateText(String prompt) {
-        String api = "sk-xxxxxxxxx";
+
+        if (prompt.equals("")){
+            return "Input is null";
+        }
+
+        String api = UserConfigManager.getInstance().getUserConfig().getGptApi();
+        String model = UserConfigManager.getInstance().getUserConfig().getGptModel();
+        int maxToken = UserConfigManager.getInstance().getUserConfig().getGptTokens();
         String proxyHost = "localhost";
         int proxyPort = 7890;
 
@@ -25,7 +33,8 @@ public class GPTController {
         String authorization = "Bearer "+ api;
 
         JSONObject postData = new JSONObject();
-        postData.put("model", "gpt-3.5-turbo");
+        postData.put("model", model);
+        postData.put("max_tokens", maxToken);
         postData.put("messages", new JSONObject[]{new JSONObject().put("role", "user").put("content", prompt)});
         postData.put("temperature", 0.7);
         try {
@@ -63,7 +72,7 @@ public class GPTController {
             return messageObject.getStr("content");
 
         } catch (IOException e) {
-            return e.toString();
+            return "There is something wrong with the network or your api";
         }
     }
 

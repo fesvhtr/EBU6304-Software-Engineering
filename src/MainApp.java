@@ -16,7 +16,6 @@ public class MainApp extends Application {
     private double yOffSet;
 
     public static void main(String[] args) {
-
         launch(args);
     }
 
