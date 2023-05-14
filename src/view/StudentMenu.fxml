@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +10,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<?import com.jfoenix.controls.JFXTextField?>
 <BorderPane fx:id="rootLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-border-color: #999999;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentMenuController">
     <left>
         <AnchorPane prefHeight="664.0" prefWidth="301.0" style="-fx-background-color: #394C60; -fx-background-radius: 0 100 0 0;" BorderPane.alignment="CENTER">
@@ -120,7 +120,7 @@
                   <FontAwesomeIconView glyphName="LAPTOP" glyphStyle="-fx-fill:#fff" size="20" />
                </graphic>
             </JFXButton>
-            <Label layoutX="118.0" layoutY="461.0" text="Others" textFill="WHITE">
+            <Label layoutX="115.0" layoutY="462.0" text="Others" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="19.0" />
                </font>
@@ -152,8 +152,8 @@
                 <FontAwesomeIconView glyphName="SELLSY" glyphStyle="-fx-fill:#394C60" layoutX="64.0" layoutY="67.0" size="50" />
                 <HBox alignment="CENTER_RIGHT" layoutX="474.0" layoutY="30.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #BEBFC1;">
                     <children>
-                        <JFXTextField fx:id="textField" promptText="请输入内容" />
-                        <JFXButton fx:id="searchButton" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER" onMouseClicked="#search">
+                        <JFXTextField fx:id="textField" prefHeight="23.0" prefWidth="253.0" promptText="Input your query here." />
+                        <JFXButton fx:id="searchButton" onMouseClicked="#search" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
                             <graphic>
                                 <FontAwesomeIconView glyphName="SEARCH" glyphStyle="-fx-fill:#999999" size="20" text="">
                                     <HBox.margin>
