@@ -18,7 +18,7 @@
                         <Font name="Arial Black" size="19.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="deviceTypeManageButton" layoutY="357.0" onAction="#showDeviceTypeManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Activity Management" textFill="WHITE">
+                <JFXButton fx:id="deviceTypeManageButton" layoutY="373.0" onAction="#showDeviceTypeManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Activity Management" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei UI" size="16.0" />
                     </font>
@@ -42,7 +42,7 @@
 <!--                        <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" text="" />-->
 <!--                    </graphic>-->
 <!--                </JFXButton>-->
-                <JFXButton fx:id="timeMachineButton" layoutY="462.0" onAction="#showTimeMachine" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Time Machine" textFill="WHITE">
+                <JFXButton fx:id="timeMachineButton" layoutY="499.0" onAction="#showTimeMachine" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Time Machine" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei UI" size="16.0" />
                     </font>
@@ -50,7 +50,7 @@
                         <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" text="" />
                     </graphic>
                 </JFXButton>
-                <JFXButton fx:id="portfolioButton" layoutY="520" onAction="#showPortfolios" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Portfolios" textFill="WHITE">
+                <JFXButton fx:id="portfolioButton" layoutY="541.0" onAction="#showPortfolios" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Portfolios" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei UI" size="16.0" />
                     </font>
@@ -85,12 +85,12 @@
                   <FontAwesomeIconView glyphName="CUBES" glyphStyle="-fx-fill:#fff" size="20" />
                </graphic>
             </JFXButton>
-            <Label layoutX="108.0" layoutY="216.0" prefHeight="32.0" prefWidth="103.0" text="In-Course" textFill="WHITE">
+            <Label layoutX="101.0" layoutY="217.0" prefHeight="32.0" prefWidth="103.0" text="In-Course" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="productTypeButton" layoutY="248.0" onAction="#showProductType" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Types" textFill="WHITE">
+            <JFXButton fx:id="productTypeButton" layoutY="249.0" onAction="#showProductType" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Types" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
@@ -106,17 +106,35 @@
                   <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#fff" size="20" />
                </graphic>
             </JFXButton>
-            <Label layoutX="74.0" layoutY="323.0" text="ExtraCurriculum" textFill="WHITE">
+            <Label layoutX="74.0" layoutY="335.0" text="ExtraCurriculum" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="deviceManageButton" layoutY="400.0" onAction="#showDeviceManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Roles Undertaken" textFill="WHITE">
+            <JFXButton fx:id="deviceManageButton" layoutY="416.0" onAction="#showDeviceManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Roles Undertaken" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView glyphName="LAPTOP" glyphStyle="-fx-fill:#fff" size="20" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="118.0" layoutY="461.0" text="Others" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="107.0" layoutY="587.0" text="Settings" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="19.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="SettingButton" layoutY="622.0" onAction="#showSetting" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Settings" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI" size="16.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" text="" />
                </graphic>
             </JFXButton>
 

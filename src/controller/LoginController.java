@@ -49,15 +49,18 @@ public class LoginController implements Initializable {
         String password = passwordField.getText();
         if (account.equals("") && password.equals("")) {
         } else if (account.indexOf(" ") >= 0 || password.indexOf(" ") >= 0) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "核对一下再试试吧");
-            alert.setHeaderText("用户名和密码都不能包含空格“ ”");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Check and try again");
+            alert.setHeaderText("Both username and password cannot contain spaces");
             alert.show();
         } else if (roleGroup.getSelectedToggle() == superAdminButton && UserManager.getInstance().CheckLogin(account, password, 3)) {
             ViewManager.newWindow("StudentMenu.fxml");
             System.out.println("student"+account+"log in");
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "核对一下再试试吧\n注：\n经销商账号321、654、987\n云厂主账号123、456、789\n超级管理员账号888\n所有密码同账号");
-            alert.setHeaderText("账号或密码错误");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Check it and try again\n" +
+                    "Notes:\n" +
+                    "Account number 888\n" +
+                    "All passwords with the same account number");
+            alert.setHeaderText("Wrong account or password");
             alert.show();
         }
 

@@ -16,8 +16,8 @@
                 <Font size="29.0" />
             </font>
         </Label>
-        <JFXListView fx:id="list" layoutX="42.0" layoutY="166.0" prefHeight="400.0" prefWidth="165.0" showTooltip="true" />
-        <TableView fx:id="table" layoutX="225.0" layoutY="107.0" prefHeight="518.0" prefWidth="450.0">
+        <JFXListView fx:id="list" layoutX="64.0" layoutY="108.0" prefHeight="518.0" prefWidth="165.0" showTooltip="true" />
+        <TableView fx:id="table" layoutX="250.0" layoutY="108.0" prefHeight="518.0" prefWidth="450.0">
             <columns>
                 <TableColumn fx:id="acCol" prefWidth="200.0" text="Activity" />
                 <TableColumn fx:id="roleCol" prefWidth="75.0" text="Role" />
