@@ -9,15 +9,56 @@ import java.net.URL;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
+import entity.ModuleManager;
 import entity.UserConfigManager;
+
+import javax.swing.*;
 
 
 public class GPTController {
+
+    public static String mapPrompt(String oldPrompt, String mapItem){
+        oldPrompt = oldPrompt + " ";
+        String content = "content";
+        String split = "";
+        if (mapItem.equals("&module&")){
+            split = "&module&";
+        } else if(mapItem.equals("&activity&")){
+            split= "&activity&";
+        }else if (mapItem.equals("&role&")){
+            split="&role&";
+        }
+        String[] strs = oldPrompt.split(mapItem);
+        if (strs.length == 0){
+            return content;
+        }
+        String result = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            result = result + content;
+            result = result + strs[i];
+        }
+        return result;
+    }
+
+    public static String refreshPrompt(String oldPrompt){
+        String newPrompt = oldPrompt;
+        if(oldPrompt.contains("&module&")){
+            newPrompt = mapPrompt(oldPrompt, "&module&");
+        }
+        if (oldPrompt.contains("&activity&")) {
+            newPrompt = mapPrompt(oldPrompt, "&activity&");
+        }
+        if (oldPrompt.contains("&role&")){
+            newPrompt = mapPrompt(oldPrompt, "&role&");
+        }
+        return newPrompt;
+    }
     public static String generateText(String prompt) {
 
         if (prompt.equals("")){
             return "Input is null";
         }
+        String newPrompt = refreshPrompt(prompt);
 
         String api = UserConfigManager.getInstance().getUserConfig().getGptApi();
         String model = UserConfigManager.getInstance().getUserConfig().getGptModel();
@@ -35,7 +76,7 @@ public class GPTController {
         JSONObject postData = new JSONObject();
         postData.put("model", model);
         postData.put("max_tokens", maxToken);
-        postData.put("messages", new JSONObject[]{new JSONObject().put("role", "user").put("content", prompt)});
+        postData.put("messages", new JSONObject[]{new JSONObject().put("role", "user").put("content", newPrompt)});
         postData.put("temperature", 0.7);
         try {
 
