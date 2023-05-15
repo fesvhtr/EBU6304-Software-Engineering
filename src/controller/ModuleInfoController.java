@@ -49,7 +49,7 @@ public class ModuleInfoController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         moduleObservableList.clear();
-        List<Module> modules = ModuleManager.getInstance().getProducts();
+        List<Module> modules = ModuleManager.getInstance().getModule();
         for (Module p : modules) {
             moduleObservableList.add(p);
         }
@@ -79,7 +79,7 @@ public class ModuleInfoController implements Initializable {
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     table.getItems().remove(selectedModule);
-                    ModuleManager.getInstance().delProduct(selectedModule);
+                    ModuleManager.getInstance().delModule(selectedModule);
                     initialize(null, null);
                 }
             });
