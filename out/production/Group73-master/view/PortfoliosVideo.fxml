@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="600.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PortfolioViewController">
+   <Pane layoutY="1.0" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <Pane layoutX="-117.0" layoutY="-248.0" prefHeight="453.0" prefWidth="300.0" rotate="-35.0" style="-fx-background-color: #EFECE7; -fx-background-radius: 50px;">
+            <children>
+               <Label layoutX="80.0" layoutY="344.0" text="Video" textFill="#394c60">
+                  <font>
+                     <Font name="Calibri Bold" size="44.0" />
+                  </font>
+               </Label>
+               <Label layoutX="96.0" layoutY="392.0" text="Viewer" textFill="#394c60">
+                  <font>
+                     <Font name="Ebrima Bold" size="23.0" />
+                  </font>
+               </Label>
+            </children>
+            <effect>
+               <Blend>
+                  <bottomInput>
+                     <Shadow color="#00000086" height="100.0" radius="49.5" width="100.0" />
+                  </bottomInput>
+               </Blend>
+            </effect>
+         </Pane>
+         <Pane layoutX="175.0" layoutY="192.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #EFECE7; -fx-background-radius: 200px;">
+            <effect>
+               <Blend>
+                  <bottomInput>
+                     <Shadow color="#00000086" height="100.0" radius="49.5" width="100.0" />
+                  </bottomInput>
+               </Blend>
+            </effect>
+         </Pane>
+         <Pane layoutX="5.0" layoutY="508.0" prefHeight="84.0" prefWidth="291.0" rotate="55.0" style="-fx-background-color: #EFECE7; -fx-background-radius: 200px;">
+            <effect>
+               <Blend>
+                  <bottomInput>
+                     <Shadow color="#00000086" height="100.0" radius="49.5" width="100.0" />
+                  </bottomInput>
+               </Blend>
+            </effect>
+         </Pane>
+      </children>
+   </Pane>
+   <AnchorPane layoutX="300.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+      
+                <FontAwesomeIconView fx:id="exitButton" accessibleRole="BUTTON" glyphName="CLOSE" layoutX="450.0" layoutY="45.0" onMouseClicked="#close" size="30" />
+         <JFXButton fx:id="playVideoButton" buttonType="RAISED" layoutX="100.0" layoutY="509.0" onAction="#setMediaStatus" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #6E7F91;" text="Play/Pause" textFill="WHITE">
+            <font>
+               <Font name="Impact" size="20.0" />
+            </font>
+         </JFXButton>
+          <Label fx:id="storePathLabel" visible="false" />
+      
+                <MediaView fx:id="mediaView" fitHeight="400.0" fitWidth="400.0" layoutX="50.0" layoutY="65.0" />
+      </children>
+   </AnchorPane>
+
+
+</AnchorPane>

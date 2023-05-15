@@ -104,8 +104,7 @@ public class StudentMenuController {
     }
 
     public void search(MouseEvent mouseEvent) {
-        System.out.println(textField.getText());
-//        System.out.println(GPTController.generateText(textField.getText()));
-        System.out.println(GPTController.refreshPrompt(textField.getText()));
+        String response = GPTController.generateText(textField.getText());
+        System.out.println(response);
     }
 }

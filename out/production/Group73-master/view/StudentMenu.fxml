@@ -152,7 +152,7 @@
                 <FontAwesomeIconView glyphName="SELLSY" glyphStyle="-fx-fill:#394C60" layoutX="64.0" layoutY="67.0" size="50" />
                 <HBox alignment="CENTER_RIGHT" layoutX="474.0" layoutY="30.0" prefHeight="40.0" prefWidth="350.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #BEBFC1;">
                     <children>
-                        <JFXTextField fx:id="textField" prefHeight="23.0" prefWidth="253.0" promptText="Ask anything. Use &amp;&amp; to refer to your information." />
+                        <JFXTextField fx:id="textField" prefHeight="23.0" prefWidth="253.0" promptText="Input your query here." />
                         <JFXButton fx:id="searchButton" onMouseClicked="#search" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
                             <graphic>
                                 <FontAwesomeIconView glyphName="SEARCH" glyphStyle="-fx-fill:#999999" size="20" text="">
