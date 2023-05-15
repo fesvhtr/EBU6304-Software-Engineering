@@ -25,8 +25,8 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="newTypeField" focusColor="#d80085" labelFloat="true" layoutX="480.0" layoutY="170.0" promptText="Input new module type name" visible="false" />
-      <JFXButton fx:id="configureButton" layoutX="664.0" layoutY="156.0" onAction="#configureHandled" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #D80085;" text="Confirm" textFill="WHITE" visible="false">
+      <JFXTextField fx:id="newTypeField" focusColor="#d80085" labelFloat="true" layoutX="611.0" layoutY="170.0" promptText="Input new module type name" visible="false" />
+      <JFXButton fx:id="configureButton" layoutX="790.0" layoutY="156.0" onAction="#configureHandled" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #D80085;" text="Confirm" textFill="WHITE" visible="false">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>

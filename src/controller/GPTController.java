@@ -10,10 +10,7 @@ import java.util.Objects;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
-import entity.ActivityManager;
-import entity.ModuleManager;
-import entity.RoleManager;
-import entity.UserConfigManager;
+import entity.*;
 import util.GsonUtil;
 
 import javax.swing.*;
@@ -34,6 +31,9 @@ public class GPTController {
         }else if (mapItem.equals("&role&")){
             split="&role&";
             content = "roles :" + GsonUtil.toJson(RoleManager.getInstance().getRoles());
+        } else if (mapItem.equals("&skill&")) {
+            split = "&skill&";
+            content = "skills: " + GsonUtil.toJson(SkillManager.getInstance().getSkills());
         }
         String[] strs = oldPrompt.split(mapItem);
         if (strs.length == 0){
@@ -58,6 +58,9 @@ public class GPTController {
         if (oldPrompt.contains("&role&")){
             newPrompt = mapPrompt(oldPrompt, "&role&");
         }
+        if(oldPrompt.contains("&skill&")){
+            newPrompt = mapPrompt(oldPrompt, "&skill&");
+        }
         return newPrompt;
     }
     public static String generateText(String prompt) {
@@ -78,7 +81,7 @@ public class GPTController {
         String apiUrl = "https://api.openai.com/v1/chat/completions";
 
         String contentType = "application/json";
-        String authorization = "Bearer "+ api;
+        String authorization = "Bearer " + api;
 
         JSONObject postData = new JSONObject();
         postData.put("model", model);
@@ -97,12 +100,9 @@ public class GPTController {
 
             conn.setDoOutput(true);
 
-
             conn.getOutputStream().write(postData.toString().getBytes());
 
-
             conn.connect();
-
 
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String inputLine;
@@ -120,6 +120,7 @@ public class GPTController {
             return messageObject.getStr("content");
 
         } catch (IOException e) {
+            System.out.println(e.toString());
             return "There is something wrong with the network or your api";
         }
     }
