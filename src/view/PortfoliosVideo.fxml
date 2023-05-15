@@ -57,7 +57,7 @@
    <AnchorPane layoutX="300.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
       
-                <FontAwesomeIconView fx:id="exitButton" accessibleRole="BUTTON" glyphName="CLOSE" layoutX="450.0" layoutY="45.0" onMouseClicked="#close" size="30" />
+                <FontAwesomeIconView fx:id="exitButton" accessibleRole="BUTTON" glyphName="CLOSE" layoutX="450.0" layoutY="45.0" onMouseClicked="#closeVideo" size="30" />
          <JFXButton fx:id="playVideoButton" buttonType="RAISED" layoutX="100.0" layoutY="509.0" onAction="#setMediaStatus" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #6E7F91;" text="Play/Pause" textFill="WHITE">
             <font>
                <Font name="Impact" size="20.0" />
