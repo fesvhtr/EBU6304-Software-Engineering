@@ -74,12 +74,12 @@
                         <FontAwesomeIconView glyphName="USERS" glyphStyle="-fx-fill:#fff" size="20" />
                     </graphic>
                 </JFXButton>
-            <Label layoutX="40.0" layoutY="139.0" text="Skills" textFill="WHITE">
+            <Label layoutX="40.0" layoutY="139.0" text="Skills &amp; Achievements" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="factoryInfoButton" layoutY="175.0" onAction="#showFactoryInfo" prefHeight="34.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #6E7F91;" text="Skills &amp; Achievements" textFill="WHITE">
+            <JFXButton fx:id="factoryInfoButton" layoutY="175.0" onAction="#showFactoryInfo" prefHeight="34.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #6E7F91;" text="Skills" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
@@ -139,7 +139,7 @@
                   <FontAwesomeIconView glyphName="PASTE" glyphStyle="-fx-fill:#fff" size="20" text="" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="achievementInfoButton" layoutY="217.0" onAction="#showAchievementInfo" prefHeight="34.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #6E7F91;" text="Achievement Info" textFill="WHITE">
+            <JFXButton fx:id="achievementInfoButton" layoutY="217.0" onAction="#showAchievementInfo" prefHeight="34.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #6E7F91;" text="Achievements" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
