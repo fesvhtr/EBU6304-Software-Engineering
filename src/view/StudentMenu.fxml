@@ -141,7 +141,7 @@
                     </font>
                 </Label>
                 <FontAwesomeIconView glyphName="SELLSY" glyphStyle="-fx-fill:#394C60" layoutX="25.0" layoutY="67.0" size="50" />
-                <HBox alignment="CENTER_RIGHT" layoutX="305.0" layoutY="34.0" prefHeight="40.0" prefWidth="313.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #BEBFC1;">
+                <HBox alignment="CENTER_RIGHT" layoutX="305.0" layoutY="24.0" prefHeight="50.0" prefWidth="313.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #BEBFC1;">
                     <children>
                         <JFXTextField fx:id="textField" prefHeight="23.0" prefWidth="253.0" promptText="Ask anything. Use &amp;&amp; to refer to your information." />
                         <JFXButton fx:id="searchButton" onMouseClicked="#search" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
