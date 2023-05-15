@@ -1,4 +1,4 @@
-{"type":"programming","source":"Module","description":"Java Course"}
-{"type":"academic writing","source":"Module","description":"Communication skills"}
-{"type":"Listening","source":"Activity","description":"IELTS"}
-{"type":"programming","source":"LaLALa","description":"Shamiko"}
+{"type":"Programming","sourceType":"Module","source":"Introductory Java Programming","description":"2022Spring"}
+{"type":"English","sourceType":"Activity","source":"IELTS","description":"2023Spring"}
+{"type":"Mathematics","sourceType":"Module","source":"Linear Algebra","description":"2020Fall"}
+{"type":"Academic writing","sourceType":"Module","source":"Enterprise management","description":"Shamiko"}

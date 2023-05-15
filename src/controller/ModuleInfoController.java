@@ -73,9 +73,9 @@ public class ModuleInfoController implements Initializable {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             Module selectedModule = table.getSelectionModel().getSelectedItem();
-            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"确定删除" + selectedModule.getName() + "吗？");
-            delWarning.setHeaderText("删除确认");
-            delWarning.setTitle("稍等下。。");
+            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"Confirm to delete " + selectedModule.getName() + "?");
+            delWarning.setHeaderText("delete confirmed");
+            delWarning.setTitle("Hold on..");
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     table.getItems().remove(selectedModule);
@@ -84,9 +84,9 @@ public class ModuleInfoController implements Initializable {
                 }
             });
         } else {
-            Alert nullwarning = new Alert(Alert.AlertType.WARNING, "请选中表格中一个产品");
-            nullwarning.setTitle("提示：未选中任何项哦");
-            nullwarning.setHeaderText("没有一个产品被选中要删除");
+            Alert nullwarning = new Alert(Alert.AlertType.WARNING, "Please select a module");
+            nullwarning.setTitle("No item selected");
+            nullwarning.setHeaderText("No module to delete");
             nullwarning.show();
         }
 
@@ -98,12 +98,12 @@ public class ModuleInfoController implements Initializable {
         if (selectedIndex >= 0) {
             Module selectedModule = table.getSelectionModel().getSelectedItem();
             ModuleEditController controller = (ModuleEditController) ViewManager.newWindow("ModuleEdit.fxml");
-            controller.setProduct(selectedModule);
+            controller.setModule(selectedModule);
             controller.setParentController(this);
         }else {
-            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "请选中表格中一个产品");
-            nullWarning.setTitle("提示：未选中任何项哦");
-            nullWarning.setHeaderText("没有一个产品被选中要编辑");
+            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select a module");
+            nullWarning.setTitle("No item selected");
+            nullWarning.setHeaderText("No module to edit");
             nullWarning.show();
         }
     }

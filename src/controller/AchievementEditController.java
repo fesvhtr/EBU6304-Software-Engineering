@@ -26,6 +26,8 @@ public class AchievementEditController implements Initializable
     private FontAwesomeIconView exitButton;
 
     @FXML
+    private JFXComboBox<String> sourceTypeComboBox;
+    @FXML
     private JFXComboBox<String> sourceComboBox;
 
     @FXML
@@ -37,14 +39,46 @@ public class AchievementEditController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        ObservableList<String> sourceObservableList = FXCollections.observableArrayList();
+        ObservableList<String> sourceTypeObservableList = FXCollections.observableArrayList();
         List<String> sources = new ArrayList<>();
         sources.add("Module");
         sources.add("Activity");
         for (String s : sources) {
-            sourceObservableList.add(s);
+            sourceTypeObservableList.add(s);
         }
-        sourceComboBox.setItems(sourceObservableList);
+        sourceTypeComboBox.setItems(sourceTypeObservableList);
+
+        sourceTypeComboBox.setOnAction(event ->
+        {
+            // Clear the items in the sourceComboBox
+            sourceComboBox.getItems().clear();
+
+            // Get the selected type from the sourceTypeComboBox
+            String selectedType = sourceTypeComboBox.getSelectionModel().getSelectedItem();
+            ObservableList<String> sourceObservableList = FXCollections.observableArrayList();
+            // Update the sourceComboBox based on the selected type
+            if (selectedType != null)
+            {
+                if (selectedType.toString().equals("Module"))
+                {
+                    List<Module> modules = ModuleManager.getInstance().getModule();
+                    for(Module t : modules)
+                    {
+                        sourceObservableList.add(t.getName());
+                    }
+                }
+                else if (selectedType.toString().equals("Activity"))
+                {
+                    List<Activity> activities = ActivityManager.getInstance().getActivities();
+                    for(Activity t : activities)
+                    {
+                        sourceObservableList.add(t.getTitle());
+                    }
+                }
+                sourceComboBox.setItems(sourceObservableList);
+
+            }
+        });
     }
 
     @FXML
@@ -66,6 +100,13 @@ public class AchievementEditController implements Initializable
     void saveHandled(ActionEvent event) {
         String description = descriptionField.getText();
 
+        if (sourceTypeComboBox.getSelectionModel().getSelectedItem() == null)
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
+            alert.setHeaderText("No type is selected");
+            alert.show();
+            return;
+        }
         if (sourceComboBox.getSelectionModel().getSelectedItem() == null)
         {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
@@ -73,11 +114,13 @@ public class AchievementEditController implements Initializable
             alert.show();
             return;
         }
-        String source = sourceComboBox.getSelectionModel().getSelectedItem().toString();
+        
+        String sourceType = sourceTypeComboBox.getSelectionModel().getSelectedItem();
+        String source = sourceComboBox.getSelectionModel().getSelectedItem();
         if (inAchievement != null) {
             AchievementManager.getInstance().delAchievement(inAchievement);
         }
-        AchievementManager.getInstance().addAchievement(new Achievement(source, description));
+        AchievementManager.getInstance().addAchievement(new Achievement(sourceType, source, description));
         achievementInfoController.initialize(null,null);
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New achievement saved");
         info.showAndWait();

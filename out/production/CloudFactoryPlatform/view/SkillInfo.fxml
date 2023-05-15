@@ -20,7 +20,8 @@
       <TableView fx:id="table" layoutX="225.0" layoutY="107.0" prefHeight="518.0" prefWidth="450.0">
          <columns>
             <TableColumn fx:id="typeCol" prefWidth="200.0" text="Skill" />
-            <TableColumn fx:id="sourceCol" prefWidth="75.0" text="Module/Activity" />
+            <TableColumn fx:id="sourceTypeCol" prefWidth="75.0" text="Module/Activity" />
+            <TableColumn fx:id="sourceCol" prefWidth="75.0" text="Source" />
             <TableColumn fx:id="descriptionCol" prefWidth="75.0" text="Description" />
          </columns>
          <columnResizePolicy>

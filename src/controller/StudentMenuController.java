@@ -36,6 +36,9 @@ public class StudentMenuController {
     private JFXButton factoryInfoButton;
 
     @FXML
+    private JFXButton achievementInfoButton;
+
+    @FXML
     private JFXButton productTypeButton;
 
     @FXML
@@ -76,7 +79,8 @@ public class StudentMenuController {
     }
 
     @FXML
-    void showAchievementInfo(ActionEvent event) {
+    void showAchievementInfo(ActionEvent event)
+    {
         rootLayout.setCenter(ViewManager.getPane("AchievementInfo.fxml"));
     }
 

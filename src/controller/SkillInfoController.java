@@ -37,6 +37,8 @@ public class SkillInfoController implements Initializable {
     private TableColumn<Skill, String> typeCol;
 
     @FXML
+    private TableColumn<Skill, String> sourceTypeCol;
+    @FXML
     private TableColumn<Skill, String> sourceCol;
 
     @FXML
@@ -103,6 +105,7 @@ public class SkillInfoController implements Initializable {
         list.getSelectionModel().selectFirst();
 
         typeCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("type"));
+        sourceTypeCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("sourceType"));
         sourceCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("source"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("description"));
     }

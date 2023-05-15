@@ -9,7 +9,6 @@ public class ModuleType {
     private List<Type> types;
     private static ModuleType singletonInstance;
 
-    // 实现单例模式：只有一个ProductType被创建
     public static ModuleType getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new ModuleType();

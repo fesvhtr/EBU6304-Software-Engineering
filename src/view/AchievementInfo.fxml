@@ -12,8 +12,9 @@
     <children>
         <TableView fx:id="table" layoutX="25.0" layoutY="108.0" prefHeight="518.0" prefWidth="818.0">
             <columns>
+                <TableColumn fx:id="sourceTypeCol" prefWidth="75.0" text="Module/Activity" />
                 <TableColumn fx:id="sourceCol" prefWidth="75.0" text="Source" />
-                <TableColumn fx:id="descriptionCol" prefWidth="91.5" text="Module Description" />
+                <TableColumn fx:id="descriptionCol" prefWidth="91.5" text="Description" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

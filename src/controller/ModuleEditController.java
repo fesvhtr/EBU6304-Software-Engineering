@@ -85,7 +85,7 @@ public class ModuleEditController implements Initializable {
         moduleInfoController = controller;
     }
 
-    public void setProduct(Module module) {
+    public void setModule(Module module) {
         inModule = module;
         idField.setText(module.getId());
         nameField.setText(module.getName());

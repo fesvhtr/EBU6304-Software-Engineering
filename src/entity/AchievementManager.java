@@ -10,7 +10,7 @@ public class AchievementManager
     private static AchievementManager singletonInstance;
     private AchievementManager()
     {
-        achievements = FileOperator.loadData("Achievements.json", Skill.class);
+        achievements = FileOperator.loadData("Achievements.json", Achievement.class);
     }
 
     public static AchievementManager getInstance()

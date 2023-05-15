@@ -2,22 +2,19 @@ package controller;
 
 import entity.Achievement;
 import entity.AchievementManager;
-import entity.Module;
-import entity.ModuleManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import view.ViewManager;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -25,6 +22,8 @@ public class AchievementInfoController implements Initializable
 {
     @FXML
     private TableView<Achievement> table;
+    @FXML
+    private TableColumn<Achievement, String> sourceTypeCol;
     @FXML
     private TableColumn<Achievement, String> sourceCol;
     @FXML
@@ -34,12 +33,15 @@ public class AchievementInfoController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         achievementObservableList.clear();
-        List<Achievement> modules = AchievementManager.getInstance().getAchievements();
-        for (Achievement a : modules) {
+
+        List<Achievement> achievements = AchievementManager.getInstance().getAchievements();
+        for (Achievement a : achievements)
+        {
             achievementObservableList.add(a);
         }
         table.setItems(achievementObservableList);
-        sourceCol.setCellValueFactory(new PropertyValueFactory<Achievement, String>("credit"));
+        sourceTypeCol.setCellValueFactory(new PropertyValueFactory<Achievement, String>("sourceType"));
+        sourceCol.setCellValueFactory(new PropertyValueFactory<Achievement, String>("source"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Achievement, String>("description"));
     }
 
@@ -54,9 +56,10 @@ public class AchievementInfoController implements Initializable
     @FXML
     void delHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
+        if (selectedIndex >= 0)
+        {
             Achievement selectedAchievement = table.getSelectionModel().getSelectedItem();
-            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"Confirm to delete achievement in " + selectedAchievement.getSource() + "?");
+            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"Confirm to delete achievement in " + selectedAchievement.getSourceType() + "?");
             delWarning.setHeaderText("Delete confirmation");
             delWarning.setTitle("Hold on");
             delWarning.showAndWait().ifPresent(response ->
@@ -81,7 +84,8 @@ public class AchievementInfoController implements Initializable
     @FXML
     void editHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
+        if (selectedIndex >= 0)
+        {
             Achievement selectedAchievement = table.getSelectionModel().getSelectedItem();
             AchievementEditController controller = (AchievementEditController) ViewManager.newWindow("AchievementEdit.fxml");
             controller.setAchievement(selectedAchievement);

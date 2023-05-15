@@ -1,3 +1,4 @@
-{"id":"PRO230415175306190","name":"M2","type":"Public Elective Courses","spec":"235","description":"123","mark":100.0, "credit": 2.5}
-{"id":"PRO230415175241254","name":"M1","type":"Compulsory Courses","spec":"25","description":"m1","mark":90, "credit": 2}
-{"id":"PRO230415175241257","name":"M12","type":"Compulsory Courses","spec":"25","description":"m22","mark":59, "credit": 2}
+{"id":"3412110079","name":"About the Forbidden City","type":"Public Elective Courses","spec":"235","description":"Online","mark":100.0,"credit":2.0}
+{"id":"3512164021","name":"Linear Algebra","type":"Compulsory Courses","spec":"25","description":"2020Fall","mark":90.0,"credit":3.0}
+{"id":"EBU5402","name":"Enterprise management","type":"Compulsory Courses","spec":"25","description":"2021Fall","mark":59.0,"credit":2.5}
+{"id":"EBU4201","name":"Introductory Java Programming","type":"Compulsory Courses","spec":"25","description":"2022Spring","mark":59.0,"credit":4.0}

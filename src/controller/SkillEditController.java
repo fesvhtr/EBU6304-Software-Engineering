@@ -120,6 +120,20 @@ public class SkillEditController implements Initializable
             alert.show();
             return;
         }
+        if (sourceTypeComboBox.getSelectionModel().getSelectedItem() == null)
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
+            alert.setHeaderText("No type is selected");
+            alert.show();
+            return;
+        }
+        if (sourceComboBox.getSelectionModel().getSelectedItem() == null)
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
+            alert.setHeaderText("No type is selected");
+            alert.show();
+            return;
+        }
         String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
         String sourceType = sourceTypeComboBox.getSelectionModel().getSelectedItem();
         String source = sourceComboBox.getSelectionModel().getSelectedItem();
