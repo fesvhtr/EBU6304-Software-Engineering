@@ -27,7 +27,9 @@ public class ModuleEditController implements Initializable {
     private FontAwesomeIconView exitButton;
 
     @FXML
-    private JFXTextField specField;
+    private JFXTextField creditField;
+    @FXML
+    private JFXTextField markField;
 
     @FXML
     private JFXTextField descriptionField;
@@ -54,15 +56,19 @@ public class ModuleEditController implements Initializable {
     void saveHandled(ActionEvent event) {
         String id = idField.getText();
         String name = nameField.getText();
-        String spec = specField.getText();
+        String credit = creditField.getText();
+        String mark = markField.getText();
         String description = descriptionField.getText();
 
-        if (name.equals("") || spec.equals("") || description.equals("") ) {
+        if (name.equals("") || credit.equals("") || description.equals("") || mark.equals(""))
+        {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
             alert.setHeaderText("Can't be null");
             alert.show();
             return;
-        } else if (typeComboBox.getSelectionModel().getSelectedItem() == null) {
+        }
+        else if (typeComboBox.getSelectionModel().getSelectedItem() == null)
+        {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
             alert.setHeaderText("No type is selected");
             alert.show();
@@ -72,7 +78,7 @@ public class ModuleEditController implements Initializable {
         if (inModule != null) {
             ModuleManager.getInstance().delModule(inModule);
         }
-        ModuleManager.getInstance().addModule(new Module(id, name, type, spec, description));
+        ModuleManager.getInstance().addModule(new Module(id, name, type, Float.parseFloat(mark), Float.parseFloat(credit), description));
         moduleInfoController.initialize(null,null);
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New Module saved");
         info.showAndWait();
@@ -89,7 +95,8 @@ public class ModuleEditController implements Initializable {
         inModule = module;
         idField.setText(module.getId());
         nameField.setText(module.getName());
-        specField.setText(module.getSpec());
+        creditField.setText(String.format("%.2f", module.getCredit()));
+        markField.setText(String.format("%.2f", module.getMark()));
         descriptionField.setText(module.getDescription());
     }
 

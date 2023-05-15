@@ -32,9 +32,6 @@ public class ModuleInfoController implements Initializable {
 
     @FXML
     private TableColumn<Module, String> typeCol;
-
-    @FXML
-    private TableColumn<Module, String> specCol;
     @FXML
     private TableColumn<Module, String> creditCol;
     @FXML
@@ -57,7 +54,6 @@ public class ModuleInfoController implements Initializable {
         idCol.setCellValueFactory(new PropertyValueFactory<Module, String>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Module, String>("name"));
         typeCol.setCellValueFactory(new PropertyValueFactory<Module, String>("type"));
-        specCol.setCellValueFactory(new PropertyValueFactory<Module, String>("spec"));
         markCol.setCellValueFactory(new PropertyValueFactory<Module, String>("mark"));
         creditCol.setCellValueFactory(new PropertyValueFactory<Module, String>("credit"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Module, String>("description"));

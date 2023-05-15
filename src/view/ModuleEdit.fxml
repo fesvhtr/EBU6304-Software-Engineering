@@ -75,15 +75,16 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <JFXTextField fx:id="specField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Credit Hours" GridPane.rowIndex="3" />
+                        <JFXTextField fx:id="markField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Mark" GridPane.rowIndex="3" />
+                        <JFXTextField fx:id="creditField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Credit" GridPane.rowIndex="4" />
                         <JFXTextField fx:id="nameField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Module Name" GridPane.rowIndex="1" />
                   <JFXComboBox fx:id="typeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Module Type" styleClass="ComboBox" stylesheets="@Stylesheet.css" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </JFXComboBox>
-                  <JFXTextField fx:id="idField" disable="true" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Module No." />
-                  <JFXTextField fx:id="descriptionField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Module Description" GridPane.rowIndex="4" />
+                  <JFXTextField fx:id="idField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Module No." />
+                  <JFXTextField fx:id="descriptionField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Module Description" GridPane.rowIndex="5" />
                     </children>
                 </GridPane>
                 <JFXButton buttonType="RAISED" layoutX="107.0" layoutY="523.0" onAction="#saveHandled" prefHeight="31.0" prefWidth="280.0" style="-fx-background-color: #6E7F91;" styleClass="SaveButton" text="SAVE" textFill="WHITE">
