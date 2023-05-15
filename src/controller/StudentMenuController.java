@@ -70,7 +70,12 @@ public class StudentMenuController {
 
     @FXML
     void showFactoryInfo(ActionEvent event) {
-        rootLayout.setCenter(ViewManager.getPane("AcademicInfo.fxml"));
+        rootLayout.setCenter(ViewManager.getPane("SkillInfo.fxml"));
+    }
+
+    @FXML
+    void showAchievementInfo(ActionEvent event) {
+        rootLayout.setCenter(ViewManager.getPane("AchievementInfo.fxml"));
     }
 
     @FXML
