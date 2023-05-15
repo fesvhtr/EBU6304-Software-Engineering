@@ -95,10 +95,17 @@ public class PortfolioViewController {
 //        }
 //    }
 
+    @FXML
+    void closeVideo(MouseEvent event) {
+        mediaPlayer.stop();
+        Stage currentStage = (Stage) exitButton.getScene().getWindow();
+        currentStage.close();
+
+    }
 
     @FXML
     void close(MouseEvent event) {
-        mediaPlayer.stop();
+//        mediaPlayer.stop();
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
 
