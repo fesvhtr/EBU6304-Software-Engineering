@@ -171,9 +171,9 @@ public class ActivityInfoController implements Initializable {
                 }
             });
         } else {
-            Alert nullwarning = new Alert(Alert.AlertType.WARNING, "请选中表格中一个产品");
-            nullwarning.setTitle("提示：未选中任何项哦");
-            nullwarning.setHeaderText("没有一个产品被选中要删除");
+            Alert nullwarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
+            nullwarning.setTitle("ATTENTION: No item");
+            nullwarning.setHeaderText("No item has benn selected.");
             nullwarning.show();
         }
 
@@ -204,9 +204,9 @@ public class ActivityInfoController implements Initializable {
             controller.setProduct(selectedActivity);
             controller.setParentController(this);
         }else {
-            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "请选中表格中一个产品");
-            nullWarning.setTitle("提示：未选中任何项哦");
-            nullWarning.setHeaderText("没有一个ac被选中要编辑");
+            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
+            nullWarning.setTitle("ATTENTION: No item");
+            nullWarning.setHeaderText("No item has benn selected.");
             nullWarning.show();
         }
     }

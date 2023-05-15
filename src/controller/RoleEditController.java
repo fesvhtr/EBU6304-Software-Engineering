@@ -58,7 +58,7 @@ public class RoleEditController implements Initializable {
     void saveHandled(ActionEvent event) {
         String title = titleField.getText();
         String start = stratField.getText();
-        String description = des;
+        String description = descriptionField.getText();
         String end = endField.getText();
 
         if (title.equals("") || start.equals("")) {

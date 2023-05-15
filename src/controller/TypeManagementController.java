@@ -36,9 +36,9 @@ public class TypeManagementController implements Initializable {
         int selectedIndex = list.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             Type selectedType = list.getSelectionModel().getSelectedItem();
-            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"确定删除" + selectedType + "吗？");
-            delWarning.setHeaderText("删除确认");
-            delWarning.setTitle("稍等下。。");
+            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure to delete" + selectedType + "?");
+            delWarning.setHeaderText("Delete confirm.");
+            delWarning.setTitle("Please waiting.");
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     list.getItems().remove(selectedType);
@@ -48,9 +48,9 @@ public class TypeManagementController implements Initializable {
                 }
             });
         } else {
-            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "请选中表格中一项");
-            nullWarning.setTitle("提示：未选中任何项哦");
-            nullWarning.setHeaderText("没有一个被选中要删除");
+            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
+            nullWarning.setTitle("ATTENTION: No item");
+            nullWarning.setHeaderText("No item has benn selected.");
             nullWarning.show();
         }
     }
