@@ -10,7 +10,11 @@ import java.net.URL;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 //import entity.ModuleManager;
+import entity.ActivityManager;
+import entity.ModuleManager;
+import entity.RoleManager;
 import entity.UserConfigManager;
+import util.GsonUtil;
 
 import javax.swing.*;
 
@@ -23,10 +27,13 @@ public class GPTController {
         String split = "";
         if (mapItem.equals("&module&")){
             split = "&module&";
+            content = "modules: " + GsonUtil.toJson(ModuleManager.getInstance().getModule());
         } else if(mapItem.equals("&activity&")){
             split= "&activity&";
+            content = "activities :" + GsonUtil.toJson(ActivityManager.getInstance().getActivities());
         }else if (mapItem.equals("&role&")){
             split="&role&";
+            content = "roles :" + GsonUtil.toJson(RoleManager.getInstance().getRoles());
         }
         String[] strs = oldPrompt.split(mapItem);
         if (strs.length == 0){
