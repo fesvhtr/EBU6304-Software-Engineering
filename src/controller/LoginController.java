@@ -27,8 +27,7 @@ public class LoginController implements Initializable {
     private JFXPasswordField passwordField;
     @FXML
     private ToggleGroup roleGroup;
-    @FXML
-    RadioButton superAdminButton;
+
     @FXML
     private FontAwesomeIconView exitButton;
 
@@ -36,11 +35,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         roleGroup = new ToggleGroup();
-        superAdminButton.setToggleGroup(roleGroup);
-        superAdminButton.setOnAction(e -> {
-            accountTextFiield.setText("888");
-            passwordField.setText("888");
-        });
+
     }
 
     @FXML
@@ -52,7 +47,7 @@ public class LoginController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Check and try again");
             alert.setHeaderText("Both username and password cannot contain spaces");
             alert.show();
-        } else if (roleGroup.getSelectedToggle() == superAdminButton && UserManager.getInstance().CheckLogin(account, password, 3)) {
+        } else if ( UserManager.getInstance().CheckLogin(account, password, 3)) {
             ViewManager.newWindow("StudentMenu.fxml");
             System.out.println("student"+account+"log in");
         } else {

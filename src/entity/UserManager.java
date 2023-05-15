@@ -2,6 +2,7 @@ package entity;
 
 import util.FileOperator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,6 +21,11 @@ public class UserManager {
 
     private UserManager() {
         students = FileOperator.loadData("Student.json", Student.class);
+    }
+
+    public void changeStudentConfig(List<Student> student){
+        this.students = student;
+        FileOperator.writeData(student, "Student.json");
     }
 
     /**

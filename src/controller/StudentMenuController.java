@@ -5,11 +5,13 @@ import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import view.ViewManager;
 
+import java.awt.*;
 
 
 public class StudentMenuController {
@@ -97,14 +99,19 @@ public class StudentMenuController {
     void showUserManagement(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("UserManagement.fxml"));
     }
-    
+
     @FXML
     void showSetting(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("Setting.fxml"));
     }
 
+    @FXML
+    private TextArea gptTextArea;
+
     public void search(MouseEvent mouseEvent) {
-        String response = GPTController.generateText(textField.getText());
-        System.out.println(response);
+        System.out.println(textField.getText());
+        System.out.println(GPTController.generateText(textField.getText()));
+        gptTextArea.setText("Response: " + GPTController.generateText(textField.getText()));
+
     }
 }

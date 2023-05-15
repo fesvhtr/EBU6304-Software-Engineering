@@ -1,4 +1,5 @@
 
+import entity.UserConfigManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainApp extends Application {
 
@@ -21,7 +23,16 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent login = (Parent) FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
+
+        boolean use_psw = UserConfigManager.getInstance().getUserConfig().isNeedPassword();
+        System.out.println(use_psw);
+        Parent login = null;
+        if(use_psw){
+            login = (Parent) FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
+        }else {
+            login = (Parent) FXMLLoader.load(getClass().getResource("/view/StudentMenu.fxml"));
+        }
+
         Scene loginScene = new Scene(login);
         primaryStage.getIcons().add(new Image("view/image/icons8_google_cloud_print_48px.png"));
         login.setOnMousePressed(event -> {
