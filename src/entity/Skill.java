@@ -1,19 +1,16 @@
 package entity;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 public class Skill
 {
     private String type;
+    private String sourceType;
     private String source;
     private String description;
 
-    public Skill(String type, String source, String description)
+    public Skill(String type, String sourceType, String source, String description)
     {
         this.type = type;
+        this.sourceType = sourceType;
         this.source = source;
         this.description = description;
     }
@@ -26,6 +23,16 @@ public class Skill
     public void setType(String type)
     {
         this.type = type;
+    }
+
+    public String getSourceType()
+    {
+        return sourceType;
+    }
+
+    public void setSourceType(String sourceType)
+    {
+        this.sourceType = sourceType;
     }
 
     public String getSource()

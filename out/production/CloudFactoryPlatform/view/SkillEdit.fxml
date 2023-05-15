@@ -75,9 +75,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <JFXComboBox fx:id="typeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Skill Type" styleClass="ComboBox" stylesheets="@Stylesheet.css" GridPane.rowIndex="2">
+                        <JFXComboBox fx:id="typeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Skill Type" styleClass="ComboBox" stylesheets="@Stylesheet.css" GridPane.rowIndex="1">
                         </JFXComboBox>
-                        <JFXTextField fx:id="sourceField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Source" />
+                        <JFXComboBox fx:id="sourceTypeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Module/Activity" styleClass="ComboBox" stylesheets="@Stylesheet.css" GridPane.rowIndex="2">
+                        </JFXComboBox>
+                        <JFXComboBox fx:id="sourceComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Source" styleClass="ComboBox" stylesheets="@Stylesheet.css" GridPane.rowIndex="3">
+                        </JFXComboBox>
                         <JFXTextField fx:id="descriptionField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Description" GridPane.rowIndex="4" />
                     </children>
                 </GridPane>

@@ -190,7 +190,7 @@ public class SkillInfoController implements Initializable {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             Skill selectedSkill = table.getSelectionModel().getSelectedItem();
-            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"It will delete your skill " + selectedSkill.getType() + "in " +  selectedSkill.getSource());
+            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"It will delete your skill " + selectedSkill.getType() + "in " +  selectedSkill.getSourceType());
             delWarning.setHeaderText("Are you sure?");
             delWarning.setTitle("Warning");
             delWarning.showAndWait().ifPresent(response ->
