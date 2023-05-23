@@ -5,7 +5,10 @@ import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entity.UserManager;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -13,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import view.ViewManager;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,25 +43,26 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void loginHandled() {
-        String account = accountTextFiield.getText();
-        String password = passwordField.getText();
-        if (account.equals("") && password.equals("")) {
-        } else if (account.indexOf(" ") >= 0 || password.indexOf(" ") >= 0) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Check and try again");
-            alert.setHeaderText("Both username and password cannot contain spaces");
-            alert.show();
-        } else if ( UserManager.getInstance().CheckLogin(account, password, 3)) {
-            ViewManager.newWindow("StudentMenu.fxml");
-            System.out.println("student"+account+"log in");
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Check it and try again\n" +
-                    "Notes:\n" +
-                    "Account number 888\n" +
-                    "All passwords with the same account number");
-            alert.setHeaderText("Wrong account or password");
-            alert.show();
-        }
+    private void loginHandled() throws IOException {
+        ViewManager.newWindow("StudentMenu.fxml");
+//        String account = accountTextFiield.getText();
+//        String password = passwordField.getText();
+//        if (account.equals("") && password.equals("")) {
+//        } else if (account.indexOf(" ") >= 0 || password.indexOf(" ") >= 0) {
+//            Alert alert = new Alert(Alert.AlertType.WARNING, "Check and try again");
+//            alert.setHeaderText("Both username and password cannot contain spaces");
+//            alert.show();
+//        } else if ( UserManager.getInstance().CheckLogin(account, password, 3)) {
+//            ViewManager.newWindow("StudentMenu.fxml");
+//            System.out.println("student"+account+"log in");
+//        } else {
+//            Alert alert = new Alert(Alert.AlertType.WARNING, "Check it and try again\n" +
+//                    "Notes:\n" +
+//                    "Account number 888\n" +
+//                    "All passwords with the same account number");
+//            alert.setHeaderText("Wrong account or password");
+//            alert.show();
+//        }
 
 
     }

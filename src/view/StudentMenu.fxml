@@ -134,7 +134,7 @@
     <top>
         <AnchorPane prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
             <children>
-            <TextArea fx:id="gptTextArea" layoutX="635.0" layoutY="24.0" prefHeight="52.0" prefWidth="511.0" />
+            <TextArea fx:id="gptTextArea" editable="false" layoutX="635.0" layoutY="3.0" prefHeight="94.0" prefWidth="511.0" visible="false" />
                 <Label layoutX="102.0" layoutY="37.0" text="Hello Student!" textFill="#394c60">
                     <font>
                         <Font name="Microsoft YaHei UI Bold" size="25.0" />

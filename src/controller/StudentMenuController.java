@@ -3,12 +3,15 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.Timeline;
+import javafx.animation.KeyFrame;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import view.ViewManager;
 
 import java.awt.*;
@@ -115,7 +118,13 @@ public class StudentMenuController {
     public void search(MouseEvent mouseEvent) {
         System.out.println(textField.getText());
         System.out.println(GPTController.generateText(textField.getText()));
+        gptTextArea.setVisible(true);
         gptTextArea.setText("Response: " + GPTController.generateText(textField.getText()));
+        Duration visibilityDuration = Duration.seconds(10); // Set the duration of visibility (5 seconds)
+        Timeline timeline = new Timeline(new KeyFrame(visibilityDuration, event -> {
+            gptTextArea.setVisible(false); // Set visibility to false after the duration
+        }));
+        timeline.play();
 
     }
 }
