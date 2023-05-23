@@ -21,6 +21,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 public class RoleEditController implements Initializable {
@@ -54,6 +56,21 @@ public class RoleEditController implements Initializable {
         currentStage.close();
     }
 
+    private static boolean isValidDate(String dateStr) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+
+        try {
+            dateFormat.parse(dateStr);
+            return true;
+        } catch (ParseException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Try again");
+            alert.setHeaderText("Date format is not valid, please input in the format of (yyyy-MM-dd).");
+            alert.show();
+            return false;
+        }
+    }
+
     @FXML
     void saveHandled(ActionEvent event) {
         String title = titleField.getText();
@@ -61,12 +78,15 @@ public class RoleEditController implements Initializable {
         String description = descriptionField.getText();
         String end = endField.getText();
 
-        if (title.equals("") || start.equals("")) {
+        if (title.equals("") || start.equals("")|| end.equals("") ) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Try again");
             alert.setHeaderText("Empty Value is not allowed.");
             alert.show();
             return;
+        } else if (!isValidDate(start) || !isValidDate(end) ){
+            return;
         }
+
         if (role != null) {
             RoleManager.getInstance().delRole(role);
         }
@@ -90,7 +110,6 @@ public class RoleEditController implements Initializable {
         stratField.setText(role.getStartDate());
         endField.setText(role.getEndDate());
         descriptionField.setText(role.getDescription());
-
     }
 
 
@@ -105,29 +124,6 @@ public class RoleEditController implements Initializable {
                 change.getControlNewText().length() <= 200 ? change : null));
         descriptionField.textProperty().addListener((observable, oldValue, newValue) ->
                 descriptionCountLabel.setText(newValue.length() + "/200"));
-//        // Set up text formatter to limit description length
-//        TextFormatter<Integer> formatter = new TextFormatter<>(new IntegerStringConverter(),
-//                null,
-//                c -> {
-//                    String newText = c.getControlNewText();
-//                    if (newText.length() <= MAX_DESCRIPTION_LENGTH) {
-//                        des = newText;
-//                        return c;
-//                    } else {
-//                        return null;
-//                    }
-//                });
-//        descriptionField.setTextFormatter(formatter);
-//
-//        // Set up event listener to update description count label
-//        descriptionField.addEventFilter(KeyEvent.KEY_TYPED, event -> {
-//            String description = descriptionField.getText();
-//            int remainingLength = MAX_DESCRIPTION_LENGTH - description.length() + 1;
-//            if (remainingLength < 0) {
-//                remainingLength = 0;
-//            }
-//            descriptionCountLabel.setText(String.valueOf(remainingLength));
-//        });
     }
 
 }
