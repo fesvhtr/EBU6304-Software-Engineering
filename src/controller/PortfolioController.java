@@ -30,7 +30,9 @@ import javafx.util.Callback;
 
 import javafx.event.EventHandler;
 
-
+/**
+ * The controller for the portfolio page.
+ */
 public class PortfolioController implements Initializable {
     @FXML
     private JFXListView<String> list;
@@ -60,7 +62,11 @@ public class PortfolioController implements Initializable {
 
     private ObservableList<Portfolio> portfolioObservableList = FXCollections.observableArrayList();
 
-
+    /**
+     * Initialize the portfolio page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         portfolioTypeObservableList.clear();
@@ -105,6 +111,10 @@ public class PortfolioController implements Initializable {
 
     }
 
+    /**
+     * Delete the selected portfolio.
+     * @param event The mouse event.
+     */
     @FXML
     void delPortfolioHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
@@ -131,6 +141,10 @@ public class PortfolioController implements Initializable {
 
     }
 
+    /**
+     * Refresh the table.
+     * @param selectedType The selected type.
+     */
     public void refreshTable(String selectedType) {
         portfolioObservableList.clear();
         List<Portfolio> portfolios = PortfolioManager.getInstance().getPortfolios();
@@ -142,11 +156,19 @@ public class PortfolioController implements Initializable {
         table.setItems(portfolioObservableList);
     }
 
+    /**
+     * Add a new portfolio.
+     * @param event The mouse event.
+     */
     public void newPortfolioHandled(ActionEvent event) {
         PortfolioEditController controller = (PortfolioEditController) ViewManager.newWindow("PortfolioNew.fxml");
         controller.setParentController(this);
     }
 
+    /**
+     * Edit the selected portfolio.
+     * @param event The mouse event.
+     */
     @FXML
     void editPortfolioHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
@@ -163,6 +185,11 @@ public class PortfolioController implements Initializable {
         }
     }
 
+    /**
+     * View the selected portfolio.
+     * @param event The mouse event.
+     * @throws IOException The exception about the input and output.
+     */
     @FXML
     void viewHandled(ActionEvent event) throws IOException {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();

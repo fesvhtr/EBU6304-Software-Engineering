@@ -16,7 +16,9 @@ import view.ViewManager;
 
 import java.awt.*;
 
-
+/**
+ * The controller for the student menu page.
+ */
 public class StudentMenuController {
 
     public JFXButton SettingButton;
@@ -54,17 +56,30 @@ public class StudentMenuController {
     @FXML
     private FontAwesomeIconView exitButton;
 
+    /**
+     * Close the window.
+     * @param event The mouse event.
+     */
     @FXML
     void close(MouseEvent event) {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
+    /**
+     * Show the role info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showPortfolios(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("Portfolio.fxml"));}
 
+    /**
+     * Show the time machine page.
+     * @param event The mouse event.
+     */
     @FXML
     void showTimeMachine(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("TimeMachine.fxml"));}
+
 
     @FXML
     void showDeviceManagement(ActionEvent event) {

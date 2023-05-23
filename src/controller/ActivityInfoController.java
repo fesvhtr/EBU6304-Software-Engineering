@@ -201,7 +201,7 @@ public class ActivityInfoController implements Initializable {
         if (selectedIndex >= 0) {
             Activity selectedActivity = table.getSelectionModel().getSelectedItem();
             ActivityEditController controller = (ActivityEditController) ViewManager.newWindow("ActivityEdit.fxml");
-            controller.setProduct(selectedActivity);
+            controller.setActivity(selectedActivity);
             controller.setParentController(this);
         }else {
             Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");

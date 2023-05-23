@@ -30,7 +30,9 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-
+/**
+ * The controller for the portfolio edit page.
+ */
 public class PortfolioEditController implements Initializable {
 
     @FXML
@@ -54,20 +56,26 @@ private JFXButton importButton;
     private String filePath = "data/portfolio";
 
 
-//    @FXML
-//    private JFXTextField titleField;
+
 
     private Portfolio inPortfolio;
     private PortfolioController protfolioController;
 
 
-
+    /**
+     * Handle the event when the user click the exit button.
+     * @param event the mouse event
+     */
     @FXML
     void close(MouseEvent event) {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
+    /**
+     * Handle the event when the user click the save button.
+     * @param event the mouse event
+     */
     @FXML
     void saveHandled(ActionEvent event) {
 
@@ -102,10 +110,18 @@ private JFXButton importButton;
         currentStage.close();
     }
 
+    /**
+     * Set the parent controller.
+     * @param controller the parent controller
+     */
     public void setParentController(PortfolioController controller) {
         protfolioController = controller;
     }
 
+    /**
+     * Set the portfolio to be edited.
+     * @param portfolio the portfolio to be edited
+     */
     public void setInPortfolio(Portfolio portfolio) {
         inPortfolio = portfolio;
         titleField.setText(portfolio.getTitle());
@@ -115,7 +131,11 @@ private JFXButton importButton;
         typeComboBox.getSelectionModel().select(new Type(portfolio.getType()));
     }
 
-
+    /**
+     * Initialize the portfolio edit page.
+     * @param location the URL location
+     * @param resources the ResourceBundle
+     */
     public void initialize(URL location, ResourceBundle resources){
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
         List<Type> types = PortfolioType.getInstance().getTypes();
@@ -125,6 +145,11 @@ private JFXButton importButton;
         typeComboBox.setItems(typeObservableList);
     }
 
+    /**
+     * Handle the event when the user click the import button.
+     * @param event the mouse event
+     * @throws IOException the IOException
+     */
     @FXML
     private void importHandled(ActionEvent event) throws IOException {
 
@@ -204,6 +229,13 @@ private JFXButton importButton;
         }
     }
 
+    /**
+     * Import the file to the local server.
+     * @param sourceFile the source file
+     * @param destFolderPath the destination folder path
+     * @return the destination file path
+     * @throws IOException the IOException
+     */
     public static String importFile(File sourceFile, String destFolderPath) throws IOException {
         String destFilePath = destFolderPath + File.separator + sourceFile.getName();
         File destFile = new File(destFilePath);

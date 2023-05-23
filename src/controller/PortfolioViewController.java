@@ -23,6 +23,9 @@ import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * The controller for the portfolio view page.
+ */
 public class PortfolioViewController {
     @FXML
     private MediaPlayer mediaPlayer;
@@ -38,27 +41,22 @@ public class PortfolioViewController {
     @FXML
     private FontAwesomeIconView exitButton;
 
-//    @FXML
-//    private Label storePathLabel;
     private Portfolio inPortfolio;
 
     private PortfolioController protfolioController;
 
-
+    /**
+     * Set the parent controller.
+     * @param controller the parent controller
+     */
     public void setParentController(PortfolioController controller) {
         protfolioController = controller;
     }
-    @FXML
-    private void initialize() {
-//        playVideoButton.setOnAction(event -> {
-//            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-//                mediaPlayer.pause();
-//            }else {
-//                mediaPlayer.play();
-//            }
-//        });
-    }
 
+    /**
+     * Set the video to be displayed.
+     * @param portfolio the video to be displayed
+     */
     public void setMediaView(Portfolio portfolio) {
         this.inPortfolio = portfolio;
         Media media = new Media(new File(inPortfolio.getStoreFilePath()).toURI().toString());
@@ -66,35 +64,22 @@ public class PortfolioViewController {
         mediaView.setMediaPlayer(mediaPlayer);
     }
 
+    /**
+     * Set the picture to be displayed.
+     * @param portfolio the picture to be displayed
+     * @throws UnsupportedEncodingException if the encoding is not supported
+     */
     public void setImageView(Portfolio portfolio) throws UnsupportedEncodingException {
         this.inPortfolio = portfolio;
         File file = new File(inPortfolio.getStoreFilePath());
         Image image = new Image(file.toURI().toString());
         imageView.setImage(image);
     }
-//
-//    public void setWebView(Portfolio portfolio) {
-//        // create file chooser
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Save File");
-//
-//        // set initial directory and suggested file name
-//        fileChooser.setInitialFileName(portfolio.getTitle() + ".pdf");
-//        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
-//
-//        // show save file dialog
-//        File outputFile = fileChooser.showSaveDialog(downloadButton.getScene().getWindow());
-//        if (outputFile != null) {
-//            try {
-//                // copy file from server to local disk
-//                Files.copy(new File(portfolio.getStoreFilePath()).toPath(),
-//                        outputFile.toPath());
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 
+    /**
+     * Close the video.
+     * @param event the mouse event
+     */
     @FXML
     void closeVideo(MouseEvent event) {
         mediaPlayer.stop();
@@ -103,15 +88,22 @@ public class PortfolioViewController {
 
     }
 
+    /**
+     * Close the page.
+     * @param event the mouse event
+     */
     @FXML
     void close(MouseEvent event) {
-//        mediaPlayer.stop();
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
 
     }
 
-@FXML
+    /**
+     * Play or pause the video.
+     * @param event the mouse event
+     */
+    @FXML
     public void setMediaStatus(ActionEvent event) {
 
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {

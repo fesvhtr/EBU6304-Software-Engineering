@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * The controller for the skill edit page.
+ */
 public class SkillEditController implements Initializable
 {
     @FXML
@@ -34,6 +37,11 @@ public class SkillEditController implements Initializable
     private Skill inSkill;
     private SkillInfoController skillInfoController;
 
+    /**
+     * Initialize the skill edit page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -88,7 +96,10 @@ public class SkillEditController implements Initializable
         });
     }
 
-
+    /**
+     * Close the window.
+     * @param event The mouse event.
+     */
     @FXML
     void close(MouseEvent event)
     {
@@ -96,11 +107,19 @@ public class SkillEditController implements Initializable
         currentStage.close();
     }
 
+    /**
+     * Set the parent controller.
+     * @param controller The parent controller.
+     */
     public void setParentController(SkillInfoController controller)
     {
         skillInfoController = controller;
     }
 
+    /**
+     * Set the skill to be edited.
+     * @param skill The skill to be edited.
+     */
     public void setSkill(Skill skill)
     {
         inSkill = skill;
@@ -110,6 +129,10 @@ public class SkillEditController implements Initializable
         descriptionField.setText(skill.getDescription());
     }
 
+    /**
+     * Save the skill.
+     * @param event The mouse event.
+     */
     @FXML
     void saveHandled(ActionEvent event)
     {

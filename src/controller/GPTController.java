@@ -15,9 +15,17 @@ import util.GsonUtil;
 
 import javax.swing.*;
 
-
+/**
+ * The controller for the GPT.
+ */
 public class GPTController {
 
+    /**
+     * Change key word in the prompt.
+     * @param oldPrompt The old prompt.
+     * @param mapItem The key word.
+     * @return The new prompt.
+     */
     public static String mapPrompt(String oldPrompt, String mapItem){
         oldPrompt = oldPrompt + " ";
         String content = "content";
@@ -47,6 +55,11 @@ public class GPTController {
         return result;
     }
 
+    /**
+     * Update the prompt.
+     * @param oldPrompt The old prompt.
+     * @return The new prompt.
+     */
     public static String refreshPrompt(String oldPrompt){
         String newPrompt = oldPrompt;
         if(oldPrompt.contains("&module&")){
@@ -63,6 +76,12 @@ public class GPTController {
         }
         return newPrompt;
     }
+
+    /**
+     * Generate the text using GPT based on the prompt.
+     * @param prompt The prompt.
+     * @return The generated text.
+     */
     public static String generateText(String prompt) {
 
         if (prompt.equals("")){

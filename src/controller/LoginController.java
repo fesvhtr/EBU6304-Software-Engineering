@@ -22,7 +22,9 @@ import java.util.ResourceBundle;
 
 import static javafx.application.Platform.exit;
 
-
+/**
+ * The controller for the login page.
+ */
 public class LoginController implements Initializable {
     @FXML
     private JFXTextField accountTextFiield;
@@ -35,13 +37,21 @@ public class LoginController implements Initializable {
     @FXML
     private FontAwesomeIconView exitButton;
 
-
+    /**
+     * Initialize the login page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         roleGroup = new ToggleGroup();
 
     }
 
+    /**
+     * Login to the system.
+     * @throws IOException If an input or output exception occurred
+     */
     @FXML
     private void loginHandled() throws IOException {
 //        String account = accountTextFiield.getText();
@@ -66,16 +76,21 @@ public class LoginController implements Initializable {
 
     }
 
+    /**
+     * Close the window.
+     */
     private void closeWindow() {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
+
+    /**
+     * Close the window.
+     * @param event The mouse event.
+     */
     @FXML
     void close(MouseEvent event) {
         exit();
     }
 
-    @FXML
-    public void register(MouseEvent event) {
-    }
 }

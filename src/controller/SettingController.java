@@ -14,6 +14,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * The controller for the setting page.
+ */
 public class SettingController implements Initializable {
     public JFXTextField openaiApi;
     public JFXButton myButton;
@@ -26,6 +29,11 @@ public class SettingController implements Initializable {
     @FXML
     public TextField password;
 
+    /**
+     * Initialize the setting page.
+     * @param location The location.
+     * @param resources The resources.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         UserConfig userConfig = UserConfigManager.getInstance().getUserConfig();
@@ -41,6 +49,10 @@ public class SettingController implements Initializable {
 
     }
 
+    /**
+     * Save the setting.
+     * @param mouseEvent The mouse event.
+     */
     public void save(MouseEvent mouseEvent) {
         int token = (int)maxTokens.getValue();
         String api = openaiApi.getText();
@@ -74,6 +86,9 @@ public class SettingController implements Initializable {
         alert.show();
     }
 
+    /**
+     * Set the password.
+     */
     public void setPassword() {
         boolean isPassword = needPassword.isSelected();
         if (isPassword) {

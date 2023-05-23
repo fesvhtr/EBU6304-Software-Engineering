@@ -18,7 +18,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * The controller for the module type management page.
+ */
 public class ModuleTypeManagementController implements Initializable {
     @FXML
     private JFXListView<Type> list;
@@ -32,6 +34,10 @@ public class ModuleTypeManagementController implements Initializable {
     @FXML
     private JFXButton configureButton;
 
+    /**
+     * Delete the selected type.
+     * @param event The mouse event.
+     */
     @FXML
     void delTypeHandled(ActionEvent event) {
         int selectedIndex = list.getSelectionModel().getSelectedIndex();
@@ -55,6 +61,10 @@ public class ModuleTypeManagementController implements Initializable {
         }
     }
 
+    /**
+     * Add a new type.
+     * @param event The mouse event.
+     */
     @FXML
     void newTypeHandled(ActionEvent event) {
         newTypeField.setVisible(true);
@@ -79,6 +89,11 @@ public class ModuleTypeManagementController implements Initializable {
 
     private ObservableList<Type> productTypeObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Initialize the page.
+     * @param location The location.
+     * @param resources The resources.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         productTypeObservableList.clear();
