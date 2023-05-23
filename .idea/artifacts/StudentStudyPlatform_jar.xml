@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="CloudFactoryPlatform:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/CloudFactoryPlatform_jar</output-path>
-    <root id="archive" name="CloudFactoryPlatform.jar">
+  <artifact type="jar" name="StudentStudyPlatform:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/StudentStudyPlatform_jar</output-path>
+    <root id="archive" name="StudentStudyPlatform.jar">
       <element id="module-output" name="StudentStudyPlatform" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/gson-2.3.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jfoenix-1.0.0.jar" path-in-jar="/" />
