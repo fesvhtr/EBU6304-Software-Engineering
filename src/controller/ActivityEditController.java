@@ -13,6 +13,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import entity.Type;
@@ -44,6 +46,20 @@ public class ActivityEditController implements Initializable {
 
     private Activity inActivity;
     private ActivityInfoController activityInfoController;
+    private static boolean isValidDate(String dateStr) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+
+        try {
+            dateFormat.parse(dateStr);
+            return true;
+        } catch (ParseException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Try again");
+            alert.setHeaderText("Date format is not valid, please input in the format of (yyyy-MM-dd).");
+            alert.show();
+            return false;
+        }
+    }
 
     @FXML
     void close(MouseEvent event) {
@@ -68,7 +84,11 @@ public class ActivityEditController implements Initializable {
             alert.setHeaderText("No type is selected");
             alert.show();
             return;
+        } else if (!isValidDate(start) || !isValidDate(end) ){
+            return;
         }
+
+
         String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
         if (inActivity != null) {
             ActivityManager.getInstance().delActivity(inActivity);

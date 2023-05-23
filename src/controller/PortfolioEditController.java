@@ -70,7 +70,7 @@ private JFXButton importButton;
 
     @FXML
     void saveHandled(ActionEvent event) {
-//        String title = titleField.getText();
+
         String title = titleField.getText();
         String size = sizeField.getText();
         String uploadDate = uploadDateField.getText();
@@ -79,7 +79,7 @@ private JFXButton importButton;
 
         if (title.equals("") ) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
-            alert.setHeaderText("Can't be null");
+            alert.setHeaderText("Your title can't be null");
             alert.show();
             return;
         } else if (typeComboBox.getSelectionModel().getSelectedItem() == null) {
@@ -88,6 +88,7 @@ private JFXButton importButton;
             alert.show();
             return;
         }
+
         String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
         if (inPortfolio != null) {
             PortfolioManager.getInstance().delPortfolio(inPortfolio);
@@ -126,6 +127,21 @@ private JFXButton importButton;
 
     @FXML
     private void importHandled(ActionEvent event) throws IOException {
+
+        String title = titleField.getText();
+        if (title.equals("") ) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
+            alert.setHeaderText("Your title can't be null");
+            alert.show();
+            return;
+        } else if (typeComboBox.getSelectionModel().getSelectedItem() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
+            alert.setHeaderText("No type is selected");
+            alert.show();
+            return;
+        }
+
+
         String selectedFileFormat = String.valueOf(typeComboBox.getValue());
         String fileFormat = null;
         String importFilePath = filePath;
@@ -184,14 +200,7 @@ private JFXButton importButton;
             String size = String.format("%.2f", fileSizeInMB) + " MB";
             sizeField.setText(size);
             storePathLabel.setText(storeFilePath);
-//            } else {
-//                // 向用户显示一个警告消息，告诉用户文件格式不正确
-//                Alert alert = new Alert(Alert.AlertType.WARNING);
-//                alert.setTitle("Wrong Format");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Please select a json file satisfy format requirement.");
-//                alert.showAndWait();
-//            }
+
         }
     }
 
