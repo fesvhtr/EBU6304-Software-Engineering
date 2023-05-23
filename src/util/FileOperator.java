@@ -8,11 +8,11 @@ import java.util.List;
 public class FileOperator {
 
     /**
-     * 读取文件
+     * read data from file
      *
-     * @param fileName：data目录下的文件名称
-     * @param c:对象类名
-     * @return 对象集合
+     * @param fileName：data file name
+     * @param c: class of object
+     * @return List of object
      */
     public static List loadData(String fileName, Class<?> c) {
         List ret = new ArrayList<>();
@@ -33,10 +33,10 @@ public class FileOperator {
     }
 
     /**
-     * 写入文件(追加模式)
+     * write data to file
      *
-     * @param object：待存盘的对象
-     * @param filename：文件名称
+     * @param object：object to be written
+     * @param filename：file name
      * @return
      * @throws IOException
      */
@@ -55,10 +55,9 @@ public class FileOperator {
     }
 
     /**
-     * 写入文件(追加模式)
+     * write data to file
      *
-     * @param object：待存盘的对象数组
-     * @param filename：文件名称
+     * @param filename：
      * @return
      * @throws IOException
      */
@@ -70,7 +69,7 @@ public class FileOperator {
                 out.write(GsonUtil.toJson(object));
                 out.newLine();
             }
-            //刷新流
+            //flush data
             out.flush();
             out.close();
         } catch (Exception e) {

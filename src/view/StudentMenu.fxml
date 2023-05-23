@@ -15,7 +15,7 @@
     <left>
         <AnchorPane prefHeight="664.0" prefWidth="301.0" style="-fx-background-color: #394C60; -fx-background-radius: 0 100 0 0;" BorderPane.alignment="CENTER">
             <children>
-                <JFXButton fx:id="deviceTypeManageButton" layoutY="315.0" onAction="#showDeviceTypeManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Activity Management" textFill="WHITE">
+                <JFXButton fx:id="deviceTypeManageButton" layoutY="315.0" onAction="#showActivityInfo" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Activity Management" textFill="WHITE">
                     <font>
                         <Font name="Microsoft YaHei UI" size="16.0" />
                     </font>
@@ -60,7 +60,7 @@
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="factoryInfoButton" layoutY="95.0" onAction="#showFactoryInfo" prefHeight="34.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #6E7F91;" text="Skills" textFill="WHITE">
+            <JFXButton fx:id="factoryInfoButton" layoutY="95.0" onAction="#showSkillInfo" prefHeight="34.0" prefWidth="300.0" ripplerFill="WHITE" style="-fx-background-color: #6E7F91;" text="Skills" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
@@ -73,7 +73,7 @@
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="productTypeButton" layoutY="205.0" onAction="#showProductType" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Types" textFill="WHITE">
+            <JFXButton fx:id="productTypeButton" layoutY="205.0" onAction="#showModuleTypeManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Types" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
@@ -81,7 +81,7 @@
                   <FontAwesomeIconView glyphName="SITEMAP" glyphStyle="-fx-fill:#fff" size="20" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="productInfoButton" layoutY="245.0" onAction="#showProductInfo" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Info" textFill="WHITE">
+            <JFXButton fx:id="productInfoButton" layoutY="245.0" onAction="#showModuleInfo" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Module Info" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>
@@ -94,7 +94,7 @@
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="deviceManageButton" layoutY="355.0" onAction="#showDeviceManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Roles Undertaken" textFill="WHITE">
+            <JFXButton fx:id="deviceManageButton" layoutY="355.0" onAction="#showRoleManagement" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #6E7F91;" text="Roles Undertaken" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei UI" size="16.0" />
                </font>

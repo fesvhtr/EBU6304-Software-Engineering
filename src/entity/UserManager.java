@@ -11,7 +11,7 @@ public class UserManager {
     private  AbstractUser currentUser;
     private static UserManager singletonInstance;
 
-    //实现单例模式
+
     public static UserManager getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new UserManager();
@@ -28,15 +28,9 @@ public class UserManager {
         FileOperator.writeData(student, "Student.json");
     }
 
-    /**
-     * 用于验证密码输入的重要方法，并将所对应的身份信息写入本地currentUser变量，等待下一个界面读取
-     * @param account 输入的账户
-     * @param password 输入的密码
-     * @param role  角色 1=零售商，2=工厂主，3=超级管理员
-     * @return  boolean 表示密码验证成功与否
-     */
+
     public boolean CheckLogin(String password, int role){
-        if (role == 3) {    // SuperAdmin
+        if (role == 3) {
             for (Student localStudent : students) {
                 if (localStudent.getPassword().equals(password)) {
                     currentUser = localStudent;
@@ -49,13 +43,13 @@ public class UserManager {
 
 
 
-    public boolean addSuperAdmin(Student student) {
+    public boolean addStudent(Student student) {
         for (Student localStudent : students) {
             if (student.getAccount().equals(localStudent.getAccount()))
                 return false;
         }
         students.add(student);
-        FileOperator.writeData(student, "SuperAdmin.json");
+        FileOperator.writeData(student, "Student.json");
         return true;
     }
 

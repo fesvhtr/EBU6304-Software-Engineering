@@ -11,7 +11,7 @@ public class SkillType
     private List<String> sources;
     private static SkillType singletonInstance;
 
-    // 实现单例模式：只有一个DeviceType被创建
+
     public static SkillType getInstance()
     {
         if (singletonInstance == null)

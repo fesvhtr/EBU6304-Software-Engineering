@@ -9,7 +9,7 @@ public class ActivityType {
     private List<Type> types;
     private static ActivityType singletonInstance;
 
-    // 实现单例模式：只有一个DeviceType被创建
+
     public static ActivityType getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new ActivityType();

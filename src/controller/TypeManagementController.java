@@ -67,8 +67,6 @@ public class TypeManagementController implements Initializable {
         if (newTypeField.getText().equals("")) return;
         if (title.getText().equals("Equipment Type Management")) {
             ActivityType.getInstance().addType(newTypeField.getText());
-        } else if (title.getText().equals("Module Type Management")) {
-            ModuleType.getInstance().addType(newTypeField.getText());
         }
         initialize(null, null);
         newTypeField.setText("");

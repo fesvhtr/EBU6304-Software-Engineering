@@ -190,10 +190,6 @@ public class SkillInfoController implements Initializable {
         {
             SkillType.getInstance().addType(newTypeField.getText());
         }
-        else if (title.getText().equals("Product Type Management"))
-        {
-            ModuleType.getInstance().addType(newTypeField.getText());
-        }
 
         initialize(null, null);
         newTypeField.setText("");

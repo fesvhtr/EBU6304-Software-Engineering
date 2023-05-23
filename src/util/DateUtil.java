@@ -11,10 +11,10 @@ import java.util.Date;
 
 public class DateUtil {
     /**
-     * 获取当前日期
+     * get the current date
      *
      * @param:
-     * @return: 当前日期的字符串
+     * @return: String
      */
     public static String getCurrDate() throws ParseException {
 

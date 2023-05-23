@@ -78,8 +78,6 @@ public class ModuleTypeManagementController implements Initializable {
         if (newTypeField.getText().equals("")) return;
         if (title.getText().equals("Module Type Management")) {
             ModuleType.getInstance().addType(newTypeField.getText());
-        } else if (title.getText().equals("产品类别管理")) {
-            ModuleType.getInstance().addType(newTypeField.getText());
         }
         initialize(null, null);
         newTypeField.setText("");

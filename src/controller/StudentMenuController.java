@@ -82,17 +82,17 @@ public class StudentMenuController {
 
 
     @FXML
-    void showDeviceManagement(ActionEvent event) {
+    void showRoleManagement(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("RoleManagement.fxml"));
     }
 
     @FXML
-    void showDeviceTypeManagement(ActionEvent event) {
+    void showActivityInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ActivityInfo.fxml"));
     }
 
     @FXML
-    void showFactoryInfo(ActionEvent event) {
+    void showSkillInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("SkillInfo.fxml"));
     }
 
@@ -102,18 +102,15 @@ public class StudentMenuController {
         rootLayout.setCenter(ViewManager.getPane("AchievementInfo.fxml"));
     }
 
-    @FXML
-    void showOrderInfo(ActionEvent event) {
 
-    }
 
     @FXML
-    void showProductInfo(ActionEvent event) {
+    void showModuleInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ModuleInfo.fxml"));
     }
 
     @FXML
-    void showProductType(ActionEvent event) {
+    void showModuleTypeManagement(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ModuleTypeManagement.fxml"));
     }
 

@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import util.IdGenerator;
+import util.FileOperator;
 
 import java.net.URL;
 import java.util.ArrayList;

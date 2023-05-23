@@ -12,7 +12,7 @@ public class RoleManager {
         roles = FileOperator.loadData("Roles.json", Role.class);
     }
 
-    //实现单例模式
+
     public static RoleManager getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new RoleManager();

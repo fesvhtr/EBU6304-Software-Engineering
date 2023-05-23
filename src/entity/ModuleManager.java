@@ -14,7 +14,7 @@ public class ModuleManager {
         modules = FileOperator.loadData("Modules.json", Module.class);
     }
 
-    // 实现单例模式
+
     public static ModuleManager getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new ModuleManager();
