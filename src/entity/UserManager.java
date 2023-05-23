@@ -35,10 +35,10 @@ public class UserManager {
      * @param role  角色 1=零售商，2=工厂主，3=超级管理员
      * @return  boolean 表示密码验证成功与否
      */
-    public boolean CheckLogin(String account, String password, int role){
+    public boolean CheckLogin(String password, int role){
         if (role == 3) {    // SuperAdmin
             for (Student localStudent : students) {
-                if (localStudent.getAccount().equals(account) && localStudent.getPassword().equals(password)) {
+                if (localStudent.getPassword().equals(password)) {
                     currentUser = localStudent;
                     return true;
                 }

@@ -44,25 +44,24 @@ public class LoginController implements Initializable {
 
     @FXML
     private void loginHandled() throws IOException {
-        ViewManager.newWindow("StudentMenu.fxml");
 //        String account = accountTextFiield.getText();
-//        String password = passwordField.getText();
-//        if (account.equals("") && password.equals("")) {
-//        } else if (account.indexOf(" ") >= 0 || password.indexOf(" ") >= 0) {
-//            Alert alert = new Alert(Alert.AlertType.WARNING, "Check and try again");
-//            alert.setHeaderText("Both username and password cannot contain spaces");
-//            alert.show();
-//        } else if ( UserManager.getInstance().CheckLogin(account, password, 3)) {
-//            ViewManager.newWindow("StudentMenu.fxml");
-//            System.out.println("student"+account+"log in");
-//        } else {
-//            Alert alert = new Alert(Alert.AlertType.WARNING, "Check it and try again\n" +
-//                    "Notes:\n" +
-//                    "Account number 888\n" +
-//                    "All passwords with the same account number");
-//            alert.setHeaderText("Wrong account or password");
-//            alert.show();
-//        }
+        String password = passwordField.getText();
+        if (password.equals("")) {
+        } else if (password.indexOf(" ") >= 0) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Check and try again");
+            alert.setHeaderText("Both username and password cannot contain spaces");
+            alert.show();
+        } else if ( UserManager.getInstance().CheckLogin(password, 3)) {
+            ViewManager.newWindow("StudentMenu.fxml");
+            System.out.println("log in");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Check it and try again\n" +
+                    "Notes:\n" +
+                    "Account number 888\n" +
+                    "All passwords with the same account number");
+            alert.setHeaderText("Wrong account or password");
+            alert.show();
+        }
 
 
     }

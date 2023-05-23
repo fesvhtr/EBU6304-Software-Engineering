@@ -34,9 +34,9 @@ public class SettingController implements Initializable {
         isNeedPassword = userConfig.isNeedPassword();
         this.openaiApi.setText(userConfig.getGptApi());
         this.gptModel.setValue(userConfig.getGptModel());
-//        if (userConfig.isNeedPassword()){
-//            this.setPassword();
-//        }
+        if (userConfig.isNeedPassword()){
+            this.setPassword();
+        }
 
 
     }
@@ -46,19 +46,19 @@ public class SettingController implements Initializable {
         String api = openaiApi.getText();
         boolean password = needPassword.isSelected();
         String model = (String) gptModel.getValue();
-//        String passwordText = this.password.getText();
+        String passwordText = this.password.getText();
 
-//        if (isNeedPassword) {
-//            List<Student> students = FileOperator.loadData("Student.json", Student.class);
-//            UserManager userManager = UserManager.getInstance();
-////            userManager.getCurrentUser().setPassword(passwordText);
-//            for (Student student : students) {
-//                if (student.getAccount().equals(userManager.getCurrentUser().getAccount())) {
-//                    student.setPassword(passwordText);
-//                }
-//            }
-//            FileOperator.writeData(students, "Student.json");
-//        }
+        if (isNeedPassword) {
+            List<Student> students = FileOperator.loadData("Student.json", Student.class);
+            UserManager userManager = UserManager.getInstance();
+            userManager.getCurrentUser().setPassword(passwordText);
+            for (Student student : students) {
+                if (student.getAccount().equals(userManager.getCurrentUser().getAccount())) {
+                    student.setPassword(passwordText);
+                }
+            }
+            FileOperator.writeData(students, "Student.json");
+        }
 
         System.out.println(token);
         System.out.println(api);
@@ -66,20 +66,26 @@ public class SettingController implements Initializable {
         System.out.println(model);
         UserConfig userConfig = new UserConfig(token, api, model, password);
         UserConfigManager.getInstance().changeUserConfig(userConfig);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Save successfully\n" +
+                "token: " + token + "\n" +
+                "api: " + api + "\n" +
+                "model: " + model + "\n");
+        alert.setHeaderText("Save successfully");
+        alert.show();
     }
 
-//    public void setPassword() {
-////        boolean isPassword = needPassword.isSelected();
-////        if (isPassword) {
-////            password.setVisible(true);
-////            password.setDisable(false);
-////            password.setText(UserManager.getInstance().getCurrentUser().getPassword());
-////        }
-////        else {
-////            password.setVisible(false);
-////            password.setDisable(true);
-////        }
-//    }
+    public void setPassword() {
+        boolean isPassword = needPassword.isSelected();
+        if (isPassword) {
+            password.setVisible(true);
+            password.setDisable(false);
+            password.setText(UserManager.getInstance().getCurrentUser().getPassword());
+        }
+        else {
+            password.setVisible(false);
+            password.setDisable(true);
+        }
+    }
 
 
 }
