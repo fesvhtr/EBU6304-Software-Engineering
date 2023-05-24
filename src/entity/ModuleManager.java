@@ -5,16 +5,24 @@ import util.FileOperator;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Manager for modules
+ */
 public class ModuleManager {
     private  List<Module> modules;
     private static ModuleManager singletonInstance;
 
+    /**
+     * Constructor of ModuleManager class.
+     */
     private ModuleManager() {
         modules = FileOperator.loadData("Modules.json", Module.class);
     }
 
-
+    /**
+     * Get the singleton instance of ModuleManager class.
+     * @return The singleton instance of ModuleManager class.
+     */
     public static ModuleManager getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new ModuleManager();
@@ -22,20 +30,36 @@ public class ModuleManager {
         return singletonInstance;
     }
 
+    /**
+     * Add a module to the list.
+     * @param module The module to be added.
+     */
     public void addModule(Module module) {
         modules.add(module);
         FileOperator.writeData(module, "Modules.json");
     }
 
+    /**
+     * Delete a module from the list.
+     * @param module The module to be deleted.
+     */
     public void delModule(Module module) {
         modules.remove(module);
         FileOperator.writeData(modules, "Modules.json");
     }
 
+    /**
+     * Get the list of modules.
+     * @return The list of modules.
+     */
     public List<Module> getModule() {
         return modules;
     }
 
+    /**
+     * Get the evaluation of the modules.
+     * @return The evaluation of the modules.
+     */
     public ArrayList<Object> getEva(){
         ArrayList<Object> eva = new ArrayList<>();
         String level;

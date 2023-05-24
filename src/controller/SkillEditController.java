@@ -46,7 +46,7 @@ public class SkillEditController implements Initializable
     public void initialize(URL location, ResourceBundle resources)
     {
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
-        List<Type> types = SkillType.getInstance().getTypes();
+        List<Type> types = SkillTypeManager.getInstance().getTypes();
         for(Type t : types)
         {
             typeObservableList.add(t);

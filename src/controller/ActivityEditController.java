@@ -146,7 +146,7 @@ public class ActivityEditController implements Initializable {
      */
     public void initialize(URL location, ResourceBundle resources){
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
-        List<Type> types = ActivityType.getInstance().getTypes();
+        List<Type> types = ActivityTypeManager.getInstance().getTypes();
         for(Type t : types){
             typeObservableList.add(t);
         }

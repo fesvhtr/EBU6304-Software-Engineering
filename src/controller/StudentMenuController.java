@@ -80,22 +80,37 @@ public class StudentMenuController {
     @FXML
     void showTimeMachine(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("TimeMachine.fxml"));}
 
-
+    /**
+     * Show the role info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showRoleManagement(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("RoleManagement.fxml"));
     }
 
+    /**
+     * Show the activity info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showActivityInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ActivityInfo.fxml"));
     }
 
+    /**
+     * Show the skill info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showSkillInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("SkillInfo.fxml"));
     }
 
+    /**
+     * Show the achievement info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showAchievementInfo(ActionEvent event)
     {
@@ -103,22 +118,28 @@ public class StudentMenuController {
     }
 
 
-
+    /**
+     * Show the module info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showModuleInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ModuleInfo.fxml"));
     }
 
+    /**
+     * Show the module type info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showModuleTypeManagement(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ModuleTypeManagement.fxml"));
     }
 
-    @FXML
-    void showUserManagement(ActionEvent event) {
-        rootLayout.setCenter(ViewManager.getPane("UserManagement.fxml"));
-    }
-
+    /**
+     * Show the setting page.
+     * @param event The mouse event.
+     */
     @FXML
     void showSetting(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("Setting.fxml"));
@@ -127,6 +148,10 @@ public class StudentMenuController {
     @FXML
     private TextArea gptTextArea;
 
+    /**
+     * Search for the GPT.
+     * @param mouseEvent The mouse event.
+     */
     public void search(MouseEvent mouseEvent) {
         System.out.println(textField.getText());
         System.out.println(GPTController.generateText(textField.getText()));
@@ -137,6 +162,5 @@ public class StudentMenuController {
             gptTextArea.setVisible(false); // Set visibility to false after the duration
         }));
         timeline.play();
-
     }
 }

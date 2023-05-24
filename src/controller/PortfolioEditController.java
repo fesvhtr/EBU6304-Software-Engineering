@@ -1,14 +1,18 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
-import entity.*;
-import javafx.fxml.Initializable;
-
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import entity.Portfolio;
+import entity.PortfolioManager;
+import entity.PortfolioType;
+import entity.Type;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -22,13 +26,8 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
-
-import entity.Type;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * The controller for the portfolio edit page.
@@ -37,8 +36,8 @@ public class PortfolioEditController implements Initializable {
 
     @FXML
     private FontAwesomeIconView exitButton;
-@FXML
-private JFXButton importButton;
+    @FXML
+    private JFXButton importButton;
     @FXML
     private JFXTextField uploadDateField;
 
@@ -56,14 +55,13 @@ private JFXButton importButton;
     private String filePath = "data/portfolio";
 
 
-
-
     private Portfolio inPortfolio;
     private PortfolioController protfolioController;
 
 
     /**
      * Handle the event when the user click the exit button.
+     *
      * @param event the mouse event
      */
     @FXML
@@ -74,6 +72,7 @@ private JFXButton importButton;
 
     /**
      * Handle the event when the user click the save button.
+     *
      * @param event the mouse event
      */
     @FXML
@@ -85,7 +84,7 @@ private JFXButton importButton;
         String storeFilePath = storePathLabel.getText();
 
 
-        if (title.equals("") ) {
+        if (title.equals("")) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
             alert.setHeaderText("Your title can't be null");
             alert.show();
@@ -102,16 +101,17 @@ private JFXButton importButton;
             PortfolioManager.getInstance().delPortfolio(inPortfolio);
         }
         PortfolioManager.getInstance().addPortfolio(new Portfolio(type, title, uploadDate, size, storeFilePath));
-        protfolioController.initialize(null,null);
-        Alert info = new Alert(Alert.AlertType.INFORMATION,"New Portfolio saved");
+        protfolioController.initialize(null, null);
+        Alert info = new Alert(Alert.AlertType.INFORMATION, "New Portfolio saved");
         info.showAndWait();
-        protfolioController.initialize(null,null);
+        protfolioController.initialize(null, null);
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
     /**
      * Set the parent controller.
+     *
      * @param controller the parent controller
      */
     public void setParentController(PortfolioController controller) {
@@ -120,6 +120,7 @@ private JFXButton importButton;
 
     /**
      * Set the portfolio to be edited.
+     *
      * @param portfolio the portfolio to be edited
      */
     public void setInPortfolio(Portfolio portfolio) {
@@ -127,19 +128,19 @@ private JFXButton importButton;
         titleField.setText(portfolio.getTitle());
         uploadDateField.setText(portfolio.getUploadDate());
         sizeField.setText(portfolio.getSize());
-//        endField.setText(portfolio.getEndDate());
         typeComboBox.getSelectionModel().select(new Type(portfolio.getType()));
     }
 
     /**
      * Initialize the portfolio edit page.
-     * @param location the URL location
+     *
+     * @param location  the URL location
      * @param resources the ResourceBundle
      */
-    public void initialize(URL location, ResourceBundle resources){
+    public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
         List<Type> types = PortfolioType.getInstance().getTypes();
-        for(Type t : types){
+        for (Type t : types) {
             typeObservableList.add(t);
         }
         typeComboBox.setItems(typeObservableList);
@@ -147,6 +148,7 @@ private JFXButton importButton;
 
     /**
      * Handle the event when the user click the import button.
+     *
      * @param event the mouse event
      * @throws IOException the IOException
      */
@@ -154,7 +156,7 @@ private JFXButton importButton;
     private void importHandled(ActionEvent event) throws IOException {
 
         String title = titleField.getText();
-        if (title.equals("") ) {
+        if (title.equals("")) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
             alert.setHeaderText("Your title can't be null");
             alert.show();
@@ -165,14 +167,12 @@ private JFXButton importButton;
             alert.show();
             return;
         }
-
-
         String selectedFileFormat = String.valueOf(typeComboBox.getValue());
         String fileFormat = null;
         String importFilePath = filePath;
         String fileFormatDescription = null;
 
-        switch (selectedFileFormat){
+        switch (selectedFileFormat) {
             case "Video":
                 fileFormat = "*.mp4";
                 fileFormatDescription = "MP4 File (*.mp4)";
@@ -183,8 +183,9 @@ private JFXButton importButton;
                 fileFormatDescription = "PNG File (*.png)";
 
                 break;
-            case "Article": fileFormat = "*.pdf";
-            fileFormatDescription = "PDF File (*.pdf)";
+            case "Article":
+                fileFormat = "*.pdf";
+                fileFormatDescription = "PDF File (*.pdf)";
                 break;
         }
 
@@ -200,22 +201,12 @@ private JFXButton importButton;
         File selectedFile = fileChooser.showOpenDialog(importButton.getScene().getWindow());
 
         if (selectedFile != null) {
-//            // 读取用户选择的文件并将其转换为JSON对象
-//            JSONObject jsonObject = readJsonFromFile(selectedFile);
-
-
-//            if (isJsonValid) {
-                // 将文件添加本地服务器中的指定文件
-                String storeFilePath = importFile(selectedFile,importFilePath);
-
-
-
-                // 向用户显示一个成功消息
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Successfully uploaded");
-                alert.setHeaderText(null);
-                alert.setContentText("The File has been successfully imported.");
-                alert.showAndWait();
+            String storeFilePath = importFile(selectedFile, importFilePath);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successfully uploaded");
+            alert.setHeaderText(null);
+            alert.setContentText("The File has been successfully imported.");
+            alert.showAndWait();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-hh:mm");
             LocalDateTime now = LocalDateTime.now();
             String formattedDate = now.format(formatter);
@@ -225,13 +216,13 @@ private JFXButton importButton;
             String size = String.format("%.2f", fileSizeInMB) + " MB";
             sizeField.setText(size);
             storePathLabel.setText(storeFilePath);
-
         }
     }
 
     /**
      * Import the file to the local server.
-     * @param sourceFile the source file
+     *
+     * @param sourceFile     the source file
      * @param destFolderPath the destination folder path
      * @return the destination file path
      * @throws IOException the IOException

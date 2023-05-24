@@ -67,7 +67,7 @@ public class ActivityInfoController implements Initializable {
             delWarning.setTitle("Wait...");
             delWarning.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.OK) {
-                    ActivityType.getInstance().removeType(selectedType);
+                    ActivityTypeManager.getInstance().removeType(selectedType);
                     System.out.println(1);
                     initialize(null, null);
                     System.out.println(2);
@@ -92,9 +92,9 @@ public class ActivityInfoController implements Initializable {
     void configureHandled(ActionEvent event) {
         if (newTypeField.getText().equals("")) return;
         if (title.getText().equals("Activity Information Management")) {
-            ActivityType.getInstance().addType(newTypeField.getText());
+            ActivityTypeManager.getInstance().addType(newTypeField.getText());
         } else if (title.getText().equals("Product Type Management")) {
-            ModuleType.getInstance().addType(newTypeField.getText());
+            ModuleTypeManager.getInstance().addType(newTypeField.getText());
         }
         initialize(null, null);
         newTypeField.setText("");
@@ -111,7 +111,7 @@ public class ActivityInfoController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         activityTypeObservableList.clear();
-        List<Type> activityTypes = ActivityType.getInstance().getTypes();
+        List<Type> activityTypes = ActivityTypeManager.getInstance().getTypes();
         for (Type t : activityTypes) {
 
             activityTypeObservableList.add(t.toString());

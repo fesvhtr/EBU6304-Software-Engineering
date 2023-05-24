@@ -69,7 +69,7 @@ public class SkillInfoController implements Initializable {
     public void initialize(URL location, ResourceBundle resources)
     {
         skillTypeObservableList.clear();
-        List<Type> skillTypes = SkillType.getInstance().getTypes();
+        List<Type> skillTypes = SkillTypeManager.getInstance().getTypes();
         for (Type t : skillTypes)
         {
             skillTypeObservableList.add(t.toString());
@@ -165,7 +165,7 @@ public class SkillInfoController implements Initializable {
             {
                 if (response == ButtonType.OK)
                 {
-                    SkillType.getInstance().removeType(selectedType);
+                    SkillTypeManager.getInstance().removeType(selectedType);
                     System.out.println(1);
                     initialize(null, null);
                     System.out.println(2);
@@ -180,7 +180,10 @@ public class SkillInfoController implements Initializable {
         }
     }
 
-
+    /**
+     * Confirm the new type.
+     * @param event The event that the button is clicked.
+     */
     @FXML
     void confirmHandled(ActionEvent event)
     {
@@ -188,7 +191,7 @@ public class SkillInfoController implements Initializable {
 
         if (title.getText().equals("Skill Information Management"))
         {
-            SkillType.getInstance().addType(newTypeField.getText());
+            SkillTypeManager.getInstance().addType(newTypeField.getText());
         }
 
         initialize(null, null);

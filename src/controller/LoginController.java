@@ -3,7 +3,6 @@ package controller;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import entity.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -54,7 +53,6 @@ public class LoginController implements Initializable {
      */
     @FXML
     private void loginHandled() throws IOException {
-//        String account = accountTextFiield.getText();
         String password = passwordField.getText();
         if (password.equals("")) {
         } else if (password.indexOf(" ") >= 0) {

@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import view.ViewManager;
 
 import java.net.URL;
 import java.util.List;
@@ -49,7 +48,7 @@ public class ModuleTypeManagementController implements Initializable {
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     list.getItems().remove(selectedType);
-                    ModuleType.getInstance().removeType(selectedType);
+                    ModuleTypeManager.getInstance().removeType(selectedType);
                     initialize(null, null);
                 }
             });
@@ -72,12 +71,15 @@ public class ModuleTypeManagementController implements Initializable {
 
     }
 
-
+    /**
+     * Confirm the new type.
+     * @param event The mouse event.
+     */
     @FXML
     void configureHandled(ActionEvent event) {
         if (newTypeField.getText().equals("")) return;
         if (title.getText().equals("Module Type Management")) {
-            ModuleType.getInstance().addType(newTypeField.getText());
+            ModuleTypeManager.getInstance().addType(newTypeField.getText());
         }
         initialize(null, null);
         newTypeField.setText("");
@@ -95,7 +97,7 @@ public class ModuleTypeManagementController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         productTypeObservableList.clear();
-        List<Type> productTypes = ModuleType.getInstance().getTypes();
+        List<Type> productTypes = ModuleTypeManager.getInstance().getTypes();
         for (Type t : productTypes) {
             productTypeObservableList.add(t);
         }

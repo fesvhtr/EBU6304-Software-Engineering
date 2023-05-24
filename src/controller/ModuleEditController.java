@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entity.Module;
 import entity.ModuleManager;
-import entity.ModuleType;
+import entity.ModuleTypeManager;
 import entity.Type;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -127,7 +127,7 @@ public class ModuleEditController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
         idField.setText("MOD" + IdGenerator.getCode());
-        List<Type> types = ModuleType.getInstance().getTypes();
+        List<Type> types = ModuleTypeManager.getInstance().getTypes();
         for (Type t : types) {
             typeObservableList.add(t);
         }
