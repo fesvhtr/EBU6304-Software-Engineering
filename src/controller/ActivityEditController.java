@@ -107,9 +107,9 @@ public class ActivityEditController implements Initializable {
 
         String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
         if (inActivity != null) {
-            ActivityManager.getInstance().delActivity(inActivity);
+            ActivityManager.getInstance().removeItem(inActivity);
         }
-        ActivityManager.getInstance().addActivity(new Activity(title, role, start, end, type));
+        ActivityManager.getInstance().addItem(new Activity(title, role, start, end, type));
         activityInfoController.initialize(null,null);
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New Activity saved");
         info.showAndWait();

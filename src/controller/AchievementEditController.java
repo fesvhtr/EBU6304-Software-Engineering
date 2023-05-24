@@ -76,7 +76,7 @@ public class AchievementEditController implements Initializable
                 }
                 else if (selectedType.toString().equals("Activity"))
                 {
-                    List<Activity> activities = ActivityManager.getInstance().getActivities();
+                    List<Activity> activities = ActivityManager.getInstance().getList();
                     for(Activity t : activities)
                     {
                         sourceObservableList.add(t.getTitle());

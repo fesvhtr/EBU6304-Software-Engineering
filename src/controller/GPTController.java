@@ -35,7 +35,7 @@ public class GPTController {
             content = "modules: " + GsonUtil.toJson(ModuleManager.getInstance().getModule());
         } else if(mapItem.equals("&activity&")){
             split= "&activity&";
-            content = "activities :" + GsonUtil.toJson(ActivityManager.getInstance().getActivities());
+            content = "activities :" + GsonUtil.toJson(ActivityManager.getInstance().getList());
         }else if (mapItem.equals("&role&")){
             split="&role&";
             content = "roles :" + GsonUtil.toJson(RoleManager.getInstance().getRoles());

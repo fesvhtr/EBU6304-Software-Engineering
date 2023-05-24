@@ -166,7 +166,7 @@ public class ActivityInfoController implements Initializable {
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     table.getItems().remove(selectedActivity);
-                    ActivityManager.getInstance().delActivity(selectedActivity);
+                    ActivityManager.getInstance().removeItem(selectedActivity);
                     initialize(null, null);
                 }
             });
@@ -181,7 +181,7 @@ public class ActivityInfoController implements Initializable {
 
     public void refreshTable(String selectedType) {
         activityObservableList.clear();
-        List<Activity> activities = ActivityManager.getInstance().getActivities();
+        List<Activity> activities = ActivityManager.getInstance().getList();
         for (Activity a : activities){
             if(a.getType().equals(selectedType)){
                 activityObservableList.add(a);
