@@ -24,38 +24,53 @@ import java.util.ResourceBundle;
 /**
  * The controller for the module edit page.
  */
-public class ModuleEditController implements Initializable {
-    @FXML
-    private FontAwesomeIconView exitButton;
-
+public class ModuleEditController extends EditController
+{
     @FXML
     private JFXTextField creditField;
     @FXML
     private JFXTextField markField;
-
     @FXML
     private JFXTextField descriptionField;
-
     @FXML
     private JFXTextField nameField;
+    @FXML
+    private JFXTextField idField;
 
     @FXML
     private JFXComboBox<Type> typeComboBox;
 
-    @FXML
-    private JFXTextField idField;
-
     private Module inModule;
-    private ModuleInfoController moduleInfoController;
 
     /**
-     * Close the window.
-     * @param event The mouse event.f
+     * Initialize the page.
+     * @param location The location.
+     * @param resources The resources.
      */
-    @FXML
-    void close(MouseEvent event) {
-        Stage currentStage = (Stage) exitButton.getScene().getWindow();
-        currentStage.close();
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
+        idField.setText("MOD" + IdGenerator.getCode());
+        List<Type> types = ModuleTypeManager.getInstance().getList();
+        for (Type t : types) {
+            typeObservableList.add(t);
+        }
+        typeComboBox.setItems(typeObservableList);
+    }
+
+    /**
+     * Set the module to be edited.
+     * @param module The module to be edited.
+     */
+    public void setModule(Module module)
+    {
+        inModule = module;
+        idField.setText(module.getId());
+        nameField.setText(module.getName());
+        creditField.setText(String.format("%.2f", module.getCredit()));
+        markField.setText(String.format("%.2f", module.getMark()));
+        descriptionField.setText(module.getDescription());
     }
 
     /**
@@ -63,7 +78,8 @@ public class ModuleEditController implements Initializable {
      * @param event The mouse event.
      */
     @FXML
-    void saveHandled(ActionEvent event) {
+    void saveHandled(ActionEvent event)
+    {
         String id = idField.getText();
         String name = nameField.getText();
         String credit = creditField.getText();
@@ -85,52 +101,17 @@ public class ModuleEditController implements Initializable {
             return;
         }
         String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
-        if (inModule != null) {
-            ModuleManager.getInstance().delModule(inModule);
+        if (inModule != null)
+        {
+            ModuleManager.getInstance().removeItem(inModule);
         }
-        ModuleManager.getInstance().addModule(new Module(id, name, type, Float.parseFloat(mark), Float.parseFloat(credit), description));
-        moduleInfoController.initialize(null,null);
+        ModuleManager.getInstance().addItem(new Module(id, name, type, Float.parseFloat(mark), Float.parseFloat(credit), description));
+        controller.initialize(null,null);
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New Module saved");
         info.showAndWait();
-        moduleInfoController.initialize(null,null);
+        controller.initialize(null,null);
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
-    /**
-     * Set the parent controller.
-     * @param controller The parent controller.
-     */
-    public void setParentController(ModuleInfoController controller) {
-        moduleInfoController = controller;
-    }
-
-    /**
-     * Set the module to be edited.
-     * @param module The module to be edited.
-     */
-    public void setModule(Module module) {
-        inModule = module;
-        idField.setText(module.getId());
-        nameField.setText(module.getName());
-        creditField.setText(String.format("%.2f", module.getCredit()));
-        markField.setText(String.format("%.2f", module.getMark()));
-        descriptionField.setText(module.getDescription());
-    }
-
-    /**
-     * Initialize the page.
-     * @param location The location.
-     * @param resources The resources.
-     */
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
-        idField.setText("MOD" + IdGenerator.getCode());
-        List<Type> types = ModuleTypeManager.getInstance().getTypes();
-        for (Type t : types) {
-            typeObservableList.add(t);
-        }
-        typeComboBox.setItems(typeObservableList);
-    }
 }

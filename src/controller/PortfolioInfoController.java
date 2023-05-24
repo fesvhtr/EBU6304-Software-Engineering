@@ -9,7 +9,6 @@ import entity.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
@@ -33,33 +32,26 @@ import javafx.event.EventHandler;
 /**
  * The controller for the portfolio page.
  */
-public class PortfolioController implements Initializable {
+public class PortfolioInfoController extends InfoController
+{
     @FXML
     private JFXListView<String> list;
-
     @FXML
     private TableView<Portfolio> table;
-
     @FXML
     private TableColumn<Portfolio, String> titleCol;
-
     @FXML
     private TableColumn<Portfolio, String> dateCol;
-
     @FXML
     private TableColumn<Portfolio, String> sizeCol;
 
-
     @FXML
     private JFXButton viewButton;
-
     @FXML
     private Label title;
 
 
     private ObservableList<String> portfolioTypeObservableList = FXCollections.observableArrayList();
-
-
     private ObservableList<Portfolio> portfolioObservableList = FXCollections.observableArrayList();
 
     /**
@@ -68,7 +60,8 @@ public class PortfolioController implements Initializable {
      * @param resources The resources used to localize the root object, or null if the root object was not localized.
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         portfolioTypeObservableList.clear();
         portfolioTypeObservableList.add("Video");
         portfolioTypeObservableList.add("Poster");
@@ -76,21 +69,28 @@ public class PortfolioController implements Initializable {
         title.setText("Portfolio");
 
 
-        list.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+        list.setCellFactory(new Callback<ListView<String>, ListCell<String>>()
+        {
             @Override
-            public ListCell<String> call(ListView<String> listView) {
-                ListCell<String> cell = new ListCell<String>() {
+            public ListCell<String> call(ListView<String> listView)
+            {
+                ListCell<String> cell = new ListCell<String>()
+                {
                     @Override
-                    protected void updateItem(String item, boolean empty) {
+                    protected void updateItem(String item, boolean empty)
+                    {
                         super.updateItem(item, empty);
                         setText(item);
                     }
                 };
 
-                cell.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                cell.setOnMouseClicked(new EventHandler<MouseEvent>()
+                {
                     @Override
-                    public void handle(MouseEvent event) {
-                        if (!cell.isEmpty()) {
+                    public void handle(MouseEvent event)
+                    {
+                        if (!cell.isEmpty())
+                        {
                             String selectedItem = cell.getItem();
                             refreshTable(selectedItem);
                         }
@@ -107,6 +107,7 @@ public class PortfolioController implements Initializable {
         dateCol.setCellValueFactory(new PropertyValueFactory<Portfolio, String>("uploadDate"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<Portfolio, String>("size"));
 
+        file = "PortfolioEdit.fxml";
     }
 
     /**
@@ -114,15 +115,19 @@ public class PortfolioController implements Initializable {
      * @param event The mouse event.
      */
     @FXML
-    void delPortfolioHandled(ActionEvent event) {
+    void delHandled(ActionEvent event)
+    {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
+        if (selectedIndex >= 0)
+        {
             Portfolio selectedPortfolio = table.getSelectionModel().getSelectedItem();
             Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"It will delete your activity " + selectedPortfolio.getTitle());
             delWarning.setHeaderText("Are you sure?");
             delWarning.setTitle("Warning");
-            delWarning.showAndWait().ifPresent(response ->{
-                if (response == ButtonType.OK) {
+            delWarning.showAndWait().ifPresent(response ->
+            {
+                if (response == ButtonType.OK)
+                {
                     table.getItems().remove(selectedPortfolio);
                     PortfolioManager.getInstance().removeItem(selectedPortfolio);
                     File fileToDelete = new File(selectedPortfolio.getStoreFilePath());
@@ -130,13 +135,38 @@ public class PortfolioController implements Initializable {
                     initialize(null, null);
                 }
             });
-        } else {
+        }
+        else
+        {
             Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
             nullWarning.setTitle("ATTENTION: No item");
             nullWarning.setHeaderText("No item has benn selected.");
             nullWarning.show();
         }
+    }
 
+    /**
+     * Edit the selected portfolio.
+     * @param event The mouse event.
+     */
+    @FXML
+    void editHandled(ActionEvent event)
+    {
+        int selectedIndex = table.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0)
+        {
+            Portfolio selectedPortfolio = table.getSelectionModel().getSelectedItem();
+            PortfolioEditController controller = (PortfolioEditController) ViewManager.newWindow("PortfolioEdit.fxml");
+            controller.setInPortfolio(selectedPortfolio);
+            controller.setParentController(this);
+        }
+        else
+        {
+            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
+            nullWarning.setTitle("ATTENTION: No item");
+            nullWarning.setHeaderText("No item has benn selected.");
+            nullWarning.show();
+        }
     }
 
     /**
@@ -155,46 +185,20 @@ public class PortfolioController implements Initializable {
     }
 
     /**
-     * Add a new portfolio.
-     * @param event The mouse event.
-     */
-    public void newPortfolioHandled(ActionEvent event) {
-        PortfolioEditController controller = (PortfolioEditController) ViewManager.newWindow("PortfolioNew.fxml");
-        controller.setParentController(this);
-    }
-
-    /**
-     * Edit the selected portfolio.
-     * @param event The mouse event.
-     */
-    @FXML
-    void editPortfolioHandled(ActionEvent event) {
-        int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            Portfolio selectedPortfolio = table.getSelectionModel().getSelectedItem();
-            PortfolioEditController controller = (PortfolioEditController) ViewManager.newWindow("PortfolioEdit.fxml");
-            controller.setInPortfolio(selectedPortfolio);
-            controller.setParentController(this);
-        }else {
-            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
-            nullWarning.setTitle("ATTENTION: No item");
-            nullWarning.setHeaderText("No item has benn selected.");
-            nullWarning.show();
-        }
-    }
-
-    /**
      * View the selected portfolio.
      * @param event The mouse event.
      * @throws IOException The exception about the input and output.
      */
     @FXML
-    void viewHandled(ActionEvent event) throws IOException {
+    void viewHandled(ActionEvent event) throws IOException
+    {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
+        if (selectedIndex >= 0)
+        {
             Portfolio selectedPortfolio = table.getSelectionModel().getSelectedItem();
             PortfolioViewController controller = null;
-            switch (selectedPortfolio.getType().toString()){
+            switch (selectedPortfolio.getType().toString())
+            {
                 case "Video":
                     controller = (PortfolioViewController) ViewManager.newWindow("PortfoliosVideo.fxml");
                     controller.setMediaView(selectedPortfolio);
@@ -207,7 +211,8 @@ public class PortfolioController implements Initializable {
                     controller.setParentController(this);
 
                 break;
-                case "Article":{
+                case "Article":
+                {
                     // create file chooser
                     FileChooser fileChooser = new FileChooser();
                     fileChooser.setTitle("Save File");
@@ -218,18 +223,24 @@ public class PortfolioController implements Initializable {
 
                     // show save file dialog
                     File outputFile = fileChooser.showSaveDialog(viewButton.getScene().getWindow());
-                    if (outputFile != null) {
-                        try {
+                    if (outputFile != null)
+                    {
+                        try
+                        {
                             // copy file from server to local disk
                             Files.copy(new File(selectedPortfolio.getStoreFilePath()).toPath(),
                                     outputFile.toPath());
-                        } catch (IOException e) {
+                        }
+                        catch (IOException e)
+                        {
                             e.printStackTrace();
                         }
                     }}
                 break;
             }
-        }else {
+        }
+        else
+        {
             Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
             nullWarning.setTitle("ATTENTION: No item");
             nullWarning.setHeaderText("No item has benn selected.");

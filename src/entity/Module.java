@@ -5,7 +5,8 @@ import util.IdGenerator;
 /**
  * Class for module
  */
-public class Module {
+public class Module
+{
     private final String id;
     private String name;
     private String type;

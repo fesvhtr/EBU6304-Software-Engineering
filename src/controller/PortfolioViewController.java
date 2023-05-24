@@ -11,17 +11,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 /**
  * The controller for the portfolio view page.
@@ -43,13 +37,13 @@ public class PortfolioViewController {
 
     private Portfolio inPortfolio;
 
-    private PortfolioController protfolioController;
+    private PortfolioInfoController protfolioController;
 
     /**
      * Set the parent controller.
      * @param controller the parent controller
      */
-    public void setParentController(PortfolioController controller) {
+    public void setParentController(PortfolioInfoController controller) {
         protfolioController = controller;
     }
 

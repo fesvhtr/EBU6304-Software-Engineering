@@ -9,7 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import view.ViewManager;
@@ -29,36 +28,29 @@ import javafx.event.EventHandler;
 /**
  * The controller for the skill information page.
  */
-public class SkillInfoController implements Initializable {
+public class SkillInfoController extends InfoController
+{
     @FXML
     private JFXListView<String> list;
-
     @FXML
-    private TableView<Skill> table;
-
+    private TableColumn<Object, String> typeCol;
     @FXML
-    private TableColumn<Skill, String> typeCol;
-
+    private TableColumn<Object, String> sourceTypeCol;
     @FXML
-    private TableColumn<Skill, String> sourceTypeCol;
+    private TableColumn<Object, String> sourceCol;
     @FXML
-    private TableColumn<Skill, String> sourceCol;
-
-    @FXML
-    private TableColumn<Skill, String> descriptionCol;
+    private TableColumn<Object, String> descriptionCol;
 
     @FXML
     private Label title;
 
     @FXML
     private JFXTextField newTypeField;
-
     @FXML
     private JFXButton confirmButton;
 
     private ObservableList<String> skillTypeObservableList = FXCollections.observableArrayList();
-
-    private ObservableList<Skill> skillObservableList = FXCollections.observableArrayList();
+    private ObservableList<Object> skillObservableList = FXCollections.observableArrayList();
 
     /**
      * Initialize the skill information page.
@@ -69,7 +61,7 @@ public class SkillInfoController implements Initializable {
     public void initialize(URL location, ResourceBundle resources)
     {
         skillTypeObservableList.clear();
-        List<Type> skillTypes = SkillTypeManager.getInstance().getTypes();
+        List<Type> skillTypes = SkillTypeManager.getInstance().getList();
         for (Type t : skillTypes)
         {
             skillTypeObservableList.add(t.toString());
@@ -112,10 +104,54 @@ public class SkillInfoController implements Initializable {
 
         list.getSelectionModel().selectFirst();
 
-        typeCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("type"));
-        sourceTypeCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("sourceType"));
-        sourceCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("source"));
-        descriptionCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("description"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<Object, String>("type"));
+        sourceTypeCol.setCellValueFactory(new PropertyValueFactory<Object, String>("sourceType"));
+        sourceCol.setCellValueFactory(new PropertyValueFactory<Object, String>("source"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<Object, String>("description"));
+
+        file = "SkillEdit.fxml";
+        manager = SkillManager.getInstance();
+    }
+
+    /**
+     * Add a new skill.
+     * @param event The event that the button is clicked.
+     */
+    @FXML
+    void newHandled(ActionEvent event)
+    {
+        SkillEditController controller = (SkillEditController) ViewManager.newWindow("SkillEdit.fxml");
+        controller.setParentController(this);
+    }
+
+    /**
+     * Delete a skill.
+     * @param event The event that the button is clicked.
+     */
+
+
+    /**
+     * Edit a skill.
+     * @param event The event that the button is clicked.
+     */
+    @FXML
+    void editHandled(ActionEvent event)
+    {
+        int selectedIndex = table.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0)
+        {
+            Skill selectedSkill = (Skill) table.getSelectionModel().getSelectedItem();
+            SkillEditController controller = (SkillEditController) ViewManager.newWindow("SkillEdit.fxml");
+            controller.setSkill(selectedSkill);
+            controller.setParentController(this);
+        }
+        else
+        {
+            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select a skill");
+            nullWarning.setTitle("Warning: no selection");
+            nullWarning.setHeaderText("No skill is selected to be edited");
+            nullWarning.show();
+        }
     }
 
     /**
@@ -125,7 +161,7 @@ public class SkillInfoController implements Initializable {
     public void refreshTable(String selectedType)
     {
         skillObservableList.clear();
-        List<Skill> skills = SkillManager.getInstance().getSkills();
+        List<Skill> skills = SkillManager.getInstance().getList();
         for (Skill a : skills)
         {
             if(a.getType().equals(selectedType))
@@ -165,13 +201,14 @@ public class SkillInfoController implements Initializable {
             {
                 if (response == ButtonType.OK)
                 {
-                    SkillTypeManager.getInstance().removeType(selectedType);
+                    SkillTypeManager.getInstance().removeItem(selectedType);
                     System.out.println(1);
                     initialize(null, null);
                     System.out.println(2);
                 }
             });
-        } else
+        }
+        else
         {
             Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please check one item in the table");
             nullWarning.setTitle("Hint: No item is selected!");
@@ -191,79 +228,12 @@ public class SkillInfoController implements Initializable {
 
         if (title.getText().equals("Skill Information Management"))
         {
-            SkillTypeManager.getInstance().addType(newTypeField.getText());
+            SkillTypeManager.getInstance().removeItem(newTypeField.getText());
         }
 
         initialize(null, null);
         newTypeField.setText("");
         newTypeField.setVisible(false);
         confirmButton.setVisible(false);
-    }
-
-    /**
-     * Add a new skill.
-     * @param event The event that the button is clicked.
-     */
-    @FXML
-    public void newSkillHandled(ActionEvent event)
-    {
-        SkillEditController controller = (SkillEditController) ViewManager.newWindow("SkillEdit.fxml");
-        controller.setParentController(this);
-    }
-
-    /**
-     * Delete a skill.
-     * @param event The event that the button is clicked.
-     */
-    @FXML
-    void delSkillHandled(ActionEvent event)
-    {
-        int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            Skill selectedSkill = table.getSelectionModel().getSelectedItem();
-            Alert delWarning = new Alert(Alert.AlertType.CONFIRMATION,"It will delete your skill " + selectedSkill.getType() + "in " +  selectedSkill.getSourceType());
-            delWarning.setHeaderText("Are you sure?");
-            delWarning.setTitle("Warning");
-            delWarning.showAndWait().ifPresent(response ->
-            {
-                if (response == ButtonType.OK) {
-                    table.getItems().remove(selectedSkill);
-                    SkillManager.getInstance().delSkill(selectedSkill);
-                    initialize(null, null);
-                }
-            });
-        }
-        else
-        {
-            Alert nullwarning = new Alert(Alert.AlertType.WARNING, "Please select a skill");
-            nullwarning.setTitle("Warning: no selection");
-            nullwarning.setHeaderText("No skill is selected to be deleted");
-            nullwarning.show();
-        }
-
-    }
-
-    /**
-     * Edit a skill.
-     * @param event The event that the button is clicked.
-     */
-    @FXML
-    void editSkillHandled(ActionEvent event)
-    {
-        int selectedIndex = table.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0)
-        {
-            Skill selectedSkill = table.getSelectionModel().getSelectedItem();
-            SkillEditController controller = (SkillEditController) ViewManager.newWindow("SkillEdit.fxml");
-            controller.setSkill(selectedSkill);
-            controller.setParentController(this);
-        }
-        else
-        {
-            Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select a skill");
-            nullWarning.setTitle("Warning: no selection");
-            nullWarning.setHeaderText("No skill is selected to be edited");
-            nullWarning.show();
-        }
     }
 }

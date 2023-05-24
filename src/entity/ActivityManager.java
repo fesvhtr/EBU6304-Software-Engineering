@@ -5,7 +5,8 @@ import constant.FileConstants;
 /**
  * Manager for activities
  */
-public class ActivityManager extends Manager implements FileConstants {
+public class ActivityManager extends Manager implements FileConstants
+{
     private static ActivityManager singletonInstance;
 
     /**

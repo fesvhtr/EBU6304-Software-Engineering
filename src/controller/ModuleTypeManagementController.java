@@ -33,6 +33,36 @@ public class ModuleTypeManagementController implements Initializable {
     @FXML
     private JFXButton configureButton;
 
+    private ObservableList<Type> moduleTypeObservableList = FXCollections.observableArrayList();
+
+    /**
+     * Initialize the page.
+     * @param location The location.
+     * @param resources The resources.
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        moduleTypeObservableList.clear();
+        List<Type> moduleTypes = ModuleTypeManager.getInstance().getList();
+        System.out.println(moduleTypes);
+        for (Type t : moduleTypes) {
+            moduleTypeObservableList.add(t);
+        }
+        title.setText("Module Type Management");
+        list.setItems(moduleTypeObservableList);
+    }
+
+    /**
+     * Add a new type.
+     * @param event The mouse event.
+     */
+    @FXML
+    void newTypeHandled(ActionEvent event) {
+        newTypeField.setVisible(true);
+        configureButton.setVisible(true);
+
+    }
+
     /**
      * Delete the selected type.
      * @param event The mouse event.
@@ -48,7 +78,7 @@ public class ModuleTypeManagementController implements Initializable {
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     list.getItems().remove(selectedType);
-                    ModuleTypeManager.getInstance().removeType(selectedType);
+                    ModuleTypeManager.getInstance().removeItem(selectedType);
                     initialize(null, null);
                 }
             });
@@ -61,17 +91,6 @@ public class ModuleTypeManagementController implements Initializable {
     }
 
     /**
-     * Add a new type.
-     * @param event The mouse event.
-     */
-    @FXML
-    void newTypeHandled(ActionEvent event) {
-        newTypeField.setVisible(true);
-        configureButton.setVisible(true);
-
-    }
-
-    /**
      * Confirm the new type.
      * @param event The mouse event.
      */
@@ -79,29 +98,11 @@ public class ModuleTypeManagementController implements Initializable {
     void configureHandled(ActionEvent event) {
         if (newTypeField.getText().equals("")) return;
         if (title.getText().equals("Module Type Management")) {
-            ModuleTypeManager.getInstance().addType(newTypeField.getText());
+            ModuleTypeManager.getInstance().addItem(new Type(newTypeField.getText()));
         }
         initialize(null, null);
         newTypeField.setText("");
         newTypeField.setVisible(false);
         configureButton.setVisible(false);
-    }
-
-    private ObservableList<Type> productTypeObservableList = FXCollections.observableArrayList();
-
-    /**
-     * Initialize the page.
-     * @param location The location.
-     * @param resources The resources.
-     */
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        productTypeObservableList.clear();
-        List<Type> productTypes = ModuleTypeManager.getInstance().getTypes();
-        for (Type t : productTypes) {
-            productTypeObservableList.add(t);
-        }
-        title.setText("Module Type Management");
-        list.setItems(productTypeObservableList);
     }
 }

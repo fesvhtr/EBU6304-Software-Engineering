@@ -8,7 +8,8 @@ public class Manager {
     protected List<Object> list;
     protected String fileName;
 
-    public Manager(String fileName, Class<?> c){
+    public Manager(String fileName, Class<?> c)
+    {
         list = FileOperator.loadData(fileName, c);
         this.fileName = fileName;
     }

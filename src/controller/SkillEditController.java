@@ -21,21 +21,19 @@ import java.util.ResourceBundle;
 /**
  * The controller for the skill edit page.
  */
-public class SkillEditController implements Initializable
+public class SkillEditController extends EditController
 {
+    @FXML
+    private JFXTextField descriptionField;
+
     @FXML
     private JFXComboBox<Type> typeComboBox;
     @FXML
     private JFXComboBox<String> sourceTypeComboBox;
     @FXML
     private JFXComboBox<String> sourceComboBox;
-    @FXML
-    private JFXTextField descriptionField;
-    @FXML
-    private FontAwesomeIconView exitButton;
 
     private Skill inSkill;
-    private SkillInfoController skillInfoController;
 
     /**
      * Initialize the skill edit page.
@@ -46,7 +44,7 @@ public class SkillEditController implements Initializable
     public void initialize(URL location, ResourceBundle resources)
     {
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
-        List<Type> types = SkillTypeManager.getInstance().getTypes();
+        List<Type> types = SkillTypeManager.getInstance().getList();
         for(Type t : types)
         {
             typeObservableList.add(t);
@@ -76,7 +74,7 @@ public class SkillEditController implements Initializable
             {
                 if (selectedType.toString().equals("Module"))
                 {
-                    List<Module> modules = ModuleManager.getInstance().getModule();
+                    List<Module> modules = ModuleManager.getInstance().getList();
                     for(Module t : modules)
                     {
                         sourceObservableList.add(t.getName());
@@ -94,26 +92,6 @@ public class SkillEditController implements Initializable
 
             }
         });
-    }
-
-    /**
-     * Close the window.
-     * @param event The mouse event.
-     */
-    @FXML
-    void close(MouseEvent event)
-    {
-        Stage currentStage = (Stage) exitButton.getScene().getWindow();
-        currentStage.close();
-    }
-
-    /**
-     * Set the parent controller.
-     * @param controller The parent controller.
-     */
-    public void setParentController(SkillInfoController controller)
-    {
-        skillInfoController = controller;
     }
 
     /**
@@ -164,14 +142,14 @@ public class SkillEditController implements Initializable
 
         if (inSkill != null)
         {
-            SkillManager.getInstance().delSkill(inSkill);
+            SkillManager.getInstance().removeItem(inSkill);
         }
 
-        SkillManager.getInstance().addSkill(new Skill(type, sourceType, source, description));
-        skillInfoController.initialize(null,null);
+        SkillManager.getInstance().addItem(new Skill(type, sourceType, source, description));
+        controller.initialize(null,null);
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New Skill saved");
         info.showAndWait();
-        skillInfoController.initialize(null,null);
+        controller.initialize(null,null);
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }

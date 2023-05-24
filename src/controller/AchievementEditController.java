@@ -22,21 +22,17 @@ import java.util.ResourceBundle;
 /**
  * The controller for the achievement edit page.
  */
-public class AchievementEditController implements Initializable
+public class AchievementEditController extends EditController
 {
     @FXML
-    private FontAwesomeIconView exitButton;
+    private JFXTextField descriptionField;
 
     @FXML
     private JFXComboBox<String> sourceTypeComboBox;
     @FXML
     private JFXComboBox<String> sourceComboBox;
 
-    @FXML
-    private JFXTextField descriptionField;
-
     private Achievement inAchievement;
-    private AchievementInfoController achievementInfoController;
 
     /**
      * Set the achievement Information page.
@@ -89,24 +85,6 @@ public class AchievementEditController implements Initializable
     }
 
     /**
-     * Close the window.
-     * @param event The mouse event.
-     */
-    @FXML
-    void close(MouseEvent event) {
-        Stage currentStage = (Stage) exitButton.getScene().getWindow();
-        currentStage.close();
-    }
-
-    /**
-     * Set the parent controller.
-     * @param controller The parent controller.
-     */
-    public void setParentController(AchievementInfoController controller) {
-        achievementInfoController = controller;
-    }
-
-    /**
      * Set the achievement.
      * @param achievement The achievement.
      */
@@ -120,7 +98,8 @@ public class AchievementEditController implements Initializable
      * @param event The mouse event.
      */
     @FXML
-    void saveHandled(ActionEvent event) {
+    void saveHandled(ActionEvent event)
+    {
         String description = descriptionField.getText();
 
         if (sourceTypeComboBox.getSelectionModel().getSelectedItem() == null)
@@ -144,10 +123,10 @@ public class AchievementEditController implements Initializable
             AchievementManager.getInstance().removeItem(inAchievement);
         }
         AchievementManager.getInstance().addItem(new Achievement(sourceType, source, description));
-        achievementInfoController.initialize(null,null);
+        controller.initialize(null,null);
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New achievement saved");
         info.showAndWait();
-        achievementInfoController.initialize(null,null);
+        controller.initialize(null,null);
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }

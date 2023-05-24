@@ -26,111 +26,45 @@ import java.util.List;
 /**
  * The controller for the activity edit page.
  */
-public class ActivityEditController implements Initializable {
-
-    @FXML
-    private FontAwesomeIconView exitButton;
-
+public class ActivityEditController extends EditController
+{
     @FXML
     private JFXTextField startField;
-
     @FXML
     private JFXTextField endField;
-
     @FXML
     private JFXTextField roleField;
+    @FXML
+    private JFXTextField titleField;
 
     @FXML
     private JFXComboBox<Type> typeComboBox;
 
-    @FXML
-    private JFXTextField titleField;
-
     private Activity inActivity;
-    private ActivityInfoController activityInfoController;
+
 
     /**
-     * Judge whether the date is valid.
-     * @param dateStr The date string.
-     * @return Whether the date is valid.
+     * Initialize the page.
+     * @param location The URL location.
+     * @param resources The resource bundle.
      */
-    private static boolean isValidDate(String dateStr) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        dateFormat.setLenient(false);
-
-        try {
-            dateFormat.parse(dateStr);
-            return true;
-        } catch (ParseException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Try again");
-            alert.setHeaderText("Date format is not valid, please input in the format of (yyyy-MM-dd).");
-            alert.show();
-            return false;
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
+        List<Type> types = ActivityTypeManager.getInstance().getList();
+        for(Type t : types){
+            typeObservableList.add(t);
         }
-    }
-
-    /**
-     * Close the activity Information page.
-     * @param event The mouse event.
-     */
-    @FXML
-    void close(MouseEvent event) {
-        Stage currentStage = (Stage) exitButton.getScene().getWindow();
-        currentStage.close();
-    }
-
-    /**
-     * Save the activity.
-     * @param event The mouse event.
-     */
-    @FXML
-    void saveHandled(ActionEvent event) {
-        String title = titleField.getText();
-        String role = roleField.getText();
-        String end = endField.getText();
-        String start = startField.getText();
-
-        if (title.equals("") || role.equals("") || end.equals("") || start.equals("") ) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
-            alert.setHeaderText("Can't be null");
-            alert.show();
-            return;
-        } else if (typeComboBox.getSelectionModel().getSelectedItem() == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
-            alert.setHeaderText("No type is selected");
-            alert.show();
-            return;
-        } else if (!isValidDate(start) || !isValidDate(end) ){
-            return;
-        }
-
-
-        String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
-        if (inActivity != null) {
-            ActivityManager.getInstance().removeItem(inActivity);
-        }
-        ActivityManager.getInstance().addItem(new Activity(title, role, start, end, type));
-        activityInfoController.initialize(null,null);
-        Alert info = new Alert(Alert.AlertType.INFORMATION,"New Activity saved");
-        info.showAndWait();
-        activityInfoController.initialize(null,null);
-        Stage currentStage = (Stage) exitButton.getScene().getWindow();
-        currentStage.close();
-    }
-
-    /**
-     * Set the parent controller.
-     * @param controller The parent controller.
-     */
-    public void setParentController(ActivityInfoController controller) {
-        activityInfoController = controller;
+        typeComboBox.setItems(typeObservableList);
     }
 
     /**
      * Set the activity.
      * @param activity
      */
-    public void setActivity(Activity activity) {
+    public void setActivity(Activity activity)
+    {
         inActivity = activity;
         titleField.setText(activity.getTitle());
         roleField.setText(activity.getRole());
@@ -140,16 +74,73 @@ public class ActivityEditController implements Initializable {
     }
 
     /**
-     * Initialize the page.
-     * @param location The URL location.
-     * @param resources The resource bundle.
+     * Save the activity.
+     * @param event The mouse event.
      */
-    public void initialize(URL location, ResourceBundle resources){
-        ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
-        List<Type> types = ActivityTypeManager.getInstance().getTypes();
-        for(Type t : types){
-            typeObservableList.add(t);
+    @FXML
+    void saveHandled(ActionEvent event)
+    {
+        String title = titleField.getText();
+        String role = roleField.getText();
+        String end = endField.getText();
+        String start = startField.getText();
+
+        if (title.equals("") || role.equals("") || end.equals("") || start.equals("") )
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
+            alert.setHeaderText("Can't be null");
+            alert.show();
+            return;
         }
-        typeComboBox.setItems(typeObservableList);
+        else if (typeComboBox.getSelectionModel().getSelectedItem() == null)
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please check again");
+            alert.setHeaderText("No type is selected");
+            alert.show();
+            return;
+        }
+        else if (!isValidDate(start) || !isValidDate(end))
+        {
+            return;
+        }
+
+
+        String type = typeComboBox.getSelectionModel().getSelectedItem().toString();
+        if (inActivity != null)
+        {
+            ActivityManager.getInstance().removeItem(inActivity);
+        }
+        ActivityManager.getInstance().addItem(new Activity(title, role, start, end, type));
+        controller.initialize(null,null);
+        Alert info = new Alert(Alert.AlertType.INFORMATION,"New Activity saved");
+        info.showAndWait();
+        controller.initialize(null,null);
+        Stage currentStage = (Stage) exitButton.getScene().getWindow();
+        currentStage.close();
+    }
+
+
+    /**
+     * Judge whether the date is valid.
+     * @param dateStr The date string.
+     * @return Whether the date is valid.
+     */
+    private static boolean isValidDate(String dateStr)
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+
+        try
+        {
+            dateFormat.parse(dateStr);
+            return true;
+        }
+        catch (ParseException e)
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Try again");
+            alert.setHeaderText("Date format is not valid, please input in the format of (yyyy-MM-dd).");
+            alert.show();
+            return false;
+        }
     }
 }
