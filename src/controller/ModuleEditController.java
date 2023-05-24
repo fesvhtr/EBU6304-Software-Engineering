@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entity.Module;
 import entity.ModuleManager;
-import entity.ModuleType;
+import entity.ModuleTypeManager;
 import entity.Type;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,7 +21,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * The controller for the module edit page.
+ */
 public class ModuleEditController implements Initializable {
     @FXML
     private FontAwesomeIconView exitButton;
@@ -46,12 +48,20 @@ public class ModuleEditController implements Initializable {
     private Module inModule;
     private ModuleInfoController moduleInfoController;
 
+    /**
+     * Close the window.
+     * @param event The mouse event.f
+     */
     @FXML
     void close(MouseEvent event) {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
+    /**
+     * Save the module.
+     * @param event The mouse event.
+     */
     @FXML
     void saveHandled(ActionEvent event) {
         String id = idField.getText();
@@ -87,10 +97,18 @@ public class ModuleEditController implements Initializable {
         currentStage.close();
     }
 
+    /**
+     * Set the parent controller.
+     * @param controller The parent controller.
+     */
     public void setParentController(ModuleInfoController controller) {
         moduleInfoController = controller;
     }
 
+    /**
+     * Set the module to be edited.
+     * @param module The module to be edited.
+     */
     public void setModule(Module module) {
         inModule = module;
         idField.setText(module.getId());
@@ -100,11 +118,16 @@ public class ModuleEditController implements Initializable {
         descriptionField.setText(module.getDescription());
     }
 
+    /**
+     * Initialize the page.
+     * @param location The location.
+     * @param resources The resources.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
         idField.setText("MOD" + IdGenerator.getCode());
-        List<Type> types = ModuleType.getInstance().getTypes();
+        List<Type> types = ModuleTypeManager.getInstance().getTypes();
         for (Type t : types) {
             typeObservableList.add(t);
         }

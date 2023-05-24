@@ -12,13 +12,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import view.ViewManager;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * The controller for the module type management page.
+ */
 public class ModuleTypeManagementController implements Initializable {
     @FXML
     private JFXListView<Type> list;
@@ -32,6 +33,10 @@ public class ModuleTypeManagementController implements Initializable {
     @FXML
     private JFXButton configureButton;
 
+    /**
+     * Delete the selected type.
+     * @param event The mouse event.
+     */
     @FXML
     void delTypeHandled(ActionEvent event) {
         int selectedIndex = list.getSelectionModel().getSelectedIndex();
@@ -43,7 +48,7 @@ public class ModuleTypeManagementController implements Initializable {
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     list.getItems().remove(selectedType);
-                    ModuleType.getInstance().removeType(selectedType);
+                    ModuleTypeManager.getInstance().removeType(selectedType);
                     initialize(null, null);
                 }
             });
@@ -55,6 +60,10 @@ public class ModuleTypeManagementController implements Initializable {
         }
     }
 
+    /**
+     * Add a new type.
+     * @param event The mouse event.
+     */
     @FXML
     void newTypeHandled(ActionEvent event) {
         newTypeField.setVisible(true);
@@ -62,14 +71,15 @@ public class ModuleTypeManagementController implements Initializable {
 
     }
 
-
+    /**
+     * Confirm the new type.
+     * @param event The mouse event.
+     */
     @FXML
     void configureHandled(ActionEvent event) {
         if (newTypeField.getText().equals("")) return;
         if (title.getText().equals("Module Type Management")) {
-            ModuleType.getInstance().addType(newTypeField.getText());
-        } else if (title.getText().equals("产品类别管理")) {
-            ModuleType.getInstance().addType(newTypeField.getText());
+            ModuleTypeManager.getInstance().addType(newTypeField.getText());
         }
         initialize(null, null);
         newTypeField.setText("");
@@ -79,10 +89,15 @@ public class ModuleTypeManagementController implements Initializable {
 
     private ObservableList<Type> productTypeObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Initialize the page.
+     * @param location The location.
+     * @param resources The resources.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         productTypeObservableList.clear();
-        List<Type> productTypes = ModuleType.getInstance().getTypes();
+        List<Type> productTypes = ModuleTypeManager.getInstance().getTypes();
         for (Type t : productTypes) {
             productTypeObservableList.add(t);
         }

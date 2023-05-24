@@ -25,6 +25,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
+/**
+ * The controller for the role edit page.
+ */
 public class RoleEditController implements Initializable {
     @FXML
     private FontAwesomeIconView exitButton;
@@ -49,13 +52,21 @@ public class RoleEditController implements Initializable {
     private final int MAX_DESCRIPTION_LENGTH = 200;
     private String des = "";
 
-
+    /**
+     * Close the current window.
+     * @param event The mouse event.
+     */
     @FXML
     public void close(MouseEvent event) {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
+    /**
+     * Check if the date is valid.
+     * @param dateStr The date string.
+     * @return True if the date is valid, false otherwise.
+     */
     private static boolean isValidDate(String dateStr) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
@@ -71,6 +82,10 @@ public class RoleEditController implements Initializable {
         }
     }
 
+    /**
+     * Save the role information.
+     * @param event The mouse event.
+     */
     @FXML
     void saveHandled(ActionEvent event) {
         String title = titleField.getText();
@@ -98,11 +113,18 @@ public class RoleEditController implements Initializable {
         currentStage.close();
     }
 
+    /**
+     * Set the parent controller.
+     * @param controller The parent controller.
+     */
     public void setParentController(RoleInfoController controller) {
         roleInfoController = controller;
     }
 
-
+    /**
+     * Set the role to be edited.
+     * @param role The role to be edited.
+     */
     @FXML
     public void setRole(Role role) {
         this.role = role;
@@ -113,13 +135,14 @@ public class RoleEditController implements Initializable {
     }
 
 
-
+    /**
+     * Initialize the role edit page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-// 设置描述文本框的默认值为空字符串
         descriptionField.setText("");
-
-        // 设置文本框中的最大字符数和实时字符数统计标签
         descriptionField.setTextFormatter(new TextFormatter<>(change ->
                 change.getControlNewText().length() <= 200 ? change : null));
         descriptionField.textProperty().addListener((observable, oldValue, newValue) ->

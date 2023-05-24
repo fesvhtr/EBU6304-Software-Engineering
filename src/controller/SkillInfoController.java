@@ -26,6 +26,9 @@ import javafx.util.Callback;
 
 import javafx.event.EventHandler;
 
+/**
+ * The controller for the skill information page.
+ */
 public class SkillInfoController implements Initializable {
     @FXML
     private JFXListView<String> list;
@@ -57,11 +60,16 @@ public class SkillInfoController implements Initializable {
 
     private ObservableList<Skill> skillObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Initialize the skill information page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         skillTypeObservableList.clear();
-        List<Type> skillTypes = SkillType.getInstance().getTypes();
+        List<Type> skillTypes = SkillTypeManager.getInstance().getTypes();
         for (Type t : skillTypes)
         {
             skillTypeObservableList.add(t.toString());
@@ -110,6 +118,10 @@ public class SkillInfoController implements Initializable {
         descriptionCol.setCellValueFactory(new PropertyValueFactory<Skill, String>("description"));
     }
 
+    /**
+     * Refresh the table.
+     * @param selectedType The selected type.
+     */
     public void refreshTable(String selectedType)
     {
         skillObservableList.clear();
@@ -124,6 +136,10 @@ public class SkillInfoController implements Initializable {
         table.setItems(skillObservableList);
     }
 
+    /**
+     * Add a new type.
+     * @param event The event that the button is clicked.
+     */
     @FXML
     public void newTypeHandled(ActionEvent event)
     {
@@ -131,6 +147,10 @@ public class SkillInfoController implements Initializable {
         confirmButton.setVisible(true);
     }
 
+    /**
+     * Delete a type.
+     * @param event The event that the button is clicked.
+     */
     @FXML
     void delTypeHandled(ActionEvent event)
     {
@@ -145,7 +165,7 @@ public class SkillInfoController implements Initializable {
             {
                 if (response == ButtonType.OK)
                 {
-                    SkillType.getInstance().removeType(selectedType);
+                    SkillTypeManager.getInstance().removeType(selectedType);
                     System.out.println(1);
                     initialize(null, null);
                     System.out.println(2);
@@ -160,6 +180,10 @@ public class SkillInfoController implements Initializable {
         }
     }
 
+    /**
+     * Confirm the new type.
+     * @param event The event that the button is clicked.
+     */
     @FXML
     void confirmHandled(ActionEvent event)
     {
@@ -167,11 +191,7 @@ public class SkillInfoController implements Initializable {
 
         if (title.getText().equals("Skill Information Management"))
         {
-            SkillType.getInstance().addType(newTypeField.getText());
-        }
-        else if (title.getText().equals("Product Type Management"))
-        {
-            ModuleType.getInstance().addType(newTypeField.getText());
+            SkillTypeManager.getInstance().addType(newTypeField.getText());
         }
 
         initialize(null, null);
@@ -180,6 +200,10 @@ public class SkillInfoController implements Initializable {
         confirmButton.setVisible(false);
     }
 
+    /**
+     * Add a new skill.
+     * @param event The event that the button is clicked.
+     */
     @FXML
     public void newSkillHandled(ActionEvent event)
     {
@@ -187,6 +211,10 @@ public class SkillInfoController implements Initializable {
         controller.setParentController(this);
     }
 
+    /**
+     * Delete a skill.
+     * @param event The event that the button is clicked.
+     */
     @FXML
     void delSkillHandled(ActionEvent event)
     {
@@ -215,6 +243,10 @@ public class SkillInfoController implements Initializable {
 
     }
 
+    /**
+     * Edit a skill.
+     * @param event The event that the button is clicked.
+     */
     @FXML
     void editSkillHandled(ActionEvent event)
     {

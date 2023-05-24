@@ -16,7 +16,9 @@ import view.ViewManager;
 
 import java.awt.*;
 
-
+/**
+ * The controller for the student menu page.
+ */
 public class StudentMenuController {
 
     public JFXButton SettingButton;
@@ -54,59 +56,90 @@ public class StudentMenuController {
     @FXML
     private FontAwesomeIconView exitButton;
 
+    /**
+     * Close the window.
+     * @param event The mouse event.
+     */
     @FXML
     void close(MouseEvent event) {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
+    /**
+     * Show the role info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showPortfolios(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("Portfolio.fxml"));}
 
+    /**
+     * Show the time machine page.
+     * @param event The mouse event.
+     */
     @FXML
     void showTimeMachine(ActionEvent event){rootLayout.setCenter(ViewManager.getPane("TimeMachine.fxml"));}
 
+    /**
+     * Show the role info page.
+     * @param event The mouse event.
+     */
     @FXML
-    void showDeviceManagement(ActionEvent event) {
+    void showRoleManagement(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("RoleManagement.fxml"));
     }
 
+    /**
+     * Show the activity info page.
+     * @param event The mouse event.
+     */
     @FXML
-    void showDeviceTypeManagement(ActionEvent event) {
+    void showActivityInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ActivityInfo.fxml"));
     }
 
+    /**
+     * Show the skill info page.
+     * @param event The mouse event.
+     */
     @FXML
-    void showFactoryInfo(ActionEvent event) {
+    void showSkillInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("SkillInfo.fxml"));
     }
 
+    /**
+     * Show the achievement info page.
+     * @param event The mouse event.
+     */
     @FXML
     void showAchievementInfo(ActionEvent event)
     {
         rootLayout.setCenter(ViewManager.getPane("AchievementInfo.fxml"));
     }
 
-    @FXML
-    void showOrderInfo(ActionEvent event) {
 
-    }
-
+    /**
+     * Show the module info page.
+     * @param event The mouse event.
+     */
     @FXML
-    void showProductInfo(ActionEvent event) {
+    void showModuleInfo(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ModuleInfo.fxml"));
     }
 
+    /**
+     * Show the module type info page.
+     * @param event The mouse event.
+     */
     @FXML
-    void showProductType(ActionEvent event) {
+    void showModuleTypeManagement(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("ModuleTypeManagement.fxml"));
     }
 
-    @FXML
-    void showUserManagement(ActionEvent event) {
-        rootLayout.setCenter(ViewManager.getPane("UserManagement.fxml"));
-    }
-
+    /**
+     * Show the setting page.
+     * @param event The mouse event.
+     */
     @FXML
     void showSetting(ActionEvent event) {
         rootLayout.setCenter(ViewManager.getPane("Setting.fxml"));
@@ -115,6 +148,10 @@ public class StudentMenuController {
     @FXML
     private TextArea gptTextArea;
 
+    /**
+     * Search for the GPT.
+     * @param mouseEvent The mouse event.
+     */
     public void search(MouseEvent mouseEvent) {
         System.out.println(textField.getText());
         System.out.println(GPTController.generateText(textField.getText()));
@@ -125,6 +162,5 @@ public class StudentMenuController {
             gptTextArea.setVisible(false); // Set visibility to false after the duration
         }));
         timeline.play();
-
     }
 }

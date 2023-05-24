@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CloudFactoryPlatform.iml" filepath="$PROJECT_DIR$/CloudFactoryPlatform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudentStudyPlatform.iml" filepath="$PROJECT_DIR$/StudentStudyPlatform.iml" />
     </modules>
   </component>
 </project>

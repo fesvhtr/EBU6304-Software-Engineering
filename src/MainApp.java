@@ -12,15 +12,27 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Main class for the application
+ */
 public class MainApp extends Application {
 
     private double xOffSet;
     private double yOffSet;
 
+    /**
+     * Main method for the application
+     * @param args The arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * Start the application
+     * @param primaryStage The primary stage
+     * @throws IOException The exception
+     */
     @Override
     public void start(Stage primaryStage) throws IOException {
 

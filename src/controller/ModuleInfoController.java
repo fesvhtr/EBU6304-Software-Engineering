@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * The controller for the module information page.
+ */
 public class ModuleInfoController implements Initializable {
     @FXML
     private TableView<Module> table;
@@ -43,6 +45,12 @@ public class ModuleInfoController implements Initializable {
     private ObservableList<Module> moduleObservableList = FXCollections.observableArrayList();
 
     private ArrayList<Object> my_eva = new ArrayList<>();
+
+    /**
+     * Initialize the module information page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         moduleObservableList.clear();
@@ -64,6 +72,10 @@ public class ModuleInfoController implements Initializable {
 
     }
 
+    /**
+     * Delete the module.
+     * @param event The event that the delete button is clicked.
+     */
     @FXML
     void delHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
@@ -88,6 +100,10 @@ public class ModuleInfoController implements Initializable {
 
     }
 
+    /**
+     * Edit the module.
+     * @param event The event that the edit button is clicked.
+     */
     @FXML
     void editHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
@@ -104,12 +120,20 @@ public class ModuleInfoController implements Initializable {
         }
     }
 
+    /**
+     * Add a new module.
+     * @param event The event that the add button is clicked.
+     */
     @FXML
     void newHandled(ActionEvent event) {
         ModuleEditController controller = (ModuleEditController) ViewManager.newWindow("ModuleEdit.fxml");
         controller.setParentController(this);
     }
 
+    /**
+     * Show the mark report.
+     * @param event The event that the GPA button is clicked.
+     */
     @FXML
     void GPAHandled(ActionEvent event) {
         Alert infoAlert = new Alert(Alert.AlertType.INFORMATION, "Here is your Mark Report");

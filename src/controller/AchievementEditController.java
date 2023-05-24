@@ -12,14 +12,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import util.IdGenerator;
+import util.FileOperator;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * The controller for the achievement edit page.
+ */
 public class AchievementEditController implements Initializable
 {
     @FXML
@@ -36,6 +38,11 @@ public class AchievementEditController implements Initializable
     private Achievement inAchievement;
     private AchievementInfoController achievementInfoController;
 
+    /**
+     * Set the achievement Information page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -81,21 +88,37 @@ public class AchievementEditController implements Initializable
         });
     }
 
+    /**
+     * Close the window.
+     * @param event The mouse event.
+     */
     @FXML
     void close(MouseEvent event) {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
+    /**
+     * Set the parent controller.
+     * @param controller The parent controller.
+     */
     public void setParentController(AchievementInfoController controller) {
         achievementInfoController = controller;
     }
 
+    /**
+     * Set the achievement.
+     * @param achievement The achievement.
+     */
     public void setAchievement(Achievement achievement) {
         inAchievement = achievement;
         descriptionField.setText(achievement.getDescription());
     }
 
+    /**
+     * Save the achievement.
+     * @param event The mouse event.
+     */
     @FXML
     void saveHandled(ActionEvent event) {
         String description = descriptionField.getText();

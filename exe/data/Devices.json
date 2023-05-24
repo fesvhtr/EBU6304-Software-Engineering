@@ -1,9 +1,0 @@
-{"id":"DEV200723000555836","name":"智能车床","type":"车床","description":"66666智能设备","spec":"生产塑料工件","status":"已关闭","user":"王多鱼","isOwned":false,"isRent":true,"resource":"租用设备","rentStatus":"已被租用"}
-{"id":"DEV200723000755598","name":"智能铣床","type":"铣床","description":"23333智能设备","spec":"生产精密工件","status":"已关闭","user":"王多鱼","isOwned":true,"isRent":false,"resource":"自有设备","rentStatus":"工厂设备"}
-{"id":"DEV200723000455548","name":"智能镗床","type":"镗床","description":"互联网智能设备","spec":"生产xxx工件","status":"闲置中","user":"王多鱼","isOwned":true,"isRent":false,"resource":"自有设备","rentStatus":"工厂设备"}
-{"id":"DEV200723000855215","name":"智能设备","type":"车床","description":"xxxxx智能设备","spec":"一种设备","status":"已关闭","user":"马化腾","isOwned":false,"isRent":true,"resource":"租用设备","rentStatus":"已被租用"}
-{"id":"DEV200723000955254","name":"智能镗床","type":"镗床","description":"88888智能设备","spec":"生产高级工件","status":"闲置中","user":"罗永浩","isOwned":true,"isRent":false,"resource":"自有设备","rentStatus":"工厂设备"}
-{"id":"DEV200723001355425","name":"xxx设备","type":"镗床","description":"互联网xxxx设备","spec":"xxxxxxxxx","status":"已关闭","user":"罗永浩","isOwned":false,"isRent":true,"resource":"租用设备","rentStatus":"已被租用"}
-{"id":"DEV200723001555589","name":"abc设备","type":"铣床","description":"智能abcdef设备","spec":"abcdefxxx","status":"已关闭","user":"","isOwned":false,"isRent":false,"resource":"租用设备","rentStatus":"未被租用"}
-{"id":"DEV200723005435975","name":"sss设备","type":"车床","description":"一种不可描述的设备","spec":"xxxx498641","status":"已关闭","user":"","isOwned":false,"isRent":false,"resource":"租用设备","rentStatus":"未被租用"}
-{"id":"DEV200723006125487","name":"智能设备","type":"铣床","description":"一种不可描述的设备","spec":"x啥都能造41","status":"已关闭","user":"","isOwned":false,"isRent":false,"resource":"租用设备","rentStatus":"未被租用"}

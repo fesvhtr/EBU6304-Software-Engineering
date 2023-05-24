@@ -18,6 +18,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * The controller for the achievement information page.
+ */
 public class AchievementInfoController implements Initializable
 {
     @FXML
@@ -30,6 +33,11 @@ public class AchievementInfoController implements Initializable
     private TableColumn<Achievement, String> descriptionCol;
     private ObservableList<Achievement> achievementObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Set the achievement information page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         achievementObservableList.clear();
@@ -46,6 +54,10 @@ public class AchievementInfoController implements Initializable
     }
 
 
+    /**
+     * Add the achievement.
+     * @param event The event that the add button is clicked.
+     */
     @FXML
     void newHandled(ActionEvent event)
     {
@@ -53,6 +65,10 @@ public class AchievementInfoController implements Initializable
         controller.setParentController(this);
     }
 
+    /**
+     * Delete the achievement.
+     * @param event The event that the delete button is clicked.
+     */
     @FXML
     void delHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
@@ -81,6 +97,10 @@ public class AchievementInfoController implements Initializable
 
     }
 
+    /**
+     * Edit the achievement.
+     * @param event The event that the edit button is clicked.
+     */
     @FXML
     void editHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();

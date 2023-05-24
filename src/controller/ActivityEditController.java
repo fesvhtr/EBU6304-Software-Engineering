@@ -23,7 +23,9 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-
+/**
+ * The controller for the activity edit page.
+ */
 public class ActivityEditController implements Initializable {
 
     @FXML
@@ -46,6 +48,12 @@ public class ActivityEditController implements Initializable {
 
     private Activity inActivity;
     private ActivityInfoController activityInfoController;
+
+    /**
+     * Judge whether the date is valid.
+     * @param dateStr The date string.
+     * @return Whether the date is valid.
+     */
     private static boolean isValidDate(String dateStr) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
@@ -61,12 +69,20 @@ public class ActivityEditController implements Initializable {
         }
     }
 
+    /**
+     * Close the activity Information page.
+     * @param event The mouse event.
+     */
     @FXML
     void close(MouseEvent event) {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
 
+    /**
+     * Save the activity.
+     * @param event The mouse event.
+     */
     @FXML
     void saveHandled(ActionEvent event) {
         String title = titleField.getText();
@@ -102,11 +118,19 @@ public class ActivityEditController implements Initializable {
         currentStage.close();
     }
 
+    /**
+     * Set the parent controller.
+     * @param controller The parent controller.
+     */
     public void setParentController(ActivityInfoController controller) {
         activityInfoController = controller;
     }
 
-    public void setProduct(Activity activity) {
+    /**
+     * Set the activity.
+     * @param activity
+     */
+    public void setActivity(Activity activity) {
         inActivity = activity;
         titleField.setText(activity.getTitle());
         roleField.setText(activity.getRole());
@@ -115,10 +139,14 @@ public class ActivityEditController implements Initializable {
         typeComboBox.getSelectionModel().select(new Type(activity.getType()));
     }
 
-
+    /**
+     * Initialize the page.
+     * @param location The URL location.
+     * @param resources The resource bundle.
+     */
     public void initialize(URL location, ResourceBundle resources){
         ObservableList<Type> typeObservableList = FXCollections.observableArrayList();
-        List<Type> types = ActivityType.getInstance().getTypes();
+        List<Type> types = ActivityTypeManager.getInstance().getTypes();
         for(Type t : types){
             typeObservableList.add(t);
         }

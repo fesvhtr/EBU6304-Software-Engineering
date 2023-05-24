@@ -19,7 +19,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * The controller for the role information page.
+ */
 public class RoleInfoController implements Initializable {
 
     @FXML
@@ -39,6 +41,11 @@ public class RoleInfoController implements Initializable {
 
     private ObservableList<Role> roleObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Initialize the role information page.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         roleObservableList.clear();
@@ -54,6 +61,10 @@ public class RoleInfoController implements Initializable {
         desCol.setCellValueFactory(new PropertyValueFactory<Role, String >("description"));
     }
 
+    /**
+     * Delete the selected role.
+     * @param event The event that the delete button is clicked.
+     */
     @FXML
     void delHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
@@ -77,6 +88,10 @@ public class RoleInfoController implements Initializable {
         }
     }
 
+    /**
+     * Edit the selected role.
+     * @param event The event that the edit button is clicked.
+     */
     @FXML
     void editHandled(ActionEvent event) {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
@@ -93,6 +108,10 @@ public class RoleInfoController implements Initializable {
         }
     }
 
+    /**
+     * Create a new role.
+     * @param event The event that the new button is clicked.
+     */
     @FXML
     void newHandled(ActionEvent event) {
         RoleEditController controller = (RoleEditController) ViewManager.newWindow("RoleEdit.fxml");

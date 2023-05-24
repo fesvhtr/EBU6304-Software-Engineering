@@ -9,5 +9,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ikonli-fontawesome5-pack-2.4.0"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jfoenix-1.0.0"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/xJavaFxTool-0.2.0"/>
-	<classpathentry kind="output" path="out/production/CloudFactoryPlatform"/>
+	<classpathentry kind="output" path="out/production/StudentStudyPlatform"/>
 </classpath>

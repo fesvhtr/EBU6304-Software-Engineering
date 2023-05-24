@@ -21,7 +21,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 
-
+/**
+ * The controller for the time machine page.
+ */
 public class TimeMachineController {
     @FXML
     private ComboBox<String> downloadComboBox;
@@ -38,8 +40,10 @@ public class TimeMachineController {
     private final String activitiesFileFormat = "\\{\"title\":\"[^\"]*\",\"role\":\"[^\"]*\",\"startDate\":\"[^\"]*\",\"endDate\":\"[^\"]*\",\"type\":\"[^\"]*\"\\}";
     private final String modulesFileFormat = "\\{\"id\":\"[^\"]*\",\"name\":\"[^\"]*\",\"type\":\"[^\"]*\",\"spec\":\"[^\"]*\",\"description\":\"[^\"]*\",\"mark\":\"[^\"]*\",\"credit\":\"[^\"]*\"\\}";
 
-
-
+    /**
+     * Upload a file to the server.
+     * @param event the event triggered by clicking the upload button.
+     */
     @FXML
     private void handleUploadButton(ActionEvent event) {
         String selectedFileFormat = uploadComboBox.getValue();
@@ -58,37 +62,22 @@ public class TimeMachineController {
             replaceFilePath = rolesFilePath;
                 break;
         }
-
-        // 创建一个FileChooser对话框
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Please select jason file you want to upload.");
-
-        // 设置文件过滤器，只允许选择JSON文件
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JSON File (*.json)", "*.json");
         fileChooser.getExtensionFilters().add(extFilter);
-
-        // 显示对话框并等待用户选择文件
         File selectedFile = fileChooser.showOpenDialog(uploadButton.getScene().getWindow());
 
         if (selectedFile != null) {
-//            // 读取用户选择的文件并将其转换为JSON对象
-//            JSONObject jsonObject = readJsonFromFile(selectedFile);
-
-            // 检查JSON对象是否符合您要求的格式
             boolean isJsonValid = validateJson(selectedFile, fileFormat);
-
             if (isJsonValid) {
-                // 将文件替换本地服务器中的指定文件
                 replaceJsonFile(selectedFile, replaceFilePath);
-
-                // 向用户显示一个成功消息
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Successfully uploaded");
                 alert.setHeaderText(null);
                 alert.setContentText("The File has been successfully replaced.");
                 alert.showAndWait();
             } else {
-                // 向用户显示一个警告消息，告诉用户文件格式不正确
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Wrong Format");
                 alert.setHeaderText(null);
@@ -98,34 +87,34 @@ public class TimeMachineController {
         }
     }
 
+    /**
+     * Replace the specified file in the local server with the selected file.
+     * @param selectedFile the file selected by the user.
+     * @param filePath the path of the file to be replaced.
+     */
     private void replaceJsonFile(File selectedFile, String filePath) {
-
-
         try {
-            // 创建输入流读取选定的文件
             FileInputStream fis = new FileInputStream(selectedFile);
-            // 创建输出流写入指定目录下的文件
             FileOutputStream fos = new FileOutputStream(filePath);
-
-            // 缓存数组，一次性读取写入
             byte[] buffer = new byte[1024];
             int length;
             while ((length = fis.read(buffer)) > 0) {
                 fos.write(buffer, 0, length);
             }
-
-            // 关闭输入输出流
             fis.close();
             fos.close();
-
             System.out.println("Json file replaced successfully.");
-
         } catch (IOException e) {
             System.out.println("Error occurred: " + e.getMessage());
         }
     }
 
-
+    /**
+     * Validate the upload file.
+     * @param file the file uploaded by the user.
+     * @param fileFormat the format should be satisfied.
+     * @return true if the file is valid, false otherwise.
+     */
     private boolean validateJson(File file, String fileFormat) {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
