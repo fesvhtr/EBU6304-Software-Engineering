@@ -51,7 +51,7 @@ public class RoleEditController implements Initializable {
 
 
     @FXML
-    void close(MouseEvent event) {
+    public void close(MouseEvent event) {
         Stage currentStage = (Stage) exitButton.getScene().getWindow();
         currentStage.close();
     }
