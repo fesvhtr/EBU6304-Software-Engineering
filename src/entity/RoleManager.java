@@ -1,14 +1,11 @@
 package entity;
 
-import constant.Constants;
-import util.FileOperator;
-
-import java.util.List;
+import constant.FileConstants;
 
 /**
  * Manager for roles
  */
-public class RoleManager extends Manager implements Constants {
+public class RoleManager extends Manager implements FileConstants {
     private static RoleManager singletonInstance;
 
     /**

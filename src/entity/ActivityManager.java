@@ -1,14 +1,11 @@
 package entity;
 
-import constant.Constants;
-import util.FileOperator;
-
-import java.util.List;
+import constant.FileConstants;
 
 /**
  * Manager for activities
  */
-public class ActivityManager extends Manager implements Constants {
+public class ActivityManager extends Manager implements FileConstants {
     private static ActivityManager singletonInstance;
 
     /**

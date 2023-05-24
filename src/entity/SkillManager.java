@@ -1,14 +1,11 @@
 package entity;
 
-import constant.Constants;
-import util.FileOperator;
-
-import java.util.List;
+import constant.FileConstants;
 
 /**
  * Manager for skills
  */
-public class SkillManager extends Manager implements Constants {
+public class SkillManager extends Manager implements FileConstants {
     private static SkillManager singletonInstance;
 
     /**

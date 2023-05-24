@@ -1,17 +1,15 @@
 package entity;
 
-import constant.Constants;
-import org.checkerframework.checker.signedness.qual.Constant;
+import constant.FileConstants;
 import util.FileOperator;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Manager for user config
  */
-public class UserConfigManager implements Constants {
+public class UserConfigManager implements FileConstants {
     private UserConfig userConfig;
     private static UserConfigManager singletonInstance;
 

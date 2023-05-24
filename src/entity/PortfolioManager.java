@@ -1,14 +1,11 @@
 package entity;
 
-import constant.Constants;
-import util.FileOperator;
-
-import java.util.List;
+import constant.FileConstants;
 
 /**
  * Manager for portfolios
  */
-public class PortfolioManager extends Manager implements Constants {
+public class PortfolioManager extends Manager implements FileConstants {
     private static PortfolioManager singletonInstance;
 
     /**

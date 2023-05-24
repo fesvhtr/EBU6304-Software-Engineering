@@ -1,15 +1,11 @@
 package entity;
 
-import constant.Constants;
-import org.checkerframework.checker.signedness.qual.Constant;
-import util.FileOperator;
-
-import java.util.List;
+import constant.FileConstants;
 
 /**
  * Manager for skill types
  */
-public class SkillTypeManager extends Manager implements Constants {
+public class SkillTypeManager extends Manager implements FileConstants {
     private static SkillTypeManager singletonInstance;
 
     /**

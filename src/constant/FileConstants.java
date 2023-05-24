@@ -1,11 +1,6 @@
 package constant;
 
-import entity.Type;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public interface Constants {
+public interface FileConstants {
     String ACTIVITY_FILE_NAME = "Activities.json";
     String ACHIEVEMENT_FILE_NAME = "Achievements.json";
     String ACTIVITY_TYPE_FILE_NAME = "ActivityTypes.json";

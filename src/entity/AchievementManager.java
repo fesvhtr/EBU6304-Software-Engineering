@@ -1,14 +1,11 @@
 package entity;
 
-import constant.Constants;
-import util.FileOperator;
-
-import java.util.List;
+import constant.FileConstants;
 
 /**
  * Manager for achievements
  */
-public class AchievementManager extends Manager implements Constants {
+public class AchievementManager extends Manager implements FileConstants {
     private static AchievementManager singletonInstance;
 
     /**

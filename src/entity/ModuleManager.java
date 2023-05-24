@@ -1,15 +1,11 @@
 package entity;
 
-import constant.Constants;
-import util.FileOperator;
-
-import java.util.ArrayList;
-import java.util.List;
+import constant.FileConstants;
 
 /**
  * Manager for modules
  */
-public class ModuleManager extends Manager implements Constants {
+public class ModuleManager extends Manager implements FileConstants {
     private static ModuleManager singletonInstance;
 
     /**
