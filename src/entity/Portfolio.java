@@ -4,7 +4,7 @@ package entity;
  * Class for portfolio
  */
 public class Portfolio {
-    private String type;
+    private Type type;
     private String title;
     private String uploadDate;
     private String size;
@@ -18,7 +18,7 @@ public class Portfolio {
      * @param size size of portfolio
      * @param storeFilePath store file path of portfolio
      */
-    public Portfolio(String type, String title, String uploadDate, String size, String storeFilePath){
+    public Portfolio(Type type, String title, String uploadDate, String size, String storeFilePath){
         this.type = type;
         this.title = title;
         this.uploadDate = uploadDate;
@@ -30,7 +30,7 @@ public class Portfolio {
      * Get type of portfolio
      * @return type of portfolio
      */
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
@@ -38,7 +38,7 @@ public class Portfolio {
      * Set type of portfolio
      * @param type type of portfolio
      */
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 

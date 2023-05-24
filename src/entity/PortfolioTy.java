@@ -7,18 +7,18 @@ import java.util.List;
 /**
  * Manager for portfolios
  */
-public class PortfolioType {
+public class PortfolioTy {
     private List<Type> types;
 
-    private static PortfolioType singletonInstance;
+    private static PortfolioTy singletonInstance;
 
     /**
      * Get the singleton instance of PortfolioType class.
      * @return The singleton instance of PortfolioType class.
      */
-    public static PortfolioType getInstance() {
+    public static PortfolioTy getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new PortfolioType();
+            singletonInstance = new PortfolioTy();
         }
         return singletonInstance;
     }
@@ -26,7 +26,7 @@ public class PortfolioType {
     /**
      * Constructor of PortfolioType class.
      */
-    private PortfolioType() {
+    private PortfolioTy() {
         types = FileOperator.loadData("PortfolioTypes.json", Type.class);
     }
 

@@ -68,7 +68,7 @@ public class AchievementEditController implements Initializable
             {
                 if (selectedType.toString().equals("Module"))
                 {
-                    List<Module> modules = ModuleManager.getInstance().getModule();
+                    List<Module> modules = ModuleManager.getInstance().getList();
                     for(Module t : modules)
                     {
                         sourceObservableList.add(t.getName());
@@ -141,9 +141,9 @@ public class AchievementEditController implements Initializable
         String sourceType = sourceTypeComboBox.getSelectionModel().getSelectedItem();
         String source = sourceComboBox.getSelectionModel().getSelectedItem();
         if (inAchievement != null) {
-            AchievementManager.getInstance().delAchievement(inAchievement);
+            AchievementManager.getInstance().removeItem(inAchievement);
         }
-        AchievementManager.getInstance().addAchievement(new Achievement(sourceType, source, description));
+        AchievementManager.getInstance().addItem(new Achievement(sourceType, source, description));
         achievementInfoController.initialize(null,null);
         Alert info = new Alert(Alert.AlertType.INFORMATION,"New achievement saved");
         info.showAndWait();

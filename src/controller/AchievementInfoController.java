@@ -42,7 +42,7 @@ public class AchievementInfoController implements Initializable
     public void initialize(URL location, ResourceBundle resources) {
         achievementObservableList.clear();
 
-        List<Achievement> achievements = AchievementManager.getInstance().getAchievements();
+        List<Achievement> achievements = AchievementManager.getInstance().getList();
         for (Achievement a : achievements)
         {
             achievementObservableList.add(a);
@@ -82,7 +82,7 @@ public class AchievementInfoController implements Initializable
             {
                 if (response == ButtonType.OK) {
                     table.getItems().remove(selectedAchievement);
-                    AchievementManager.getInstance().delAchievement(selectedAchievement);
+                    AchievementManager.getInstance().removeItem(selectedAchievement);
                     initialize(null, null);
                 }
             });

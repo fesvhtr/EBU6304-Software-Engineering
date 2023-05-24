@@ -1,5 +1,6 @@
 package entity;
 
+import constant.Constants;
 import util.FileOperator;
 
 import java.util.List;
@@ -7,14 +8,14 @@ import java.util.List;
 /**
  * Manager for activities
  */
-public class ActivityManager extends Manager {
+public class ActivityManager extends Manager implements Constants {
     private static ActivityManager singletonInstance;
 
     /**
      * Constructor of ActivityManager class.
      */
     private ActivityManager() {
-        super("Activities.json", Activity.class);
+        super(ACTIVITY_FILE_NAME, Activity.class);
     }
 
     /**
@@ -28,34 +29,5 @@ public class ActivityManager extends Manager {
         }
         return singletonInstance;
     }
-
-    /**
-     * Add an activity to the list.
-     *
-     * @param activity The activity to be added.
-     */
-//    public void addActivity(Activity activity) {
-//        activities.add(activity);
-//        FileOperator.writeData(activities, "Activities.json");
-//    }
-
-    /**
-     * Delete an activity from the list.
-     *
-     * @param activity The activity to be deleted.
-     */
-//    public void delActivity(Activity activity) {
-//        activities.remove(activity);
-//        FileOperator.writeData(activities, "Activities.json");
-//    }
-
-    /**
-     * Get the list of activities.
-     *
-     * @return The list of activities.
-     */
-//    public List<Activity> getActivities() {
-//        return activities;
-//    }
 
 }

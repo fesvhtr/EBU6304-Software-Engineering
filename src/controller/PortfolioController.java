@@ -70,11 +70,9 @@ public class PortfolioController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         portfolioTypeObservableList.clear();
-
-        List<Type> portfolioTypes = PortfolioType.getInstance().getTypes();
-        for (Type t : portfolioTypes) {
-            portfolioTypeObservableList.add(t.toString());
-        }
+        portfolioTypeObservableList.add("Video");
+        portfolioTypeObservableList.add("Poster");
+        portfolioTypeObservableList.add("Article");
         title.setText("Portfolio");
 
 
@@ -126,7 +124,7 @@ public class PortfolioController implements Initializable {
             delWarning.showAndWait().ifPresent(response ->{
                 if (response == ButtonType.OK) {
                     table.getItems().remove(selectedPortfolio);
-                    PortfolioManager.getInstance().delPortfolio(selectedPortfolio);
+                    PortfolioManager.getInstance().removeItem(selectedPortfolio);
                     File fileToDelete = new File(selectedPortfolio.getStoreFilePath());
                     fileToDelete.delete();
                     initialize(null, null);
@@ -147,9 +145,9 @@ public class PortfolioController implements Initializable {
      */
     public void refreshTable(String selectedType) {
         portfolioObservableList.clear();
-        List<Portfolio> portfolios = PortfolioManager.getInstance().getPortfolios();
+        List<Portfolio> portfolios = PortfolioManager.getInstance().getList();
         for (Portfolio a : portfolios){
-            if(a.getType().equals(selectedType)){
+            if(a.getType().toString().equals(selectedType)){
                 portfolioObservableList.add(a);
             }
         }
@@ -196,7 +194,7 @@ public class PortfolioController implements Initializable {
         if (selectedIndex >= 0) {
             Portfolio selectedPortfolio = table.getSelectionModel().getSelectedItem();
             PortfolioViewController controller = null;
-            switch (selectedPortfolio.getType()){
+            switch (selectedPortfolio.getType().toString()){
                 case "Video":
                     controller = (PortfolioViewController) ViewManager.newWindow("PortfoliosVideo.fxml");
                     controller.setMediaView(selectedPortfolio);
@@ -205,7 +203,6 @@ public class PortfolioController implements Initializable {
                 break;
                 case "Poster":
                     controller = (PortfolioViewController) ViewManager.newWindow("PortfolioImage.fxml");
-//                    System.out.println(selectedPortfolio.getStoreFilePath());
                     controller.setImageView(selectedPortfolio);
                     controller.setParentController(this);
 
@@ -230,21 +227,8 @@ public class PortfolioController implements Initializable {
                             e.printStackTrace();
                         }
                     }}
-//                    controller = (PortfolioViewController) ViewManager.newWindow("PortfolioPDF.fxml");
-//                    controller.setWebView(selectedPortfolio);
-
                 break;
             }
-
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("src/view/PortfoliosVideo.fxml"));
-//            PortfolioVideoController controller = new PortfolioVideoController();
-//            controller.setInPortfolio(selectedPortfolio);
-//            loader.setController(controller);
-//            Parent root = loader.load();
-//            Scene scene = new Scene(root);
-//            Stage primaryStage = (Stage) viewButton.getScene().getWindow();
-//            primaryStage.setScene(scene);
-//            controller.setParentController(this);
         }else {
             Alert nullWarning = new Alert(Alert.AlertType.WARNING, "Please select item from the table.");
             nullWarning.setTitle("ATTENTION: No item");

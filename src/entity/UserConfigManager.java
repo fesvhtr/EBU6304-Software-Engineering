@@ -1,5 +1,7 @@
 package entity;
 
+import constant.Constants;
+import org.checkerframework.checker.signedness.qual.Constant;
 import util.FileOperator;
 
 import javax.jws.soap.SOAPBinding;
@@ -9,7 +11,7 @@ import java.util.List;
 /**
  * Manager for user config
  */
-public class UserConfigManager {
+public class UserConfigManager implements Constants {
     private UserConfig userConfig;
     private static UserConfigManager singletonInstance;
 
@@ -17,7 +19,7 @@ public class UserConfigManager {
      * Constructor for user config
      */
     private UserConfigManager() {
-        List list = FileOperator.loadData("UserConfig.json", UserConfig.class);
+        List list = FileOperator.loadData(USER_CONFIG_FILE_NAME, UserConfig.class);
         if (list.isEmpty()) {
             this.userConfig = new UserConfig(50, "", "gpt-3.5-turbo", false);
         } else {

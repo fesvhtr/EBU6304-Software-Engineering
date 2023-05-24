@@ -32,16 +32,19 @@ public class GPTController {
         String split = "";
         if (mapItem.equals("&module&")){
             split = "&module&";
-            content = "modules: " + GsonUtil.toJson(ModuleManager.getInstance().getModule());
+            content = "modules: " + GsonUtil.toJson(ModuleManager.getInstance().getList());
         } else if(mapItem.equals("&activity&")){
             split= "&activity&";
             content = "activities :" + GsonUtil.toJson(ActivityManager.getInstance().getList());
         }else if (mapItem.equals("&role&")){
             split="&role&";
-            content = "roles :" + GsonUtil.toJson(RoleManager.getInstance().getRoles());
+            content = "roles :" + GsonUtil.toJson(RoleManager.getInstance().getList());
         } else if (mapItem.equals("&skill&")) {
             split = "&skill&";
-            content = "skills: " + GsonUtil.toJson(SkillManager.getInstance().getSkills());
+            content = "skills: " + GsonUtil.toJson(SkillManager.getInstance().getList());
+        } else if (mapItem.equals("&achievement")){
+            split = "&achievement&";
+            content = "achievements: " + GsonUtil.toJson(AchievementManager.getInstance().getList());
         }
         String[] strs = oldPrompt.split(mapItem);
         if (strs.length == 0){
@@ -73,6 +76,9 @@ public class GPTController {
         }
         if(oldPrompt.contains("&skill&")){
             newPrompt = mapPrompt(oldPrompt, "&skill&");
+        }
+        if (oldPrompt.contains("&achievement&")) {
+            newPrompt = mapPrompt(oldPrompt, "&achievement&");
         }
         return newPrompt;
     }
