@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import entity.UserConfigManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -57,17 +58,14 @@ public class LoginController implements Initializable {
         if (password.equals("")) {
         } else if (password.indexOf(" ") >= 0) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Check and try again");
-            alert.setHeaderText("Both username and password cannot contain spaces");
+            alert.setHeaderText("Password cannot contain spaces");
             alert.show();
-        } else if ( UserManager.getInstance().CheckLogin(password, 3)) {
+        } else if (UserConfigManager.getInstance().getUserConfig().getPassword().equals(password)) {
             ViewManager.newWindow("StudentMenu.fxml");
             System.out.println("log in");
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Check it and try again\n" +
-                    "Notes:\n" +
-                    "Account number 888\n" +
-                    "All passwords with the same account number");
-            alert.setHeaderText("Wrong account or password");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Check it and try again\n");
+            alert.setHeaderText("Wrong password");
             alert.show();
         }
 

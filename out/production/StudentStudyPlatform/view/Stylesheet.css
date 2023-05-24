@@ -1,0 +1,103 @@
+
+.loginButton{
+    -fx-background-color:#4059a9;
+    -fx-text-fill:white; 
+}
+.loginButton:hover{
+    -fx-background-color: transparent;
+    -fx-text-fill: #4059a9;
+    -fx-border-color: #4059a9;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
+
+.registerLabel:hover{
+    -fx-text-fill: #4059a9;
+    -fx-underline: true;
+    -fx-font-weight: bold;
+
+}
+
+.roleButton {
+    -fx-text-fill: #fff;
+    -fx-background-color : #393351;
+    -fx-background-radius :  30 0 0 30;
+}
+.roleButton:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color : #524A7B ;
+    -fx-background-radius :  30 0 0 30;
+}
+.roleButton:pressed {
+    -fx-text-fill: #fff;
+    -fx-background-color : #2F2B43 ;
+    -fx-background-radius :  30 0 0 30;
+}
+
+.roleButton:selected {
+    -fx-text-fill: #393351;
+    -fx-background-color : #ffffff;
+    -fx-background-radius :  30 0 0 30;
+}
+
+.registerButton{
+    -fx-background-color:#640080;
+    -fx-text-fill:white;
+
+}
+.registerButton:hover{
+    -fx-background-color: transparent;
+    -fx-text-fill: #640080;
+    -fx-border-color: #640080;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
+.roleEditButton {
+    -fx-text-fill: #fff;
+    -fx-background-color : #ff8c00;
+    -fx-background-radius :  30 0 0 30;
+}
+.roleEditButton:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color : #ffb900;
+    -fx-background-radius :  30 0 0 30;
+}
+.roleEditButton:pressed {
+    -fx-text-fill: #fff;
+    -fx-background-color : #e07b00;
+    -fx-background-radius :  30 0 0 30;
+}
+
+.roleEditButton:selected {
+    -fx-text-fill: #ff8c00;
+    -fx-background-color : #ffffff;
+    -fx-background-radius :  30 0 0 30;
+}
+
+.SaveButton{
+    -fx-background-color: #ffb900;
+    -fx-text-fill:white;
+
+}
+.SaveButton:hover{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff8c00;
+    -fx-border-color: #ff8c00;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
+.ComboBox{
+    -fx-text-fill: #4d4d4d;
+}
+.saveButton2{
+    -fx-background-color:#01B3E9;
+    -fx-text-fill:white;
+
+}
+.saveButton2:hover{
+    -fx-background-color: transparent;
+    -fx-text-fill: #01B3E9;
+    -fx-border-color: #01B3E9;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
