@@ -96,9 +96,7 @@ public class ModuleTypeManagementController implements Initializable {
     @FXML
     void configureHandled(ActionEvent event) {
         if (newTypeField.getText().equals("")) return;
-        if (title.getText().equals("Module Type Management")) {
-            ModuleTypeManager.getInstance().addItem(new Type(newTypeField.getText()));
-        }
+        ModuleTypeManager.getInstance().addItem(new Type(newTypeField.getText()));
         initialize(null, null);
         newTypeField.setText("");
         newTypeField.setVisible(false);

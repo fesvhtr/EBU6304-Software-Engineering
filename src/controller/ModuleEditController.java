@@ -77,7 +77,6 @@ public class ModuleEditController extends EditController
      * Save the module.
      * @param event The mouse event.
      */
-//    @FXML
     public void abstractSaveHandled(ActionEvent event)
     {
         String id = idField.getText();

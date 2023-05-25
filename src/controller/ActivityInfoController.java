@@ -26,7 +26,9 @@ import javafx.util.Callback;
 import javafx.event.EventHandler;
 
 
-
+/**
+ * The controller for the activity information page.
+ */
 public class ActivityInfoController extends InfoController
 {
     @FXML
@@ -53,6 +55,11 @@ public class ActivityInfoController extends InfoController
     private ObservableList<String> activityTypeObservableList = FXCollections.observableArrayList();
     private ObservableList<Object> activityObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Initialize the page.
+     * @param location The location.
+     * @param resources The resources.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -109,6 +116,10 @@ public class ActivityInfoController extends InfoController
         manager = ActivityManager.getInstance();
     }
 
+    /**
+     * Edit the selected activity.
+     * @param event The event.
+     */
     public void abstractEditHandled(ActionEvent event)
     {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
@@ -128,6 +139,10 @@ public class ActivityInfoController extends InfoController
         }
     }
 
+    /**
+     * Refresh the table.
+     * @param selectedType The selected type.
+     */
     public void refreshTable(String selectedType)
     {
         activityObservableList.clear();
@@ -143,6 +158,10 @@ public class ActivityInfoController extends InfoController
         table.setItems(activityObservableList);
     }
 
+    /**
+     * Add a new type.
+     * @param event The event.
+     */
     @FXML
     public void newTypeHandled(ActionEvent event)
     {
@@ -150,6 +169,10 @@ public class ActivityInfoController extends InfoController
         configureButton.setVisible(true);
     }
 
+    /**
+     * Delete a type.
+     * @param event The event.
+     */
     @FXML
     void delTypeHandled(ActionEvent event)
     {
@@ -180,14 +203,14 @@ public class ActivityInfoController extends InfoController
         }
     }
 
+    /**
+     * Configure the type.
+     * @param event The event.
+     */
     @FXML
     void configureHandled(ActionEvent event) {
         if (newTypeField.getText().equals("")) return;
-        if (title.getText().equals("Activity Information Management")) {
-            ActivityTypeManager.getInstance().addItem(newTypeField.getText());
-        } else if (title.getText().equals("Product Type Management")) {
-            ModuleTypeManager.getInstance().addItem(newTypeField.getText());
-        }
+        ActivityTypeManager.getInstance().addItem(newTypeField.getText());
         initialize(null, null);
         newTypeField.setText("");
         newTypeField.setVisible(false);

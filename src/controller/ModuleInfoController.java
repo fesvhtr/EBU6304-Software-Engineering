@@ -102,6 +102,11 @@ public class ModuleInfoController  extends InfoController
         infoAlert.show();
     }
 
+    /**
+     * Evaluate the module.
+     * @param modules The list of modules.
+     * @return The evaluation of the module.
+     */
     public ArrayList<Object> getEva(List<Module> modules)
     {
         ArrayList<Object> eva = new ArrayList<>();

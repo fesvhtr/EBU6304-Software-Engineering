@@ -124,11 +124,6 @@ public class SkillInfoController extends InfoController
         controller.setParentController(this);
     }
 
-    /**
-     * Delete a skill.
-     * @param event The event that the button is clicked.
-     */
-
 
     /**
      * Edit a skill.
@@ -224,12 +219,7 @@ public class SkillInfoController extends InfoController
     void confirmHandled(ActionEvent event)
     {
         if (newTypeField.getText().equals("")) return;
-
-        if (title.getText().equals("Skill Information Management"))
-        {
-            SkillTypeManager.getInstance().removeItem(newTypeField.getText());
-        }
-
+        SkillTypeManager.getInstance().removeItem(newTypeField.getText());
         initialize(null, null);
         newTypeField.setText("");
         newTypeField.setVisible(false);
