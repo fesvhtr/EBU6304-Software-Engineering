@@ -145,6 +145,8 @@ public class PortfolioInfoController extends InfoController
         }
     }
 
+
+
     /**
      * Edit the selected portfolio.
      * @param event The mouse event.
@@ -156,7 +158,7 @@ public class PortfolioInfoController extends InfoController
         {
             Portfolio selectedPortfolio = table.getSelectionModel().getSelectedItem();
             PortfolioEditController controller = (PortfolioEditController) ViewManager.newWindow("PortfolioEdit.fxml");
-            controller.setInPortfolio(selectedPortfolio);
+            controller.setEditInPortfolio(selectedPortfolio);
             controller.setParentController(this);
         }
         else
@@ -168,6 +170,13 @@ public class PortfolioInfoController extends InfoController
         }
     }
 
+
+    public void newHandled(ActionEvent event)
+    {
+            PortfolioEditController controller = (PortfolioEditController) ViewManager.newWindow("PortfolioNew.fxml");
+            controller.setParentController(this);
+    }
+
     /**
      * Refresh the table.
      * @param selectedType The selected type.
@@ -175,6 +184,9 @@ public class PortfolioInfoController extends InfoController
     public void refreshTable(String selectedType) {
         portfolioObservableList.clear();
         List<Portfolio> portfolios = PortfolioManager.getInstance().getList();
+        if (portfolios.isEmpty()){
+            return;
+        }
         for (Portfolio a : portfolios){
             if(a.getType().toString().equals(selectedType)){
                 portfolioObservableList.add(a);

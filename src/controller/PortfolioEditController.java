@@ -68,7 +68,7 @@ public class PortfolioEditController extends EditController
      *
      * @param portfolio the portfolio to be edited
      */
-    public void setInPortfolio(Portfolio portfolio)
+    public void setEditInPortfolio(Portfolio portfolio)
     {
         inPortfolio = portfolio;
         titleField.setText(portfolio.getTitle());

@@ -76,15 +76,15 @@
                     </rowConstraints>
                     <children>
                         <Label fx:id="storePathLabel"   maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0"  GridPane.rowIndex="5" visible="false"/>
-                        <JFXTextField fx:id="uploadDateField" disable="true" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Upload Date" GridPane.rowIndex="3" editable="false"/>
+                        <JFXTextField fx:id="uploadDateField"  disable="true" editable="false" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Upload Date" GridPane.rowIndex="3" />
                         <JFXTextField fx:id="titleField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Title" GridPane.rowIndex="1" />
-                        <JFXComboBox fx:id="typeComboBox" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Portfolio Type" styleClass="ComboBox" editable="false" stylesheets="@Stylesheet.css" GridPane.rowIndex="2">
+                        <JFXComboBox fx:id="typeComboBox"  disable="true" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.5" prefHeight="37.0" prefWidth="280.0" promptText="Portfolio Type" styleClass="ComboBox"  stylesheets="@Stylesheet.css" GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets left="10.0" />
                             </GridPane.margin>
                         </JFXComboBox>
                         <!--                        <JFXTextField fx:id="titleField" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Title" />-->
-                        <JFXTextField fx:id="sizeField" disable="true" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Size" GridPane.rowIndex="4" editable="false"/>
+                        <JFXTextField fx:id="sizeField"  disable="true" editable="false" focusColor="#393351" labelFloat="true" maxHeight="-Infinity" maxWidth="300.0" minHeight="-Infinity" minWidth="300.0" prefHeight="37.0" prefWidth="300.0" promptText="Size" GridPane.rowIndex="4" />
                     </children>
                 </GridPane>
                 <JFXButton buttonType="RAISED" layoutX="107.0" layoutY="523.0" onAction="#saveHandled" prefHeight="31.0" prefWidth="280.0" style="-fx-background-color: #6E7F91;" text="SAVE" textFill="WHITE">
