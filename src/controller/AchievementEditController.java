@@ -97,8 +97,7 @@ public class AchievementEditController extends EditController
      * Save the achievement.
      * @param event The mouse event.
      */
-    @FXML
-    void saveHandled(ActionEvent event)
+    public void abstractSaveHandled(ActionEvent event)
     {
         String description = descriptionField.getText();
 
@@ -116,7 +115,7 @@ public class AchievementEditController extends EditController
             alert.show();
             return;
         }
-        
+
         String sourceType = sourceTypeComboBox.getSelectionModel().getSelectedItem();
         String source = sourceComboBox.getSelectionModel().getSelectedItem();
         if (inAchievement != null) {

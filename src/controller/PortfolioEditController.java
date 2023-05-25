@@ -12,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -84,8 +83,7 @@ public class PortfolioEditController extends EditController
      *
      * @param event the mouse event
      */
-    @FXML
-    void saveHandled(ActionEvent event) {
+    public void abstractSaveHandled(ActionEvent event) {
 
         String title = titleField.getText();
         String size = sizeField.getText();

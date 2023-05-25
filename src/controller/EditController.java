@@ -23,23 +23,27 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-public class EditController implements Initializable
+public abstract class EditController implements Initializable
 {
     @FXML
     protected FontAwesomeIconView exitButton;
 
     protected InfoController controller;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) { }
+    public abstract void initialize(URL location, ResourceBundle resources);
 
     public void setParentController(InfoController controller)
     {
         this.controller = controller;
     }
 
+    public abstract void abstractSaveHandled(ActionEvent event);
+
     @FXML
-    void saveHandled(ActionEvent event) {}
+    void saveHandled(ActionEvent event) {
+        abstractSaveHandled(event);
+    }
+
 
     @FXML
     void close(MouseEvent event)

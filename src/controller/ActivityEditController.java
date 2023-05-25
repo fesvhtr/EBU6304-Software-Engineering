@@ -77,8 +77,7 @@ public class ActivityEditController extends EditController
      * Save the activity.
      * @param event The mouse event.
      */
-    @FXML
-    void saveHandled(ActionEvent event)
+    public void abstractSaveHandled(ActionEvent event)
     {
         String title = titleField.getText();
         String role = roleField.getText();

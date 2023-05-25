@@ -111,8 +111,7 @@ public class SkillEditController extends EditController
      * Save the skill.
      * @param event The mouse event.
      */
-    @FXML
-    void saveHandled(ActionEvent event)
+    public void abstractSaveHandled(ActionEvent event)
     {
         if (typeComboBox.getSelectionModel().getSelectedItem() == null)
         {

@@ -74,8 +74,7 @@ public class RoleEditController extends EditController
      * Save the role information.
      * @param event The mouse event.
      */
-    @FXML
-    void saveHandled(ActionEvent event)
+    public void abstractSaveHandled(ActionEvent event)
     {
         String title = titleField.getText();
         String start = stratField.getText();
