@@ -38,7 +38,8 @@ public class TimeMachineController {
     private final String modulesFilePath= "data\\Modules.json";
     private final String rolesFileFormat = "\\{\"title\":\"[^\"]*\",\"startDate\":\"[^\"]*\",\"endDate\":\"[^\"]*\",\"description\":\"[^\"]*\"\\}";
     private final String activitiesFileFormat = "\\{\"title\":\"[^\"]*\",\"role\":\"[^\"]*\",\"startDate\":\"[^\"]*\",\"endDate\":\"[^\"]*\",\"type\":\"[^\"]*\"\\}";
-    private final String modulesFileFormat = "\\{\"id\":\"[^\"]*\",\"name\":\"[^\"]*\",\"type\":\"[^\"]*\",\"spec\":\"[^\"]*\",\"description\":\"[^\"]*\",\"mark\":\"[^\"]*\",\"credit\":\"[^\"]*\"\\}";
+    private final String modulesFileFormat =  "\\{\"id\":\"[^\"]*\",\"name\":\"[^\"]*\",\"type\":\"[^\"]*\",\"description\":\"[^\"]*\",\"mark\":\\d+(\\.\\d+)?,\"credit\":\\d+(\\.\\d+)?\\}";
+
 
     /**
      * Upload a file to the server.
