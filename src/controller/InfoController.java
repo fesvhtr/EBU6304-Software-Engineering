@@ -18,6 +18,9 @@ import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+/**
+ * The controller for the information page.
+ */
 public abstract class InfoController implements Initializable
 {
     @FXML
@@ -25,9 +28,18 @@ public abstract class InfoController implements Initializable
     protected String file;
     protected Manager manager;
 
+    /**
+     * Initialize the page.
+     * @param location The location.
+     * @param resources The resources.
+     */
     @Override
     public abstract void initialize(URL location, ResourceBundle resources);
 
+    /**
+     * Add a new item.
+     * @param event The event.
+     */
     @FXML
     void newHandled(ActionEvent event)
     {
@@ -35,6 +47,10 @@ public abstract class InfoController implements Initializable
         controller.setParentController(this);
     }
 
+    /**
+     * Delete an item.
+     * @param event The event.
+     */
     @FXML
     void delHandled(ActionEvent event)
     {
@@ -65,8 +81,16 @@ public abstract class InfoController implements Initializable
 
     }
 
+    /**
+     * Edit an item.
+     * @param event The event.
+     */
     public abstract void abstractEditHandled(ActionEvent event);
 
+    /**
+     * Edit an item.
+     * @param event The event.
+     */
     @FXML
     void editHandled(ActionEvent event)
     {

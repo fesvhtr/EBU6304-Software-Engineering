@@ -175,15 +175,15 @@ public class PortfolioEditController extends EditController
                 break;
         }
 
-        // 创建一个FileChooser对话框
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Please select file you want to upload.");
 
-        // 设置文件过滤器，只允许选择JSON文件
+
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(fileFormatDescription, fileFormat);
         fileChooser.getExtensionFilters().add(extFilter);
 
-        // 显示对话框并等待用户选择文件
+
         File selectedFile = fileChooser.showOpenDialog(importButton.getScene().getWindow());
 
         if (selectedFile != null) {

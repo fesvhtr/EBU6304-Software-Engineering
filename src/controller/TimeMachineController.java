@@ -131,14 +131,9 @@ public class TimeMachineController {
         }
     }
 
-
-
-
-
-
-
-
-
+    /**
+     * Download a zip file containing all the JSON files.
+     */
     @FXML
     private void handleDownloadButton(ActionEvent event) {
         String selectedFile = downloadComboBox.getValue();
@@ -157,29 +152,37 @@ public class TimeMachineController {
     }
 
 
-
+    /**
+     * Initialize the page.
+     */
     @FXML
     private void initialize() {
-        // 获取可用的JSON文件列表
         List<String> downloadChoice = setDownloadComBox();
         List<String> uploadChoice = setUploadComBox();
-        // 将可用的JSON文件添加到下拉列表中
         downloadComboBox.getItems().addAll(downloadChoice);
         uploadComboBox.getItems().addAll(uploadChoice);
     }
 
+    /**
+     * Get the list of JSON files that can be downloaded.
+     * @return the list of JSON files that can be downloaded.
+     */
     private List<String> setDownloadComBox() {
-        // 获取可用的JSON文件列表
         return Arrays.asList( "Modules", "Activities","Roles Undertaken", "All");
     }
 
+    /**
+     * Set the list of JSON files that can be uploaded.
+     * @return the list of JSON files that can be uploaded.
+     */
     private List<String> setUploadComBox() {
-        // 获取可用的JSON文件列表
         return Arrays.asList( "Modules", "Activities","Roles Undertaken");
     }
 
-
-
+    /**
+     * Get the zip file containing all the JSON files.
+     * @return the zip file containing all the JSON files.
+     */
     private List<File> getZipFiles() {
         List<File> jsonFiles = new ArrayList<>();
         jsonFiles.add(new File(activityFilePath));
@@ -188,6 +191,11 @@ public class TimeMachineController {
         return jsonFiles;
     }
 
+    /**
+     * Download the specified JSON file.
+     * @param selectedType the type of the JSON file.
+     * @param filePath the path of the JSON file.
+     */
     private void downloadJasonFile(String selectedType, String filePath){
         // create file chooser
         FileChooser fileChooser = new FileChooser();
@@ -211,6 +219,9 @@ public class TimeMachineController {
 
     }
 
+    /**
+     * Download a zip file containing all the JSON files.
+     */
     private void downloadZipFile(){
         DirectoryChooser chooser = new DirectoryChooser();
         chooser.setTitle("Select Download Folder");
@@ -238,8 +249,6 @@ public class TimeMachineController {
                         }
                         fis.close();
                     }
-
-                    // Close the zip stream
                     zos.close();
 
                     // Show a success message to the user

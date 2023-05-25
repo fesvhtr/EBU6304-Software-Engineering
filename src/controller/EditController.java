@@ -23,6 +23,9 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
+/**
+ * The controller for the edit page.
+ */
 public abstract class EditController implements Initializable
 {
     @FXML
@@ -30,21 +33,41 @@ public abstract class EditController implements Initializable
 
     protected InfoController controller;
 
+    /**
+     * Initialize the page.
+     * @param location The URL location.
+     * @param resources The resource bundle.
+     */
     public abstract void initialize(URL location, ResourceBundle resources);
 
+    /**
+     * Set the parent controller.
+     * @param controller The parent controller.
+     */
     public void setParentController(InfoController controller)
     {
         this.controller = controller;
     }
 
+    /**
+     * Save the entity to be edited.
+     * @param event The event.
+     */
     public abstract void abstractSaveHandled(ActionEvent event);
 
+    /**
+     * Save the entity to be edited.
+     * @param event The event.
+     */
     @FXML
     void saveHandled(ActionEvent event) {
         abstractSaveHandled(event);
     }
 
-
+    /**
+     * Close the window.
+     * @param event The event.
+     */
     @FXML
     void close(MouseEvent event)
     {

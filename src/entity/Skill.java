@@ -12,10 +12,10 @@ public class Skill
 
     /**
      * Constructor for skill
-     * @param type
-     * @param sourceType
-     * @param source
-     * @param description
+     * @param type type of skill
+     * @param sourceType source type of skill
+     * @param source source of skill
+     * @param description description of skill
      */
     public Skill(String type, String sourceType, String source, String description)
     {
