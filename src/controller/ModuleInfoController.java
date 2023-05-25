@@ -133,6 +133,9 @@ public class ModuleInfoController  extends InfoController
         else
             level = "Pass";
 
+        if (modules.isEmpty())
+            level = "NaN";
+
         eva.add(average);
         eva.add(GPA);
         eva.add(level);
