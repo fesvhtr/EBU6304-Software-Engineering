@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-public class InfoController implements Initializable
+public abstract class InfoController implements Initializable
 {
     @FXML
     protected TableView<Object> table;
@@ -26,7 +26,7 @@ public class InfoController implements Initializable
     protected Manager manager;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {}
+    public abstract void initialize(URL location, ResourceBundle resources);
 
     @FXML
     void newHandled(ActionEvent event)
@@ -65,6 +65,11 @@ public class InfoController implements Initializable
 
     }
 
+    public abstract void abstractEditHandled(ActionEvent event);
+
     @FXML
-    void editHandled(ActionEvent event) {}
+    void editHandled(ActionEvent event)
+    {
+        abstractEditHandled(event);
+    }
 }

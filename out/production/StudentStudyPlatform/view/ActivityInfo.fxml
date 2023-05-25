@@ -39,19 +39,19 @@
             </font>
         </JFXButton>
 
-        <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="149.0" onAction="#newAcHandled" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #6E7F91;" text="New Activity" textFill="WHITE">
+        <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="149.0" onAction="#newHandled" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #6E7F91;" text="New Activity" textFill="WHITE">
             <font>
                 <Font name="Calibri" size="18.0" />
             </font>
         </JFXButton>
 
-        <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="231.0" onAction="#delActivityHandled" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #6E7F91;" text="Delete Activity" textFill="WHITE">
+        <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="231.0" onAction="#delHandled" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #6E7F91;" text="Delete Activity" textFill="WHITE">
             <font>
                 <Font name="Calibri" size="18.0" />
             </font>
         </JFXButton>
 
-        <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="310.0" onAction="#editAcHandled" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #6E7F91;" text="Edit Activity" textFill="WHITE">
+        <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="310.0" onAction="#editHandled" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #6E7F91;" text="Edit Activity" textFill="WHITE">
             <font>
                 <Font name="Calibri" size="18.0" />
             </font>

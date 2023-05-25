@@ -109,8 +109,7 @@ public class ActivityInfoController extends InfoController
         manager = ActivityManager.getInstance();
     }
 
-    @FXML
-    void editHandled(ActionEvent event)
+    public void abstractEditHandled(ActionEvent event)
     {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0)

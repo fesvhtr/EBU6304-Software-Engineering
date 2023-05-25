@@ -134,8 +134,7 @@ public class SkillInfoController extends InfoController
      * Edit a skill.
      * @param event The event that the button is clicked.
      */
-    @FXML
-    void editHandled(ActionEvent event)
+    public void abstractEditHandled(ActionEvent event)
     {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0)

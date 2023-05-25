@@ -149,8 +149,7 @@ public class PortfolioInfoController extends InfoController
      * Edit the selected portfolio.
      * @param event The mouse event.
      */
-    @FXML
-    void editHandled(ActionEvent event)
+    public void abstractEditHandled(ActionEvent event)
     {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0)

@@ -44,7 +44,6 @@ public class ModuleTypeManagementController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         moduleTypeObservableList.clear();
         List<Type> moduleTypes = ModuleTypeManager.getInstance().getList();
-        System.out.println(moduleTypes);
         for (Type t : moduleTypes) {
             moduleTypeObservableList.add(t);
         }

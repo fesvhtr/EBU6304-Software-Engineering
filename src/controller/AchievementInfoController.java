@@ -61,8 +61,8 @@ public class AchievementInfoController extends InfoController
      * Edit the achievement.
      * @param event The event that the edit button is clicked.
      */
-    @FXML
-    void editHandled(ActionEvent event)
+
+    public void abstractEditHandled(ActionEvent event)
     {
         int selectedIndex = table.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0)
