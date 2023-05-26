@@ -6,16 +6,28 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test for UserConfigManager class.
+ */
 public class UserConfigManagerTest {
     private UserConfigManager userConfigManager;
 
+    /**
+     * Set up test fixture.
+     */
     @Before
     public void setUp() {
         userConfigManager = UserConfigManager.getInstance();
     }
 
+    /**
+     * Test for getUserConfig and changeUserConfig method.
+     */
     @Test
-    public void testChangeUserConfig() {
+    public void test() {
+        UserConfig userConfig = userConfigManager.getUserConfig();
+        Assert.assertNotNull(userConfig);
+
         UserConfig initialUserConfig = userConfigManager.getUserConfig();
 
         int newGptTokens = 100;
@@ -36,11 +48,5 @@ public class UserConfigManagerTest {
 
         // Restore initial user config
         userConfigManager.changeUserConfig(initialUserConfig);
-    }
-
-    @Test
-    public void testGetUserConfig() {
-        UserConfig userConfig = userConfigManager.getUserConfig();
-        Assert.assertNotNull(userConfig);
     }
 }

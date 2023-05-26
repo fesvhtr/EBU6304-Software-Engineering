@@ -1,5 +1,8 @@
 package constant;
 
+/**
+ * File path constants
+ */
 public interface FileConstants {
     String ACTIVITY_FILE_NAME = "Activities.json";
     String ACHIEVEMENT_FILE_NAME = "Achievements.json";

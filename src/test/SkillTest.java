@@ -4,8 +4,13 @@ import entity.Skill;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Test for Skill class.
+ */
 public class SkillTest {
-
+    /**
+     * Test for getters and setters.
+     */
     @Test
     public void testSkill() {
         String type = "Programming";
@@ -20,7 +25,6 @@ public class SkillTest {
         Assert.assertEquals(source, skill.getSource());
         Assert.assertEquals(description, skill.getDescription());
 
-        // Modify skill attributes
         String newType = "Database";
         String newSourceType = "Book";
         String newSource = "SQL for Beginners";

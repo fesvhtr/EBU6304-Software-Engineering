@@ -4,7 +4,13 @@ import entity.UserConfig;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Test for UserConfig class.
+ */
 public class UserConfigTest {
+    /**
+     * Test for getters and setters.
+     */
     @Test
     public void testGettersAndSetters() {
         int gptTokens = 100;

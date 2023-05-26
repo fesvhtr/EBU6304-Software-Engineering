@@ -13,39 +13,29 @@ public class ModuleTypeManagerTest {
     private Type type1;
     private Type type2;
 
+    /**
+     * Set up test fixture.
+     */
     @BeforeEach
     public void setup() {
-        // 创建 ModuleTypeManager 实例
         moduleTypeManager = ModuleTypeManager.getInstance();
 
-        // 创建两个 Type 实例
         type1 = new Type("Type1");
         type2 = new Type("Type2");
     }
 
+    /**
+     * Test for addItem and removeItem method.
+     */
     @Test
-    public void testAddItem() {
-        // 添加 type1
+    public void test() {
         moduleTypeManager.addItem(type1);
-
-        // 验证 ModuleTypeManager 的列表中是否包含 type1
         List<Object> itemList = moduleTypeManager.getList();
         Assertions.assertTrue(itemList.contains(type1));
-    }
-
-    @Test
-    public void testRemoveItem() {
-        // 添加 type1 和 type2
-        moduleTypeManager.addItem(type1);
         moduleTypeManager.addItem(type2);
-
-        // 移除 type1
         moduleTypeManager.removeItem(type1);
-
-        // 验证 ModuleTypeManager 的列表中是否不再包含 type1
-        List<Object> itemList = moduleTypeManager.getList();
+        itemList = moduleTypeManager.getList();
         Assertions.assertFalse(itemList.contains(type1));
     }
-
 
 }

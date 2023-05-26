@@ -4,14 +4,19 @@ import entity.AchievementManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test for AchievementManager class.
+ */
 public class AchievementManagerTest {
 
+    /**
+     * Test for getInstance method.
+     */
     @Test
     public void testGetInstance() {
         AchievementManager instance1 = AchievementManager.getInstance();
         AchievementManager instance2 = AchievementManager.getInstance();
 
-        // 验证两个实例是同一个实例
         Assertions.assertSame(instance1, instance2);
     }
 

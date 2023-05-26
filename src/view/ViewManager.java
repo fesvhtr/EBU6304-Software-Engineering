@@ -9,10 +9,18 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
+/**
+ * ViewManager class.
+ */
 public class ViewManager {
     private static double yOffSet;
     private static double xOffSet;
 
+    /**
+     * Show new window.
+     * @param fxmlFileName fxml file name
+     * @return controller
+     */
     public static Object newWindow(String fxmlFileName) {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
@@ -36,6 +44,11 @@ public class ViewManager {
         return loader.getController();
     }
 
+    /**
+     * Get pane.
+     * @param fxmlFileName fxml file name
+     * @return pane
+     */
     public static AnchorPane getPane(String fxmlFileName) {
         AnchorPane pane = null;
         try {
