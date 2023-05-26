@@ -8,9 +8,7 @@ To summarize, our project helps students learn and tally, store and retrace info
 4. Upload and download files from the learning process
 5. Summarize existing information into json and download, and store and import information files
 6. Use GPT to help analyze existing learning records and get suggestions.
-## Environment
-**Windows** operating system is required
-## Installation
-1. Run **KnowVille.exe**
-2. Or Use IDE to open the project, run **src/MainApp.java**
 ## Usage
+**Windows** operating system is required to run the application
+1. Simply run **KnowVille.exe**
+2. Or use IDE to open the project, run **src/MainApp.java**
