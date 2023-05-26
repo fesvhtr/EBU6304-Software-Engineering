@@ -11,7 +11,7 @@ To summarize, our project helps students learn and tally, store and retrace info
 6. Use GPT to help analyze existing learning records and get suggestions.
 ## Usage
 **Windows** operating system is required to run the application
-1. Simply run **KnowVille.exe**
+1. Simply run **KnowVille.exe**, **if you find bugs, please try method 2**
 2. Or use IDE to open the project, run **src/MainApp.java**  
 ## Documentation
 See the User_manual.pdf for more details.
