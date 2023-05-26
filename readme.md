@@ -15,3 +15,5 @@ To summarize, our project helps students learn and tally, store and retrace info
 2. Or use IDE to open the project, run **src/MainApp.java**  
 ## Documentation
 See the User_manual.pdf for more details.
+## Test
+You can see the test programs in the **src/test** folder
