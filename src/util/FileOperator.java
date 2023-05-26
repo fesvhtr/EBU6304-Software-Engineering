@@ -12,8 +12,8 @@ public class FileOperator {
     /**
      * read data from file
      *
-     * @param fileName：data file name
-     * @param c: class of object
+     * @param fileName data file name
+     * @param c class of object
      * @return List of object
      */
     public static List loadData(String fileName, Class<?> c) {
