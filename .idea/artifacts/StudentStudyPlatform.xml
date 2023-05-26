@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" name="StudentStudyPlatform">
+  <artifact type="javafx" build-on-make="true" name="StudentStudyPlatform">
     <output-path>$PROJECT_DIR$/out/artifacts/StudentStudyPlatform</output-path>
     <properties id="javafx-properties">
       <options>
