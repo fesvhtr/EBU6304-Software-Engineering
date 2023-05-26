@@ -57,9 +57,9 @@
                   </Blend>
                </effect>
             </Pane>
-            <Label layoutX="6.0" layoutY="165.0" prefHeight="70.0" prefWidth="279.0" text="Student Study Platform" textFill="WHITE">
+            <Label layoutX="6.0" layoutY="165.0" prefHeight="71.0" prefWidth="290.0" text="KownVille" textFill="WHITE">
                <font>
-                  <Font name="Ebrima Bold" size="24.0" />
+                  <Font name="Arial Black" size="48.0" />
                </font>
             </Label>
             <Label layoutX="10.0" layoutY="226.0" prefHeight="32.0" prefWidth="154.0" text="Learning journey" textFill="WHITE">
