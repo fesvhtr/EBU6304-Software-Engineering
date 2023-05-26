@@ -37,8 +37,8 @@ public class FileOperator {
     /**
      * write data to file
      *
-     * @param object：object to be written
-     * @param filename：file name
+     * @param object object to be written
+     * @param filename file name
      * @throws IOException in case of file not found
      */
     public static void writeData(Object object, String filename)  {
@@ -47,7 +47,6 @@ public class FileOperator {
             BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
             out.write(GsonUtil.toJson(object));
             out.newLine();
-            //刷新流
             out.flush();
             out.close();
         } catch (Exception e) {
@@ -58,7 +57,8 @@ public class FileOperator {
     /**
      * write data to file
      *
-     * @param filename：file name
+     * @param objectList list of objects
+     * @param filename file name
      * @throws IOException in case of file not found
      */
     public static void writeData(List objectList, String filename)  {

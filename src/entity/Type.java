@@ -8,7 +8,7 @@ public class Type {
 
     /**
      * Constructor for type
-     * @param type
+     * @param type Type
      */
     public Type(String type) {
         this.type = type;
