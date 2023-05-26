@@ -39,7 +39,6 @@ public class FileOperator {
      *
      * @param object object to be written
      * @param filename file name
-     * @throws IOException in case of file not found
      */
     public static void writeData(Object object, String filename)  {
         try {
@@ -59,7 +58,6 @@ public class FileOperator {
      *
      * @param objectList list of objects
      * @param filename file name
-     * @throws IOException in case of file not found
      */
     public static void writeData(List objectList, String filename)  {
         try {
